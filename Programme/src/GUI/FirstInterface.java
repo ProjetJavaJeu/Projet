@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,14 +16,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import Martouf.ContinueAction;
-import Martouf.GetAction;
 import Martouf.NouveauJeuAction;
 import Martouf.OptionsAction;
 
 public class FirstInterface extends JFrame {
-
-	private JTextField textField;
-	private JLabel label;
 
 	public FirstInterface() {
 		super();
@@ -38,6 +35,7 @@ public class FirstInterface extends JFrame {
 														// l'application de se
 														// fermer lors du clic
 														// sur la croix
+		add(new JLabel(new ImageIcon("D:\\Cours\\Ephec\\2TL2\\Programmation avancée - Java\\Projet\\Rapport\\FICTIF.png")));
 		setContentPane(buildContentPane());
 		// setJMenuBar(buildMenuBar());
 	}
@@ -50,8 +48,7 @@ public class FirstInterface extends JFrame {
 
 	private JPanel buildContentPane() {
 		JPanel panel = new JPanel();
-		// panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-		panel.setLayout(new FlowLayout());
+		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 		JButton button = new JButton(new NouveauJeuAction(this,
 				"Nouvelle Partie"));
 		panel.add(button);
@@ -59,24 +56,9 @@ public class FirstInterface extends JFrame {
 		panel.add(button2);
 		JButton button3 = new JButton(new OptionsAction(this, "Options"));
 		panel.add(button3);
-		textField = new JTextField();
-		textField.setColumns(10); // On lui donne un nombre de colonnes à
-		panel.add(textField);
-		label = new JLabel("Rien pour le moment");
-		panel.add(label);
-		JButton button4 = new JButton(new GetAction(this, "Changer le texte de place"));
-		panel.add(button4);
 	
 
 		return panel;
-	}
-
-	public JTextField getTextField() {
-		return textField;
-	}
-
-	public JLabel getLabel() {
-		return label;
 	}
 
 	public static void main(String[] args) {
