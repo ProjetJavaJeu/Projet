@@ -1,6 +1,6 @@
-package PPersonnage;
+package PPersonnages;
 
-public class Mage {
+public class Mage extends Personnage{
 
 	public Mage() {
 		// TODO Auto-generated constructor stub

@@ -1,18 +1,18 @@
 /**
  * 
  */
-package PMonstres;
+package PPersonnages;
 
 /**
  * @author Baptiste Vergote
  *
  */
-public class MonstresElite extends Monstre{
+public class MonstresElites extends Personnage{
 
 	/**
 	 * 
 	 */
-	public MonstresElite() {
+	public MonstresElites() {
 		// TODO Auto-generated constructor stub
 	}
 

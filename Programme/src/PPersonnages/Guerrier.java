@@ -1,8 +1,8 @@
-package PPersonnage;
+package PPersonnages;
 
-public class War {
+public class Guerrier extends Personnage{
 
-	public War() {
+	public Guerrier() {
 		// TODO Auto-generated constructor stub
 	}
 

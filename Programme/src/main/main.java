@@ -1,8 +1,8 @@
-package PMonstres;
+package main;
 
-public class MonstresCommun extends Monstre{
+public class main {
 
-	public MonstresCommun() {
+	public main() {
 		// TODO Auto-generated constructor stub
 	}
 

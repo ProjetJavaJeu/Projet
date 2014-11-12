@@ -1,8 +1,8 @@
-package PMonstres;
+package PPersonnages;
 
-public class Monstre {
+public class MonstresCommuns extends Personnage{
 
-	public Monstre() {
+	public MonstresCommuns() {
 		// TODO Auto-generated constructor stub
 	}
 
