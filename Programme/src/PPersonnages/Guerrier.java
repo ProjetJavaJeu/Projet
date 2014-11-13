@@ -1,9 +1,13 @@
 package PPersonnages;
 
-public class Guerrier extends Personnage{
+public class Guerrier {
 
-	public Guerrier() {
-		// TODO Auto-generated constructor stub
+	private String nom;
+	private Caract caracteristiques;
+	
+	public Guerrier(String nom, Caract caracteristiques) {
+		this.nom = nom;
+		this.caracteristiques = caracteristiques;
 	}
 
 	/**

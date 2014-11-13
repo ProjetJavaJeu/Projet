@@ -12,6 +12,31 @@ public class Caract {
 		this.endurance = endurance;
 	}
 
+	// Faire les validations ! (Empêcher valeurs négatives, valeurs nulles, valeurs trop grande).
+	public int getForce() {
+		return force;
+	}
+
+	public void setForce(int force) {
+		this.force = force;
+	}
+
+	public int getIntelligence() {
+		return intelligence;
+	}
+
+	public void setIntelligence(int intelligence) {
+		this.intelligence = intelligence;
+	}
+
+	public int getEndurance() {
+		return endurance;
+	}
+
+	public void setEndurance(int endurance) {
+		this.endurance = endurance;
+	}
+
 	/**
 	 * @param args
 	 */

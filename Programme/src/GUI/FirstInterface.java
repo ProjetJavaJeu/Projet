@@ -71,12 +71,4 @@ public class FirstInterface extends JFrame {
 		panelContainer.add(panel3);
 		return panelContainer;
 	}
-
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				FirstInterface fenetre = new FirstInterface();
-			}
-		});
-	}
 }

@@ -9,26 +9,27 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-public class InterfaceMap extends JFrame {
-	public InterfaceMap(){
+public class MapInterface extends JFrame {
+	public MapInterface(){
 		super();
 		buildInterfaceMap();
 	}
-	
+		
 	private void buildInterfaceMap(){
 		setTitle("The Epic School Adventure"); // Titre de l'app
 		setResizable(false); // On interdit la redimensionnement de la fenêtre
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		setSize(java.awt.Toolkit.getDefaultToolkit().getScreenSize());
 		setVisible(true);// On la rend visible
-		setBackground(new Color(211, 211, 211)); //Donne la couleur de l'arrière plan : suffit de spécifier les trois variables RGB (Voir fichier inspirations_java)
+		setBackground(new Color(255, 140, 0)); //Donne la couleur de l'arrière plan : suffit de spécifier les trois variables RGB (Voir fichier inspirations_java)
 		
 		setContentPane(buildContentPane()); //Ajoute du contenu dans le "contentPane". Je vais taper un schéma sur le git, ce sera plus clair.
 		}
-	
+		
 	private JPanel buildContentPane(){
 		JPanel tabPanel = new JPanel(); //panel qui contientra tout les panels "case".
 		tabPanel.setOpaque(false);
+		//tabPanel.add(messageAcceuil());
 		GridBagConstraints gbc = new GridBagConstraints(); //Variable permettant de placer les différents cellules en fonctions de coordonnées.
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
@@ -46,11 +47,8 @@ public class InterfaceMap extends JFrame {
 		return tabPanel;
 	}
 	
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				InterfaceMap map = new InterfaceMap();
-			}
-		});
-	}
-}
+	/*public JPanel messageAcceuil(){
+		
+	}*/
+}	
+
