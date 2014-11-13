@@ -16,6 +16,8 @@ public class NouveauJeuAction extends AbstractAction{
 
 	public void actionPerformed(ActionEvent e) { 
 		System.out.println("Choix new game");
+		fenetre.dispose(); //Ferme la fenêtre d'accueil.
+		
 	} 
 	
 }
