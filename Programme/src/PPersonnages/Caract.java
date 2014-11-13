@@ -12,7 +12,7 @@ public class Caract {
 		this.endurance = endurance;
 	}
 
-	// Faire les validations ! (Empêcher valeurs négatives, valeurs nulles, valeurs trop grande).
+	// Faire les validations ! (Empêcher valeurs négatives, valeurs nulles, valeurs trop grande).	
 	public int getForce() {
 		return force;
 	}
