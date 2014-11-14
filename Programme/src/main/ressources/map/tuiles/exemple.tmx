@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="grass" tilewidth="32" tileheight="32">
+  <image source="../../../../../../../TestSlick/src/main/ressources/map/tuiles/LPC Base Assets/tiles/grass.png" width="96" height="192"/>
+ </tileset>
+ <tileset firstgid="19" name="treetop" tilewidth="32" tileheight="32">
+  <image source="../../../../../../../TestSlick/src/main/ressources/map/tuiles/LPC Base Assets/tiles/treetop.png" width="192" height="224"/>
+ </tileset>
+ <tileset firstgid="61" name="trunk" tilewidth="32" tileheight="32">
+  <image source="../../../../../../../TestSlick/src/main/ressources/map/tuiles/LPC Base Assets/tiles/trunk.png" width="192" height="96"/>
+ </tileset>
+ <tileset firstgid="79" name="rock" tilewidth="32" tileheight="32">
+  <image source="../../../../../../../TestSlick/src/main/ressources/map/tuiles/LPC Base Assets/tiles/rock.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="81" name="castlefloors" tilewidth="32" tileheight="32">
+  <image source="../../../../../../../TestSlick/src/main/ressources/map/tuiles/LPC Base Assets/tiles/castlefloors.png" width="320" height="320"/>
+ </tileset>
+ <tileset firstgid="181" name="tuile-logic" tilewidth="32" tileheight="32">
+  <image source="tuile-logic.png" width="160" height="160"/>
+ </tileset>
+ <layer name="Calque 1" width="40" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3OuQ2AQAADwct4BMfTf7G4CAIHE6y04SxjjLW0Le3pTk96y/7g4+Pj46sx8fG1PB8fHx9fj4mPr+X5+Pj4+HpMfP/6zjRLu9IHfypAgAAZAAA=
+  </data>
+ </layer>
+ <layer name="Rocks" width="40" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3OsQkAMAzAsHzY/7/p2l1LChZ498x+Z2nv3zb9mf5Mf6Y/05/pz/Rn+jP9mf5Mf6Y/05/pz/Rn+jP9md/+NvaDCyMnvDoAGQAA
+  </data>
+ </layer>
+ <layer name="Rocks_labi" width="40" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2WXQ6EMAiEvWHvf5t9dZsyP0C1D5IYzYbOfNYCe11fdMZ4G4DEmJ7v1wkxbveZNcqvsLtrx3RHOvO7qPvt5iNPhU9hYOtUxojJ5UPeEUsnn3vunPOi6jA+NaJvnNHs5FPqJKPJnu/eiIH5Vd5ZrV/EuINP1VK8dvM5/VOdN1G+smalgbSRvlsbyA8xrJjUGejWTpWP6Sk1VKn3KBftZVafeTq56ux8mm913lbcXWzV/odmiLoeXZ1s8+/Mr7q/kbfSxxSezPxmnpVg/VPpB0ib+Srnp2teRQyORvc8UPPVfarwdZwnVzfTd7pC2Uvml6kJV/sJrkhDyXF72AlzkGlX1+9i69DPfNcdHpW1nf873FB68pt8SpzO98V//ACNjLYuABkAAA==
+  </data>
+ </layer>
+ <layer name="logic" width="40" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC82VWQ7DMAhEc//7pMvt2k8LeZgZg90iWXISAy9svq7/l9d33X+23gPfDfa/FMQU9+M6KYwvMiG+KntmN9tHvZmd+C9qvJXzHfFzGJhe5s/dK3zMN7NX5XPrzqmX6h7ZR4Jy7NZcN5/SJ+i5K78ZA/uHVb6Z36znlHrv4lNtKb528zn3m3rfoPOrfJltZt/pDZcPzdTxPetpt3eqfMyH0kMqs+M7iyXjc6TCN+6VeK/ISn5jvc30utiq8y+7Q1T9bMXzKp+SU8efItW7a3Yu48li79T/qFsRNj/ZPGB8zK8y07pyWp376L3D5/avG6cKX7V/HbvKt9m5Tj4llurMUupFyeHM9g4uxIe+KX7cXCqS9Up19ik+nbPxjtol1fit5NWV03wnaiHmV70rT/Opeqf5HsDvL9dzx09vkA9MmRpfABkAAA==
+  </data>
+ </layer>
+</map>
