@@ -37,7 +37,7 @@ public class WindowGame extends BasicGame {
 			// courant lorsque java lance le programme.
 		this.container = container; // Le répertoire courant ici est le dossier
 									// Programme.
-		this.map = new TiledMap("/src/main/ressources/map/exemple.tmx");
+		this.map = new TiledMap("/src/main/ressources/map/exemple-collision.tmx");
 		SpriteSheet spriteSheet = new SpriteSheet(
 				"/src/main/ressources/sprites/humanTalk.png", 64, 64);
 		this.animations[0] = loadAnimation(spriteSheet, 0, 1, 0); // Les huit
@@ -79,7 +79,10 @@ public class WindowGame extends BasicGame {
 		// Le g.translate va jouer le rôle de la caméra : elle va se centrer sur
 		// le personnage. ATTENTION : A placer en premier dans render() sinon ca
 		// marche pas!
-		this.map.render(0, 0);
+		this.map.render(0, 0, 0);
+	    this.map.render(0, 0, 1);
+	    this.map.render(0, 0, 2);
+	    this.map.render(0, 0, 3);
 		g.setColor(new Color(0, 0, 0, .5f));// setColor et fillOval vont
 											// permettre de placer une ombre
 											// sous le joueur.
