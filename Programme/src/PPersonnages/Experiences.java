@@ -39,7 +39,7 @@ public class Experiences {
 			return level+1;
 		}
 		else
-			return 0;
+			return 10; //n'ajoute plus de level !
 			
 	}
 		
