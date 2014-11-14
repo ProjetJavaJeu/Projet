@@ -7,15 +7,15 @@ package PPersonnages;
  * @author Baptiste Vergote
  *
  */
-public class MonstresElites extends Personnage{
+public class MonstresElites {
 
 	/**
 	 * 
 	 */
-	public MonstresElites() {
+	/*public MonstresElites() {
 		// TODO Auto-generated constructor stub
 	}
-
+*/
 	/**
 	 * @param args
 	 */
