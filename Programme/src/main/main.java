@@ -15,12 +15,10 @@ public class main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				FirstInterface fenetre = new FirstInterface();
-			}
-		});
-
-	}
-
+		double mult = 6.25;
+		double aMult = 2;
+		for (int i = 0; i < 10; i++){
+			System.out.println((int)(6.25));
+		}
+}
 }

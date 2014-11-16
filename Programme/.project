@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/ressources/map/exemple-avec-grotte.tmx</name>
+			<type>1</type>
+			<locationURI>PROJECT_LOC/src/main/shionn-slickblogtutorial-409d99e79f36/src/main/resources/map/exemple-avec-grotte.tmx</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

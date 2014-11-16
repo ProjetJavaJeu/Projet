@@ -79,11 +79,11 @@ public class WindowGame extends BasicGame {
 		// Le g.translate va jouer le rôle de la caméra : elle va se centrer sur
 		// le personnage. ATTENTION : A placer en premier dans render() sinon ca
 		// marche pas!
-		this.map.render(0, 0, 0);
+		this.map.render(0, 0, 0); //Affiche le layer 0 (Calque 1).
 	    this.map.render(0, 0, 1);
 	    this.map.render(0, 0, 2);
-	    this.map.render(0, 0, 3);
-		g.setColor(new Color(0, 0, 0, .5f));// setColor et fillOval vont
+	    this.map.render(0, 0, 4);
+	    g.setColor(new Color(0, 0, 0, .5f));// setColor et fillOval vont
 											// permettre de placer une ombre
 											// sous le joueur.
 		g.fillOval(x - 16, y - 8, 32, 16);
@@ -123,7 +123,9 @@ public class WindowGame extends BasicGame {
 	
 	@Override
 	public void update(GameContainer container, int delta) throws SlickException {
-	    if (this.moving) {
+		updateTrigger();
+		
+		if (this.moving) {
 	        float futurX = getFuturX(delta);
 	        float futurY = getFuturY(delta);
 	        boolean collision = isCollision(futurX, futurY);
@@ -145,7 +147,29 @@ public class WindowGame extends BasicGame {
 		if (this.y < this.yCamera - h)
 			this.yCamera = this.y + h;
 	}
-
+	
+	private void updateTrigger() {
+	    for (int objectID = 0; objectID < this.map.getObjectCount(0); objectID++) {
+	        if (isInTrigger(objectID)) {
+	            if ("teleport".equals(this.map.getObjectType(0, objectID))) {
+	                teleport(objectID);
+	            }
+	        }
+	    }
+	}
+	
+	private boolean isInTrigger(int id) {
+	    return x > map.getObjectX(0, id)
+	            && x < map.getObjectX(0, id) + map.getObjectWidth(0, id)
+	            && y > map.getObjectY(0, id)
+	            && y < map.getObjectY(0, id) + map.getObjectHeight(0, id);
+	}
+	
+	private void teleport(int id) {
+	    this.x = Float.parseFloat(this.map.getObjectProperty(0, id, "dest-x", Float.toString(this.x)));
+	    this.y = Float.parseFloat(this.map.getObjectProperty(0, id, "dest-y", Float.toString(this.y)));
+	}
+	
 	private boolean isCollision(float x, float y) {
 	    int tileW = this.map.getTileWidth();
 	    int tileH = this.map.getTileHeight();
