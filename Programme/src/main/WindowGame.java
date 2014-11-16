@@ -8,6 +8,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.tiled.TiledMap;
@@ -59,6 +60,8 @@ public class WindowGame extends BasicGame {
 		this.animations[5] = loadAnimation(spriteSheet, 1, 9, 1);
 		this.animations[6] = loadAnimation(spriteSheet, 1, 9, 2);
 		this.animations[7] = loadAnimation(spriteSheet, 1, 9, 3);
+		Music background = new Music("/src/main/ressources/sounds/EyeOfTheTiger.ogg");
+		background.loop();
 	}
 
 	private Animation loadAnimation(SpriteSheet spriteSheet, int startX,
