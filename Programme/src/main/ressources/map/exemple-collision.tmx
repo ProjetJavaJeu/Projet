@@ -20,7 +20,7 @@
  </tileset>
  <layer name="Calque 1" width="40" height="40">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3OuQ2AQAADwct4BMfTf7G4CAIHE6y04SxjjLW0Le3pTk96y/7g4+Pj46sx8fG1PB8fHx9fj4mPr+X5+Pj4+HpMfP/6zjRLu9IHfypAgAAZAAA=
+   H4sIAAAAAAAAC+3ROQqAQBQE0Y/iiuMy9z+sfQLjQioo6PBBL1W1QtvSnu70pA7bhz59+vTpw5j0fe8hjWDflGawj/6vPn369BG2Pn369OnjmPTpo2x9//e1dEK70gtqywq0ABkAAA==
   </data>
  </layer>
  <layer name="Rocks" width="40" height="40">
@@ -40,14 +40,19 @@
  </layer>
  <layer name="EntreeGrotte" width="40" height="40">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3WIQ6AQBQD0b0xoAFN0ARNUODBw9GoWPndJlTsvGR8ZVMC6tOoNteZt0R6NeRG85bIpA51qtm8JbKoS91qNW+JbOpRr9q9UwAAP+J/lOF/lOF/AAAAoEYfapCHDAAZAAA=
+   H4sIAAAAAAAAC+3OoRJAUBQAUX+MjGxkIxuJTufTbHjxVm7ZM7N9q0qSJEnS12pqSm3yS6SjvjQkv0RG2umgKfklMtNJFy3JL5GVbnpoy12RJEmSfvMCNAF4eAAZAAA=
   </data>
  </layer>
- <objectgroup name="trigger" width="64" height="32">
+ <objectgroup name="trigger">
   <object name="eg1" type="teleport" x="481" y="669" width="64" height="32">
    <properties>
     <property name="dest-x" value="1000"/>
     <property name="dest-y" value="226"/>
+   </properties>
+  </object>
+  <object name="changeMap" type="changemap" x="915" y="404" width="25" height="22">
+   <properties>
+    <property name="dest-map" value="desert"/>
    </properties>
   </object>
  </objectgroup>

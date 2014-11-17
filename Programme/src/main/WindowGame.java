@@ -79,9 +79,8 @@ public class WindowGame extends BasicGame {
 			throws SlickException {
 		g.translate(container.getWidth() / 2 - (int) this.xCamera,
 				container.getHeight() / 2 - (int) this.yCamera);
-		// Le g.translate va jouer le rôle de la caméra : elle va se centrer sur
-		// le personnage. ATTENTION : A placer en premier dans render() sinon ca
-		// marche pas!
+		// Le g.translate va jouer le rôle de la caméra. 
+		//ATTENTION : A placer en premier dans render() sinon ca marche pas!
 		this.map.render(0, 0, 0); //Affiche le layer 0 (Calque 1).
 	    this.map.render(0, 0, 1);
 	    this.map.render(0, 0, 2);
@@ -137,8 +136,9 @@ public class WindowGame extends BasicGame {
 	        } else {
 	            this.x = futurX;
 	            this.y = futurY;
+	        	}
 	        }
-	    }
+	   
 		int w = container.getWidth() / 4;
 		if (this.x > this.xCamera + w)
 			this.xCamera = this.x - w;

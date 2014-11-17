@@ -25,7 +25,7 @@
    H4sIAAAAAAAAC+3OsQkAMAzAsHzY/7/p2l1LChZ498x+Z2nv3zb9mf5Mf6Y/05/pz/Rn+jP9mf5Mf6Y/05/pz/Rn+jP9md/+NvaDCyMnvDoAGQAA
   </data>
  </layer>
- <layer name="Calque 4" width="40" height="40">
+ <layer name="Calque 4" width="40" height="40" opacity="0.99">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3RwQnAIAAEQTu0/27SgOBjk/hwBu6/cGMArM3TARv6Gn2Nvua2vnl4f7vt37fpa/Q1+hp9jb5GX6Ov0dfog+88DP8fhQAZAAA=
   </data>
