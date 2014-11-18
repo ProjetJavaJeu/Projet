@@ -1,4 +1,4 @@
-package PPersonnages;
+/*package PPersonnages;
 
 public class Personnage extends Caract{
 
@@ -13,9 +13,11 @@ public class Personnage extends Caract{
 	/**
 	 * @param args
 	 */
+/*
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
 
 }
+*/

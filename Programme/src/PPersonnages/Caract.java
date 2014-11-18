@@ -55,7 +55,7 @@ public class Caract {
 	/**
 	 * augmentation les carac du mage lors du level up !! 
 	 */
-	public void EnduLeveLUp() {
+	public void enduLeveLUp() {
 		this.endurance = this.endurance + 1;
 	}
 	
