@@ -1,10 +1,10 @@
 package PPersonnages;
 
-public class MonstresCommuns extends Personnage{
+public class MonstresCommuns {
 
-	public MonstresCommuns() {
+	//public MonstresCommuns() {
 		// TODO Auto-generated constructor stub
-	}
+	//}
 
 	/**
 	 * @param args

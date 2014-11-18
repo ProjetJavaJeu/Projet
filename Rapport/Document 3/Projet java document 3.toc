@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}kikoo}{4}
+\contentsline {section}{\numberline {3}Diff\IeC {\'e}rentes classes}{4}
+\contentsline {subsection}{\numberline {3.1}Guerrier}{4}
+\contentsline {subsection}{\numberline {3.2}Mage}{4}
