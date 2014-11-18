@@ -46,7 +46,7 @@
    H4sIAAAAAAAAC+3WIQ6AQBQD0b0xoAFN0ARNUODBw9GoWPndJlTsvGR8ZVMC6tOoNteZt0R6NeRG85bIpA51qtm8JbKoS91qNW+JbOpRr9q9UwAAP+J/lOF/lOF/AAAAoEYfapCHDAAZAAA=
   </data>
  </layer>
- <objectgroup name="trigger" width="64" height="64">
+ <objectgroup name="trigger">
   <object name="eg1" type="teleport" x="481" y="669" width="64" height="32">
    <properties>
     <property name="dest-x" value="1000"/>

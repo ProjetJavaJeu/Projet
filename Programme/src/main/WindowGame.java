@@ -85,6 +85,8 @@ public class WindowGame extends BasicGame {
 	    this.map.render(0, 0, 1);
 	    this.map.render(0, 0, 2);
 	    this.map.render(0, 0, 4);
+	    //this.map.render(0, 0, 5);
+	   
 	    g.setColor(new Color(0, 0, 0, .5f));// setColor et fillOval vont
 											// permettre de placer une ombre
 											// sous le joueur.
