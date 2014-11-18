@@ -6,6 +6,9 @@
  <tileset firstgid="19" name="mountains" tilewidth="32" tileheight="32">
   <image source="tuiles/LPC Base Assets/tiles/mountains.png" width="384" height="288"/>
  </tileset>
+ <tileset firstgid="127" name="tuile-logic" tilewidth="32" tileheight="32">
+  <image source="tuiles/tuile-logic.png" width="160" height="160"/>
+ </tileset>
  <layer name="Calque1" width="40" height="40">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3OsRGAMAwEMHchgYT9t8VjPHcq1GtU1RVqttXuUI+fn5+fXyQ/Pz8/v0x+fn5+fpn8/Pz8/DL94bfbCfW2D2bO5UoAGQAA
@@ -13,7 +16,17 @@
  </layer>
  <layer name="Calque 2" width="40" height="40">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3OIQ6AQAwAwfsDeAhICHj4/7+oRFxqr2ImWb+t1TdFc6cqlmjtVMURnb+2aB96lLuie/RE4one0RMAAAAAAKQ+njadjAAZAAA=
+   H4sIAAAAAAAAC+3YSQqAMBAAwfj/T3sVyWSxlUykG3IZXEqCl5SSvyPpuvqypY+lj6WPpY+lj6WPpY+lj6WPpY+lj6WPpY+1u692VhOd4dzvj65vPfuJrzcb8fXeHfUH38z+jszf9o3MavMs+xvNV+7vrO+r/3d1re/JsnboBKumALYAGQAA
+  </data>
+ </layer>
+ <layer name="Pics" width="40" height="40">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3WQQrAIAwF0Vw69y8uCkItmGjtD8wDt3FAEc0ARPnfARPcnp2ZbrfxrB38ZUVn9LPU9F2Kfc3qGZxUoU9x1hcq3JdbpU5lKn0qHSPKbQ1966LvyY6/TsbMHupvI2156mfbVOhTbwQAAHMudap19QAZAAA=
+  </data>
+ </layer>
+ <layer name="Logic" width="40" height="40" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2XSw7AIAhEvXmv3lUT08jXqQxJJ3FDFF4F1I7Br4t0zHxs+vn2ZPFVM3v2712n2lwr1sqXtcYT0+qtSKzI2pP1N3Mx8j0xIjmo7N8OfJE5Vn9UKNO/J5XJ70nOnfo71e/ZeCx8lXdw9/fBz6cr+76yfO6+dVZMkbtQm4Pcc/T9i64HJN8XtYrmY94/lA/JH4qPuT/Q6s63OmOls1f6R5bOac/5nbnfNA6PXfOtzenKF8mvx47m89hWdpb8SvbK/Eb5vurfamnfwzI66AZ3jROxABkAAA==
   </data>
  </layer>
 </map>

@@ -18,7 +18,7 @@
  <tileset firstgid="106" name="mountains" tilewidth="32" tileheight="32">
   <image source="tuiles/LPC Base Assets/tiles/mountains.png" width="384" height="288"/>
  </tileset>
- <layer name="Calque 1" width="40" height="40">
+ <layer name="Herbe" width="40" height="40">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3ROQqAQBQE0Y/iiuMy9z+sfQLjQioo6PBBL1W1QtvSnu70pA7bhz59+vTpw5j0fe8hjWDflGawj/6vPn369BG2Pn369OnjmPTpo2x9//e1dEK70gtqywq0ABkAAA==
   </data>
@@ -28,7 +28,7 @@
    H4sIAAAAAAAAC+3OsQkAMAzAsHzY/7/p2l1LChZ498x+Z2nv3zb9mf5Mf6Y/05/pz/Rn+jP9mf5Mf6Y/05/pz/Rn+jP9md/+NvaDCyMnvDoAGQAA
   </data>
  </layer>
- <layer name="Calque 4" width="40" height="40">
+ <layer name="CroixPierre" width="40" height="40">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3RwQnAIAAEQTu0/27SgOBjk/hwBu6/cGMArM3TARv6Gn2Nvua2vnl4f7vt37fpa/Q1+hp9jb5GX6Ov0dfog+88DP8fhQAZAAA=
   </data>
@@ -43,7 +43,7 @@
    H4sIAAAAAAAAC+3OoRJAUBQAUX+MjGxkIxuJTufTbHjxVm7ZM7N9q0qSJEnS12pqSm3yS6SjvjQkv0RG2umgKfklMtNJFy3JL5GVbnpoy12RJEmSfvMCNAF4eAAZAAA=
   </data>
  </layer>
- <objectgroup name="trigger">
+ <objectgroup name="trigger" width="64" height="64">
   <object name="eg1" type="teleport" x="481" y="669" width="64" height="32">
    <properties>
     <property name="dest-x" value="1000"/>
@@ -52,7 +52,9 @@
   </object>
   <object name="changeMap" type="changemap" x="915" y="404" width="25" height="22">
    <properties>
-    <property name="dest-map" value="desert"/>
+    <property name="dest-map" value="exemple-desert.tmx"/>
+    <property name="dest-x" value="680"/>
+    <property name="dest-y" value="452"/>
    </properties>
   </object>
  </objectgroup>

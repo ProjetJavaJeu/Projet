@@ -82,9 +82,12 @@ public class WindowGame extends BasicGame {
 		// Le g.translate va jouer le rôle de la caméra. 
 		//ATTENTION : A placer en premier dans render() sinon ca marche pas!
 		this.map.render(0, 0, 0); //Affiche le layer 0 (Calque 1).
-	    this.map.render(0, 0, 1);
+		this.map.render(0, 0, 1);
 	    this.map.render(0, 0, 2);
+	    if (this.map.getTileSet(4)!= null){
 	    this.map.render(0, 0, 4);
+	    }
+	    
 	    g.setColor(new Color(0, 0, 0, .5f));// setColor et fillOval vont
 											// permettre de placer une ombre
 											// sous le joueur.
@@ -126,7 +129,6 @@ public class WindowGame extends BasicGame {
 	@Override
 	public void update(GameContainer container, int delta) throws SlickException {
 		updateTrigger();
-		
 		if (this.moving) {
 	        float futurX = getFuturX(delta);
 	        float futurY = getFuturY(delta);
@@ -151,16 +153,27 @@ public class WindowGame extends BasicGame {
 			this.yCamera = this.y + h;
 	}
 	
-	private void updateTrigger() {
+	private void updateTrigger() throws SlickException {
 	    for (int objectID = 0; objectID < this.map.getObjectCount(0); objectID++) {
 	        if (isInTrigger(objectID)) {
+	        	String type = this.map.getObjectType(0, objectID);
 	            if ("teleport".equals(this.map.getObjectType(0, objectID))) {
 	                teleport(objectID);
+	            }
+	            else if ("changemap".equals(type)) {
+	                changeMap(objectID);
 	            }
 	        }
 	    }
 	}
 	
+	private void changeMap(int objectID) throws SlickException {
+	    teleport(objectID);
+	    String newMap = this.map.getObjectProperty(0, objectID, "dest-map", "undefined");
+	    if (!"undefined".equals(newMap)) {
+	        this.map = new TiledMap("/src/main/ressources/map/"+ newMap);
+	    }
+	}
 	private boolean isInTrigger(int id) {
 	    return x > map.getObjectX(0, id)
 	            && x < map.getObjectX(0, id) + map.getObjectWidth(0, id)
@@ -205,7 +218,7 @@ public class WindowGame extends BasicGame {
 	}
 
 	public static void main(String[] args) throws SlickException {
-		new AppGameContainer(new WindowGame(), 1366, 768, false).start();
+		new AppGameContainer(new WindowGame(), 1360, 768, false).start();
 	}
 
 }
