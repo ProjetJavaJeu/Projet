@@ -23,7 +23,6 @@ public class Guerrier {
 	/*
 	 * valeur de base
 	 * classe combat  
-	 * 
 	 */
 	
 	/**
