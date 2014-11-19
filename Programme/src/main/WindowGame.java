@@ -60,8 +60,4 @@ public class WindowGame extends BasicGame {
 
 	}
 
-	public static void main(String[] args) throws SlickException {
-		new AppGameContainer(new WindowGame(), 1360, 768, false).start();
-	}
-
 }
