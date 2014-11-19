@@ -10,7 +10,7 @@ public class MonstresCommuns {
 	Caract caracteristiques;
 	String replique;
 	
-	//Vérifie pls :) Si tu es OK je continue là dessus !
+	//Vérifie pls :) Si tu es OK je continue la dessus !
 	
 	public MonstresCommuns(int type, String nom,int xpDonnee, int x, int y,  Caract caracteristiques, String replique) {
 		this.type = type;
@@ -22,6 +22,14 @@ public class MonstresCommuns {
 		// this.pv = caracteristiques.getEndurance() * 10;
 		this.replique = replique;
 	}
+	
+	/*
+	 * TO DO :
+	 * 1) return xp donnee
+	 * 2) randomMonstres (void)
+	 * 3) 
+	 * 
+	 */
 
 	/**
 	 * @param args
