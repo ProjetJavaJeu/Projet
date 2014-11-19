@@ -10,7 +10,7 @@ public class MonstresCommuns {
 	Caract caracteristiques;
 	String replique;
 	
-	//Vérifie pls :) Si tu es OK je continue la dessus !
+	//Vérifie pls :) Si tu es OK je continue là dessus !
 	
 	public MonstresCommuns(int type, String nom,int xpDonnee, int x, int y,  Caract caracteristiques, String replique) {
 		this.type = type;
