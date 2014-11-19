@@ -1,14 +1,14 @@
 package PPersonnages;
 
 public class MonstresCommuns {
-	int type; // Market => 1, compta => 2 , business=>3 , commerc=>4 , droit=>5
+	private int type; // Market => 1, compta => 2 , business=>3 , commerc=>4 , droit=>5
 				// Necessaire pour la DB je pense !
-	String nom;
-	int xpDonnee;
-	int coordX;
-	int coordY;
-	Caract caracteristiques;
-	String replique;
+	private String nom;
+	private int xpDonnee;
+	private int coordX;
+	private int coordY;
+	private Caract caracteristiques;
+	private String replique;
 	
 	//Vérifie pls :) Si tu es OK je continue la dessus !
 	
@@ -26,17 +26,39 @@ public class MonstresCommuns {
 	/*
 	 * TO DO :
 	 * 1) return xp donnee
-	 * 2) randomMonstres (void)
-	 * 3) 
+	 * 2) randomMonstres (void?) (int?)
+	 * 3) Autres?
 	 * 
 	 */
-
+	public int xpDonnee(){
+		return this.xpDonnee;
+	}
+	
+	/**
+	 * Gere les coups critiques 
+	 *   si Math.random >= 0.85, attaque de 2 ! (== coup critique)
+	 *   si Math.random < 0.85 ET Math.random >= 0.15 (== coup normal)
+	 *   si Math.random > 0.15 (== coup raté)
+	 * @return int = puissance de l'attaque
+	 */
+	
+	public int randomAttaque(){
+		if (Math.random() >= 0.85)
+			return 2;
+		else if ((Math.random() < 0.85) && (Math.random() >= 0.15))
+			return 1;
+		else
+			return 0;
+	}
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		Caract car = new Caract(1,1,1);
 		MonstresCommuns Market = new MonstresCommuns(1, "Market'eux", 2, 0, 0, car, " U SHALL NOT PASS");
+		int i = Market.xpDonnee();
+		//System.out.println("xp donnée = " + i); // Euuh ca marche pas ????
+		System.out.println("salut");
 
 	}
 
