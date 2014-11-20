@@ -1,5 +1,7 @@
-\documentclass[8pt,a4paper,titlepage]{report}
+\documentclass[10pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
+\usepackage{lscape}
+\usepackage{graphicx}
 \author{Baptiste Vergote & Martin Schreinemachers}
 \begin{document}
 % Page de titre
@@ -14,7 +16,9 @@
 	\textbf{Baptiste Vergote \& Martin Schreinemachers 2TL2} \\
 	EPHEC LLN -- 2014-2015
 }
-\clearpage
-
-
+\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{2.35in}
+\begin{landscape}
+	\includegraphics[scale=0.65]{UML3.jpg}
+\end{landscape}
 \end{document}
