@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.25)  20 NOV 2014 19:18
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.25)  20 NOV 2014 19:20
 entering extended mode
 **Projet*java*document*2.tex
 
@@ -327,12 +327,29 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {C:/Users/Abrid/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<UML3.jpg, id=9, 1075.76906pt x 530.73282pt>
+Underfull \hbox (badness 10000) in paragraph at lines 20--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--28
+
+ []
+
+[2
+
+] <UML3.jpg, id=13, 1075.76906pt x 530.73282pt>
 File: UML3.jpg Graphic file (type jpg)
  <use UML3.jpg>
-Package pdftex.def Info: UML3.jpg used on input line 22.
+Package pdftex.def Info: UML3.jpg used on input line 33.
 (pdftex.def)             Requested size: 699.24161pt x 344.97224pt.
- [2
+ [3
+
 
  <C:/Users/Abrid/Desktop/EPHEC - 2 TL 2/T025 - Langage avancé de prog (exercic
 es)/Projet Java fin Q1/Projet/Rapport/Document 2/UML3.jpg>]
@@ -349,11 +366,12 @@ Here is how much of TeX's memory you used:
  27i,5n,19p,260b,171s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program F
-iles (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Program Files (
-x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
-Output written on "Projet java document 2.pdf" (2 pages, 174056 bytes).
+iles (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x
+86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Program Files (x86)/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb>
+Output written on "Projet java document 2.pdf" (3 pages, 188383 bytes).
 PDF statistics:
- 26 PDF objects out of 1000 (max. 8388607)
+ 33 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
