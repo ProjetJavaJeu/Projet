@@ -16,9 +16,9 @@ public class MonstresCommuns {
 		this.type = type;
 		this.nom = nom;
 		this.xpDonnee = xpDonnee;
-		this.caracteristiques.force = caracteristiques.force;//Pas sur?
-		this.caracteristiques.intelligence = caracteristiques.intelligence;//Pas sur?
-		this.caracteristiques.endurance = caracteristiques.endurance; //Pas sur?
+		this.caracteristiques.setForce = caracteristiques.setForce;//Pas sur?
+		this.caracteristiques.setIntelligence = caracteristiques.setIntelligence;//Pas sur?
+		this.caracteristiques.setEndurance = caracteristiques.setEndurance; //Pas sur?
 		// this.pv = caracteristiques.getEndurance() * 10;
 		this.replique = replique;
 	}
@@ -43,9 +43,10 @@ public class MonstresCommuns {
 	 */
 	
 	public int randomAttaque(){
-		if (Math.random() >= 0.85)
+		double rand = Math.random();
+		if ( rand >= 0.85)
 			return 2;
-		else if ((Math.random() < 0.85) && (Math.random() >= 0.15))
+		else if ((rand < 0.85) && (rand >= 0.15))
 			return 1;
 		else
 			return 0;

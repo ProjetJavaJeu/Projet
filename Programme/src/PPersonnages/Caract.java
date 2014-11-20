@@ -1,10 +1,10 @@
 package PPersonnages;
 
 public class Caract {
-	int force; // Propres aux guerriers
-	int intelligence; // Propres aux mages
-	int endurance; // Pour les 2
-	int caractSecondaire[] = {0,0,0,0,1,1,1,1,2,2};
+	private int force; // Propres aux guerriers
+	private int intelligence; // Propres aux mages
+	private int endurance; // Pour les 2
+	private int caractSecondaire[] = {0,0,0,0,1,1,1,1,2,2};
 	//méthode pour intel pour le mage (+1 chaque level)
 	
 	// méthode pour force pour le war (+1 chaque level)
