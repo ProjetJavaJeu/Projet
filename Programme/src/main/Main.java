@@ -4,10 +4,11 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.SlickException;
 
 public class Main {
-	private WindowGame windowMap = new WindowGame();
+	private WindowMap windowMap = new WindowMap(); 
 	
 	public void launchMap() throws SlickException{
-		new AppGameContainer(windowMap, 1360, 768, false).start();
+	new AppGameContainer(windowMap, 1366, 768, true).start();
+		
 	}
 	
 	public static void main(String[] args) throws SlickException {

@@ -63,7 +63,7 @@ public class Player {
 	
 	public void init() throws SlickException {
 		SpriteSheet spriteSheet = new SpriteSheet(
-				"/src/main/ressources/sprites/humanTalk.png", 64, 64);
+				"/src/main/ressources/sprites/baldricWalk.png", 64, 64);
 		this.animations[0] = loadAnimation(spriteSheet, 0, 1, 0);
 		this.animations[1] = loadAnimation(spriteSheet, 0, 1, 1);
 		this.animations[2] = loadAnimation(spriteSheet, 0, 1, 2);
@@ -72,7 +72,7 @@ public class Player {
 		this.animations[5] = loadAnimation(spriteSheet, 1, 9, 1);
 		this.animations[6] = loadAnimation(spriteSheet, 1, 9, 2);
 		this.animations[7] = loadAnimation(spriteSheet, 1, 9, 3);
-	}
+		}
 
 	private Animation loadAnimation(SpriteSheet spriteSheet, int startX,
 			int endX, int y) { // Cette méthode met image par image le mouvement

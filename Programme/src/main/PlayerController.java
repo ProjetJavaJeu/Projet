@@ -1,14 +1,16 @@
 package main;
 
 import org.newdawn.slick.ControllerListener;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.KeyListener;
 
 public class PlayerController implements KeyListener, ControllerListener {
 	private Player player;
-	
-	public PlayerController(Player player) {
+	private GameContainer container;
+	public PlayerController(Player player, GameContainer container) {
 		this.player = player;
+		this.container = container;
 		
 	}
 
@@ -31,6 +33,9 @@ public class PlayerController implements KeyListener, ControllerListener {
 
 	@Override
 	public void keyPressed(int key, char c) {
+		if (key == Input.KEY_ESCAPE){
+			this.container.exit();
+		}
 		switch (key) {
 		case Input.KEY_UP:
 			this.player.setDirection(0);
