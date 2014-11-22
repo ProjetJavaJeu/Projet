@@ -1,13 +1,16 @@
-/*package PPersonnages;
+package PPersonnages;
 
-public class Personnage extends Caract{
-
+public class Personnage {
+	String nom;
+	Caract caracteristiques;
+	int pv;
+	int type; 
 	
-	public Personnage(int force, int intelligence, int endurance) {
-		super(force, intelligence, endurance);
-		this.force = force;
-		this.intelligence = intelligence;
-		this.endurance = endurance;
+	public Personnage(String nom, Caract caracteristiques, int pv, int type) {
+		this.nom = nom;
+		this.caracteristiques.setForce = caracteristiques.setForce;//Pas sur?
+		this.caracteristiques.setIntelligence = caracteristiques.setIntelligence;//Pas sur?
+		this.caracteristiques.setEndurance = caracteristiques.setEndurance; //Pas sur?
 	}
 
 	/**
