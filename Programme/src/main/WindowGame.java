@@ -28,7 +28,7 @@ public class WindowGame extends BasicGame {
 		this.map.init();
 		this.player.init();
 		this.container = container;
-		PlayerController controller = new PlayerController(this.player);
+		PlayerController controller = new PlayerController(this.player, container);
 		container.getInput().addControllerListener(controller);
 		container.getInput().addKeyListener(controller);
 
