@@ -1,4 +1,3 @@
-package com.objis.JDBC;
 package JDBC;
 
 import java.sql.*;              // Use classes in java.sql package
