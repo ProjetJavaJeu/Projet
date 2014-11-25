@@ -1,5 +1,6 @@
 package main;
 
+import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -58,4 +59,7 @@ public class WindowMap extends BasicGame {
 
 	}
 
+	public void launchMap() throws SlickException{
+		new AppGameContainer(this, 1366, 768, true).start();
+	}
 }
