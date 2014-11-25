@@ -81,7 +81,7 @@ public class Personnage {
 	public static void main(String[] args) {
 		
 		Personnage un = new Personnage("bonjour", 1, 2, 3, 'M',5); //String nom, int intel, int force, int endu, char type ,int pv
-		System.out.println("Endu =" + un.caracter.getEndurance() + " PV =  " + un.pv);
+		System.out.println("Endu =" + un.caracter.getEndurance() + " PV =  " + un.pv); // Pour vérifier que PV=7*endu mais plante !!
 	}
 
 }

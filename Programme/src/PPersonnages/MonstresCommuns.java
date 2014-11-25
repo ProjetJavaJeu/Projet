@@ -12,13 +12,15 @@ public class MonstresCommuns {
 	
 	//Vérifie pls :) Si tu es OK je continue la dessus !
 	
-	public MonstresCommuns(int type, String nom,int xpDonnee, int x, int y,  Caract caracteristiques, String replique) {
+	public MonstresCommuns(int type, String nom,int xpDonnee, int x, int y,   String replique) {
+		//String nom, int intel, int force, int endu, int typeMonstres ,int pv, String repliqueMonstres == Contructeur de mosntres
+		super
 		this.type = type;
 		this.nom = nom;
 		this.xpDonnee = xpDonnee;
-		this.caracteristiques.setForce = caracteristiques.setForce;//Pas sur?
-		this.caracteristiques.setIntelligence = caracteristiques.setIntelligence;//Pas sur?
-		this.caracteristiques.setEndurance = caracteristiques.setEndurance; //Pas sur?
+		this.caracter.setForce(force);
+		this.caracter.setIntelligence(intel);
+		this.caracter.setEndurance(endu);
 		// this.pv = caracteristiques.getEndurance() * 10;
 		this.replique = replique;
 	}

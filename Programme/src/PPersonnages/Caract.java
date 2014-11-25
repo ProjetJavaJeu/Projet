@@ -24,7 +24,6 @@ public class Caract {
 	}
 	
 	/**
-	 * 
 	 * @param force - int
 	 * Que faire si force > 100?
 	 */
@@ -45,7 +44,7 @@ public class Caract {
 	}
 
 	public int getEndurance() {
-		return endurance;
+		return this.endurance;
 	}
 
 	public void setEndurance(int endurance) {
