@@ -1,3 +1,0 @@
-Dans l'autre : 
-1) lancer le .bat Startserver
-2) lancer le .bat client gotTo_myUser
