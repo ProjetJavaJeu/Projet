@@ -17,13 +17,14 @@ public class Personnage {
 	 * @param endu
 	 * @param pv
 	 */
-	public Personnage(String nom, int intel, int force, int endu, char type ,int pv) { //PAs correct pour PV?? vois pas comment faire?
+	public Personnage(String nom, Caract caracter, char type) { //PAs correct pour PV?? vois pas comment faire?
 		this.nom = nom;
-		this.caracter.setForce(force);
-		this.caracter.setIntelligence(intel);
-		this.caracter.setEndurance(endu);
+		this.caracter = caracter;
 		this.type = type;
-		this.pv = setPV(endu, type); // Ca c'est correct, mais alors on doit pas demander de int pv en argument !??? 
+		if (type == 'M')
+			this.pv = caracter.getEndurance()*7;
+		else if (type == 'G')
+			this.pv = caracter.getEndurance()*10; // Ca c'est correct, mais alors on doit pas demander de int pv en argument !??? 
 			//Ou bien ca va changer peut importe la valeur de pv qu'on mettra en argmument?
 	}
 	
@@ -46,21 +47,6 @@ public class Personnage {
 		this.repliqueMonstres = repliqueMonstres;
 	}
 	
-	
-	/**
-	 * Créer les PV pour un mage ou un guerrier
-	 * @param endu*7 = mage, 
-	 * @param type
-	 * @return
-	 */
-	public int setPV(int endu, char type){
-		if (type == 'M')
-			return endu*7;
-		else if (type == 'G')
-			return endu*10;
-		else
-			return -1;
-	}
 
 	/**
 	 * Créer les PV pour les monstres communs et pour les élites
@@ -79,9 +65,9 @@ public class Personnage {
 	}
 
 	public static void main(String[] args) {
-		
-		Personnage un = new Personnage("bonjour", 1, 2, 3, 'M',5); //String nom, int intel, int force, int endu, char type ,int pv
-		System.out.println("Endu =" + un.caracter.getEndurance() + " PV =  " + un.pv); // Pour vérifier que PV=7*endu mais plante !!
+		Caract car = new Caract(1,2,3);
+		Personnage un = new Personnage("bonjour", car, 'M'); //String nom, int intel, int force, int endu, char type ,int pv
+		System.out.println("Endu = " + un.caracter.getEndurance() + " PV =  " + un.pv); // Pour vérifier que PV=7*endu mais plante !!
 	}
 
 }
