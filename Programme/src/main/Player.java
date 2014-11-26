@@ -6,33 +6,24 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.Graphics;
 
+import PPersonnages.Personnage;
+
 public class Player {
-	private float x = 300, y = 300;
+	private float x;
+	private float y;
 	private int direction = 0;
 	private boolean moving = false;
 	private Animation[] animations = new Animation[8];
 	private Map map;
+	private char type;
+	Personnage perso;
 
 	// private boolean onStair = false; //si nécessité de rajouter des
 	// escaliers.
 
-	public Player(Map map) {
+	public Player(Map map, float x, float y) {
 		this.map = map;
-	}
-
-	public float getX() {
-		return x;
-	}
-
-	public void setX(float x) {
 		this.x = x;
-	}
-
-	public float getY() {
-		return y;
-	}
-
-	public void setY(float y) {
 		this.y = y;
 	}
 

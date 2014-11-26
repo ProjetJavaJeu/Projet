@@ -10,7 +10,7 @@ import org.newdawn.slick.SlickException;
 public class WindowMap extends BasicGame {
 	private GameContainer container;
 	private Map map = new Map();
-	private Player player = new Player(map);
+	private Player player = new Player(map, 200, 200);
 	private Camera camera = new Camera(player);
 	private TriggerController triggers = new TriggerController(map, player);
 	private Hud hud = new Hud();

@@ -1,14 +1,15 @@
 package PPersonnages;
 
+import main.Map;
+
+import org.newdawn.slick.Animation;
+
 public class Personnage {
 	private String nom;
 	private Caract caracter;
 	private int pv;
 	private char type;
-	private int typeMonstres;
 	private String repliqueMonstres;
-	
-	
 	/**
 	 * Contructeur pour Guerrier ou Mage
 	 * @param nom 
@@ -17,7 +18,7 @@ public class Personnage {
 	 * @param endu
 	 * @param pv
 	 */
-	public Personnage(String nom, Caract caracter, char type) { //PAs correct pour PV?? vois pas comment faire?
+	public Personnage(String nom, Caract caracter, char type) { //Pas correct pour PV?? vois pas comment faire?
 		this.nom = nom;
 		this.caracter = caracter;
 		this.type = type;
@@ -43,10 +44,33 @@ public class Personnage {
 		this.caracter.setForce(force);
 		this.caracter.setIntelligence(intel);
 		this.caracter.setEndurance(endu);
-		this.typeMonstres = typeMonstres;
 		this.repliqueMonstres = repliqueMonstres;
 	}
 	
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public char getType() {
+		return type;
+	}
+
+	public void setType(char type) {
+		this.type = type;
+	}
+
+	public String getRepliqueMonstres() {
+		return repliqueMonstres;
+	}
+
+	public void setRepliqueMonstres(String repliqueMonstres) {
+		this.repliqueMonstres = repliqueMonstres;
+	}
 
 	/**
 	 * Créer les PV pour les monstres communs et pour les élites

@@ -11,14 +11,13 @@ public class Guerrier extends Personnage{
 	private int niveau;
 	
 	
-	public Guerrier(String nom, int intel, int force, int endu, char type, int pv, int xp, int niveau) {
+	public Guerrier(String nom, Caract caracteristiques, char type, int xp, int niveau) {
 		//constructeur classe mere : String nom, int intel, int force, int endu, char type ,int pv
-		super(nom, intel, force, endu, type, pv); // Récupération  du 1er constructeur (celui pour les guerriers ou mages !!)
+		super(nom, caracteristiques, type); // Récupération  du 1er constructeur (celui pour les guerriers ou mages !!)
 		this.type = 'G'; // G pour Guerrier
 		this.xp = xp;
 		this.niveau = niveau;
 	}
-
 	
 	/*
 	 * valeur de base
