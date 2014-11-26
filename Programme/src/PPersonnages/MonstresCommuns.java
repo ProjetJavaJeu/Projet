@@ -1,37 +1,16 @@
 package PPersonnages;
 
-public class MonstresCommuns {
-	private int type; // Market => 1, compta => 2 , business=>3 , commerc=>4 , droit=>5
-				// Necessaire pour la DB je pense !
-	private String nom;
+public class MonstresCommuns extends Personnage{
 	private int xpDonnee;
-	private int coordX;
-	private int coordY;
-	private Caract caracteristiques;
-	private String replique;
 	
-	//Vérifie pls :) Si tu es OK je continue la dessus !
-	
-	public MonstresCommuns(int type, String nom,int xpDonnee, int x, int y,   String replique) {
-		//String nom, int intel, int force, int endu, int typeMonstres ,int pv, String repliqueMonstres == Contructeur de mosntres
-		super
-		this.type = type;
-		this.nom = nom;
+
+	public MonstresCommuns(String nom, Caract caracter, char type, String repliqueMonstres,int xpDonnee) {
+		//String nom, Caract caracter, char type, String repliqueMonstres == Contructeur de mosntres
+		super(nom, caracter, type, repliqueMonstres);
 		this.xpDonnee = xpDonnee;
-		this.caracter.setForce(force);
-		this.caracter.setIntelligence(intel);
-		this.caracter.setEndurance(endu);
-		// this.pv = caracteristiques.getEndurance() * 10;
-		this.replique = replique;
 	}
 	
-	/*
-	 * TO DO :
-	 * 1) return xp donnee
-	 * 2) randomMonstres (void?) (int?)
-	 * 3) Autres?
-	 * 
-	 */
+
 	public int xpDonnee(){
 		return this.xpDonnee;
 	}
@@ -53,16 +32,17 @@ public class MonstresCommuns {
 		else
 			return 0;
 	}
-	/**
-	 * @param args
-	 */
+
 	public static void main(String[] args) {
-		Caract car = new Caract(1,1,1);
-		MonstresCommuns Market = new MonstresCommuns(1, "Market'eux", 2, 0, 0, car, " U SHALL NOT PASS");
-		int i = Market.xpDonnee();
-		//System.out.println("xp donnée = " + i); // Euuh ca marche pas ????
-		System.out.println("salut");
-
-	}
-
+		Caract car = new Caract(1,2,5);
+		//MonstresCommuns(String nom, Caract caracter, char type, String repliqueMonstres,int xpDonnee)
+		MonstresCommuns market = new MonstresCommuns("Market'eux", car, '1', "MOAR PUB IN YOUR FACES", 20);
+		int i = market.xpDonnee();
+		System.out.println("-----------------");
+		System.out.println("nom = " + market.getNom());
+		System.out.println("xp donnée = " + i);
+		System.out.println("FORCE = " + car.getForce());
+		System.out.println("INTEL = " + car.getIntelligence());
+		System.out.println("ENDU = "+ car.getEndurance());
+		}
 }
