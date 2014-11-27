@@ -11,9 +11,8 @@ import java.sql.*;              // Use classes in java.sql package
  * @version 1.0
  *
  */
-public class JdbcSelectTest {   // Save as JdbcSelectTest.java
-// Il faut faire une méthode de querys dans la base de données DIFFERENTE de "main".
-	public static void main(String[] args) throws ClassNotFoundException {
+public class JDBCJeu {   // Save as JdbcSelectTest.java
+   public static void main(String[] args) throws ClassNotFoundException {
       Connection conn = null;
       Statement  stmt = null;
       try {
@@ -26,7 +25,7 @@ public class JdbcSelectTest {   // Save as JdbcSelectTest.java
  
          // Step 2: Allocate a "Statement" object in the Connection
          stmt = conn.createStatement();
- 
+         									// A PARTIR D'ICI, FAUT TOUT MODIFIER !
          // Step 3: Execute a SQL SELECT query, the query result
          //  is returned in a "ResultSet" object.
          String strSelect = "select title, price, qty from books";

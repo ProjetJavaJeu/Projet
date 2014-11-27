@@ -27,6 +27,32 @@ public class Player {
 		this.y = y;
 	}
 
+	public float getX() {
+		return x;
+	}
+
+	public void setX(float x) {
+		if ((x < 0) | (x > 1280)){
+			this.x = x;
+		}
+		else{
+			System.out.println("Coordonnée X incorrecte !");
+		}
+	}
+
+	public float getY() {
+		return y;
+	}
+
+	public void setY(float y) {
+		if ((y < 0) | (y > 1280)){
+			this.y = y;
+		}
+		else{
+			System.out.println("Coordonnée Y incorrecte !");
+		}
+	}
+
 	public int getDirection() {
 		return direction;
 	}
