@@ -64,7 +64,7 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 			try {
 				windowMap.launchMap();
 			} catch (SlickException e1) {
-				// TODO Auto-generated catch block
+				
 				e1.printStackTrace();
 			}
 			break;
@@ -73,7 +73,7 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 			try {
 				windowMap.launchMap();
 			} catch (SlickException e1) {
-				// TODO Auto-generated catch block
+				
 				e1.printStackTrace();
 			}
 			break;
