@@ -1,5 +1,7 @@
 package main;
 
+import gui.Map;
+
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.SlickException;
@@ -16,17 +18,20 @@ public class Player {
 	private Animation[] animations = new Animation[8];
 	private Map map;
 	private char type;
-	Personnage perso;
+	private Personnage perso;
 
 	// private boolean onStair = false; //si nécessité de rajouter des
 	// escaliers.
-
 	public Player(Map map, float x, float y) {
 		this.map = map;
 		this.x = x;
 		this.y = y;
 	}
 
+	public Personnage getPerso() {
+		return perso;
+	}
+	
 	public float getX() {
 		return x;
 	}
@@ -80,7 +85,7 @@ public class Player {
 	
 	public void init() throws SlickException {
 		SpriteSheet spriteSheet = new SpriteSheet(
-				"/src/main/ressources/sprites/baldricWalk.png", 64, 64);
+				"/ressources/sprites/baldricWalk.png", 64, 64);
 		this.animations[0] = loadAnimation(spriteSheet, 0, 1, 0);
 		this.animations[1] = loadAnimation(spriteSheet, 0, 1, 1);
 		this.animations[2] = loadAnimation(spriteSheet, 0, 1, 2);

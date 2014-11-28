@@ -1,6 +1,6 @@
 package PPersonnages;
 
-import main.Map;
+import gui.Map;
 
 import org.newdawn.slick.Animation;
 

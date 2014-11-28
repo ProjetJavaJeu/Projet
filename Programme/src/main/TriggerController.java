@@ -1,5 +1,7 @@
 package main;
 
+import gui.Map;
+
 import org.newdawn.slick.SlickException;
 
 public class TriggerController {
