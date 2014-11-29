@@ -17,7 +17,6 @@ public class Experiences {
 	 * @param level
 	 * @return level du perso
 	 * 
-	 * 
 	 * Manque : que faire si le perso est level max, que faire si le perso est lvl 1 ! (va générer un hors tableau !)
 	 */
 	public void checkXP(int xpAct, int level){
