@@ -14,29 +14,30 @@ import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
 
 import main.InitPartie;
+import main.Player;
 
 import org.newdawn.slick.SlickException;
 
 import PPersonnages.MonstresCommuns;
 import PPersonnages.MonstresElites;
+import PPersonnages.Personnage;
 
 import java.awt.BorderLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class InterfaceIntro extends JFrame implements MouseListener{
-	/**
-	 * 
-	 */
+	final static int NBR_MAX_MONSTRES = 40;
+	final static int NBR_MAX_ELITES = 10;
+	
 	private static final long serialVersionUID = 1L;
 	private int choix = 0;
 	private WindowMap windowMap;
-	private MonstresCommuns tabMonstres[] ;
-	private MonstresElites tabElites[];
-	public InterfaceIntro(WindowMap windowMap, MonstresCommuns tabMonstres[], MonstresElites tabElites[]) {
+	private MonstresCommuns tabMonstres[] = new MonstresCommuns[NBR_MAX_MONSTRES];
+	private MonstresElites tabElites[] = new MonstresElites[NBR_MAX_ELITES];
+	private Personnage perso;
+	public InterfaceIntro(WindowMap windowMap) {
 		this.windowMap = windowMap;
-		this.tabMonstres = tabMonstres;
-		this.tabElites = tabElites;
 		this.setVisible(true);
 		this.setSize(800, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -69,7 +70,12 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 			switch (e.getButton()){
 			case 1 : 
 				choix =1;
-				new InitPartie().initPartie(tabMonstres[], tabElites[], choix);
+				try {
+					new InitPartie(tabMonstres, tabElites, perso).initPartie(choix);
+				} catch (ClassNotFoundException e3) {
+					// TODO Auto-generated catch block
+					e3.printStackTrace();
+				}
 			try {
 				
 				windowMap.launchMap();
@@ -78,8 +84,15 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 				e1.printStackTrace();
 			}
 			break;
+				
+			case 2 : 
 				choix = 2;
-			case 2 : new InitPartie().initPartie(tabMonstres[], tabElites[], choix);
+				try {
+					new InitPartie(tabMonstres, tabElites, perso).initPartie(choix);
+				} catch (ClassNotFoundException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
 			try {
 				windowMap.launchMap();
 			} catch (SlickException e1) {
@@ -88,7 +101,7 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 			}
 			break;
 			
-			case 3 : new InitPartie().options();
+			case 3 : new InitPartie(windowMap).options();
 			}		
 			if (choix != 0 )
 				this.dispose();
