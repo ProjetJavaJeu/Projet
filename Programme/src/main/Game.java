@@ -15,7 +15,6 @@ import PPersonnages.Personnage;
 public class Game{
 	public static void main(String[] args) throws SlickException, InterruptedException {
 		WindowMap windowMap = new WindowMap();
-		
 		InterfaceIntro interDebut = new InterfaceIntro(windowMap);
 	}	
 		

@@ -12,7 +12,8 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
 public class WindowMap extends BasicGame {
-	private long i;
+	
+	final static double SEUIL_COMBAT = 95; // Si le résultat du random est supérieur à 95, il y a combat.
 	private GameContainer container;
 	private Map map = new Map();
 	private Player player = new Player(map, 200, 200);
@@ -35,7 +36,6 @@ public class WindowMap extends BasicGame {
 		PlayerController controller = new PlayerController(this.player, this.container);
 		container.getInput().addControllerListener(controller);
 		container.getInput().addKeyListener(controller);
-
 		Music background = new Music(
 				"/ressources/sounds/EyeOfTheTiger.ogg");
 		background.loop();
@@ -62,8 +62,18 @@ public class WindowMap extends BasicGame {
 		this.triggers.update();
 		this.player.update(delta);
 		this.camera.update(container);
+		
 	}
 
+	public void randomCombat(){
+		if (this.player.isMoving() == true){
+			if ((Math.random() * 100) > SEUIL_COMBAT){
+				//lancer combat
+				System.out.println("Combat");
+			}
+		}	
+	}
+	
 	public void launchMap() throws SlickException{
 		new AppGameContainer(this, 1366, 768, true).start();
 	}
