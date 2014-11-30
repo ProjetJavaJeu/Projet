@@ -52,19 +52,15 @@ public class InitPartie {
 		Connection connect = null;
 		Statement dec = null;
 		try {
+			dec = null;
 			initiationBDD(connect, dec);
 			String selection = "SELECT idmonstres, nom, carForce, carIntel, carEndu, type, replique, xpDonnee FROM monstres";
 
 			// A ENLEVER :
-			System.out.println("The SQL query is: " + selection); // Echo For
-																	// debugging
+			System.out.println("The SQL query is: " + selection); 
 			System.out.println();
 			ResultSet rset = dec.executeQuery(selection);
-	
-			// Step 4: Process the ResultSet by scrolling the cursor forward via
-			// next().
-			// For each row, retrieve the contents of the cells with
-			// getXxx(columnName).
+
 			System.out.println("The records selected are:");
 			int rowCount = 0;
 			while (rset.next()) { // Move the cursor to the next row
@@ -89,7 +85,6 @@ public class InitPartie {
 		} catch (SQLException ex) {
 			ex.printStackTrace();
 		} finally {
-			// Step 5: Always free resources
 			try {
 				if (dec != null)
 					dec.close(); // This closes ResultSet too
