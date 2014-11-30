@@ -12,6 +12,7 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
 public class WindowMap extends BasicGame {
+	private long i;
 	private GameContainer container;
 	private Map map = new Map();
 	private Player player = new Player(map, 200, 200);
@@ -19,7 +20,7 @@ public class WindowMap extends BasicGame {
 	private TriggerController triggers = new TriggerController(map, player);
 	private Hud hud = new Hud();
 	public WindowMap() {
-		super("Try It !");
+		super("The Epic School Adventure !");
 	}
 
 	@Override
@@ -52,6 +53,7 @@ public class WindowMap extends BasicGame {
 		this.player.render(g);
 		this.map.renderForeGround();
 		this.hud.render(g);
+
 	}
 
 	@Override
@@ -60,7 +62,6 @@ public class WindowMap extends BasicGame {
 		this.triggers.update();
 		this.player.update(delta);
 		this.camera.update(container);
-
 	}
 
 	public void launchMap() throws SlickException{
