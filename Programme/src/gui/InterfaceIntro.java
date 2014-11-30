@@ -17,6 +17,9 @@ import main.InitPartie;
 
 import org.newdawn.slick.SlickException;
 
+import PPersonnages.MonstresCommuns;
+import PPersonnages.MonstresElites;
+
 import java.awt.BorderLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -26,10 +29,14 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int choix;
+	private int choix = 0;
 	private WindowMap windowMap;
-	public InterfaceIntro(WindowMap windowMap) {
+	private MonstresCommuns tabMonstres[] ;
+	private MonstresElites tabElites[];
+	public InterfaceIntro(WindowMap windowMap, MonstresCommuns tabMonstres[], MonstresElites tabElites[]) {
 		this.windowMap = windowMap;
+		this.tabMonstres = tabMonstres;
+		this.tabElites = tabElites;
 		this.setVisible(true);
 		this.setSize(800, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -60,16 +67,19 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 			switch (e.getButton()){
-			case 1 : new InitPartie().initNouv();
+			case 1 : 
+				choix =1;
+				new InitPartie().initPartie(tabMonstres[], tabElites[], choix);
 			try {
+				
 				windowMap.launchMap();
 			} catch (SlickException e1) {
 				
 				e1.printStackTrace();
 			}
 			break;
-			
-			case 2 : new InitPartie().initContinue();
+				choix = 2;
+			case 2 : new InitPartie().initPartie(tabMonstres[], tabElites[], choix);
 			try {
 				windowMap.launchMap();
 			} catch (SlickException e1) {
@@ -79,8 +89,9 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 			break;
 			
 			case 3 : new InitPartie().options();
-			}			
-			this.dispose();
+			}		
+			if (choix != 0 )
+				this.dispose();
 		}
 
 	@Override

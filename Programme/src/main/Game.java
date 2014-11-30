@@ -22,7 +22,7 @@ public class Game{
 	
 	public static void main(String[] args) throws SlickException, InterruptedException {
 		WindowMap windowMap = new WindowMap();
-		InterfaceIntro interDebut = new InterfaceIntro(windowMap);
+		InterfaceIntro interDebut = new InterfaceIntro(windowMap, tabMonstres, tabElites);
 	}	
 		
 }
