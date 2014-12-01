@@ -87,9 +87,10 @@ public class WindowMap extends BasicGame {
 		}	
 	}
 	
-	public void launchMap(MonstresCommuns tabM[], MonstresElites tabE[]) throws SlickException{
+	public void launchMap(MonstresCommuns tabM[], MonstresElites tabE[], Personnage perso) throws SlickException{
 		tabMonstres = tabM;
 		tabElites = tabE;
+		player.setPerso(perso);
 		new AppGameContainer(this, 1366, 768, true).start();
 	}
 }

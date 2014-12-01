@@ -19,7 +19,6 @@ public class InitPartie {
 	private Personnage perso;
 	
 	public InitPartie(MonstresCommuns tM[], MonstresElites tE[], Personnage perso){
-		//this.windowMap = W;
 		this.tabMonstres = tM;
 		this.tabElites = tE;
 		this.perso = perso;
@@ -34,7 +33,7 @@ public class InitPartie {
 	public void initPartie(int choix) throws ClassNotFoundException{
 		JDBCAcces acc = new JDBCAcces();
 		acc.JDBCMonstres();
-		acc.JDBCPersonnage();		
+		acc.JDBCPersonnage(perso);		
 	}
 	
 	public void options() {

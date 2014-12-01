@@ -16,9 +16,9 @@ public class Caract {
 		this.endurance = endurance;
 	}
 
-	// Faire les validations ! (Empêcher valeurs négatives, valeurs nulles, valeurs trop grande).	
-	
-	// méthode generate caract pour war et mage
+	public Caract(){
+		
+	}
 	public int getForce() {
 		return force;
 	}

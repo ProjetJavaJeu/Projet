@@ -1,33 +1,12 @@
 package PPersonnages;
 
-import gui.Map;
-
-import org.newdawn.slick.Animation;
-
 public class Personnage {
 	private String nom;
 	private Caract caracter;
 	private int pv;
 	private char type;
 	private String repliqueMonstres;
-	
-	/**
-	 * Contructeur pour Guerrier ou Mage
-	 * @param nom 
-	 * @param intel
-	 * @param force
-	 * @param endu
-	 * @param pv
-	 */
-	public Personnage(String nom, Caract caracter, char type) { 
-		this.nom = nom;
-		this.caracter = caracter;
-		this.type = type;
-		if (type == 'M')
-			this.pv = caracter.getEndurance()*7;
-		else if (type == 'G')
-			this.pv = caracter.getEndurance()*10; 
-	}
+	private Experience experience;
 	
 	/**
 	 * Constructeur pour Monstres communs et elites/bosses
@@ -51,7 +30,56 @@ public class Personnage {
 			// Pour les bosses
 			this.pv = caracter.getEndurance()*7;
 	}
+
+	/**
+	 * Contructeur pour Guerrier ou Mage
+	 * @param nom 
+	 * @param intel
+	 * @param force
+	 * @param endu
+	 * @param pv
+	 
+	public Personnage(String nom, Caract caracter, char type) { 
+		this.nom = nom;
+		this.caracter = caracter;
+		this.type = type;
+		if (type == 'M')
+			this.pv = caracter.getEndurance()*7;
+		else
+			this.pv = caracter.getEndurance()*10; 
+	}*/
 	
+	//Constructeur vide
+	public Personnage(){
+		
+	}
+	
+	public void setPvIntial(){
+		if (type == 'M')
+			this.pv = caracter.getEndurance()*7;
+		else
+			this.pv = caracter.getEndurance()*10;
+	}
+	
+	public Experience getExperience() {
+		return experience;
+	}
+
+	public int getPv() {
+		return pv;
+	}
+
+	public void setPv(int pv) {
+		this.pv = pv;
+	}
+
+	public Caract getCaracter() {
+		return caracter;
+	}
+
+	public void setCaracter(Caract caracter) {
+		this.caracter = caracter;
+	}
 
 	public String getNom() {
 		return nom;
@@ -60,7 +88,7 @@ public class Personnage {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
+	
 	public char getType() {
 		return type;
 	}

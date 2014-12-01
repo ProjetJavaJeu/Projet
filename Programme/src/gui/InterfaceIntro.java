@@ -35,7 +35,7 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 	private WindowMap windowMap;
 	private MonstresCommuns tabMonstres[] = new MonstresCommuns[NBR_MAX_MONSTRES];
 	private MonstresElites tabElites[] = new MonstresElites[NBR_MAX_ELITES];
-	private Personnage perso;
+	private Personnage perso = new Personnage();
 	public InterfaceIntro(WindowMap windowMap) {
 		this.windowMap = windowMap;
 		this.setVisible(true);
@@ -92,7 +92,7 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 			}		
 			if (choix != 0 )
 				try {
-					windowMap.launchMap(tabMonstres, tabElites);
+					windowMap.launchMap(tabMonstres, tabElites, perso);
 				} catch (SlickException e1) {
 					
 					e1.printStackTrace();

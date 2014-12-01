@@ -1,14 +1,12 @@
 package PPersonnages;
 
 public class Guerrier extends Personnage{
-	private int xp;
 	private int niveau;
 	
 	
-	public Guerrier(String nom, Caract caracteristiques, char type, int xp, int niveau) {
+	public Guerrier(String nom, Caract caracteristiques, char type, int niveau) {
 		//constructeur classe mere : String nom, int intel, int force, int endu, char type ,int pv
-		super(nom, caracteristiques, type); // Récupération  du 1er constructeur (celui pour les guerriers ou mages !!)
-		this.xp = xp;
+		//super(nom, caracteristiques, type); // Récupération  du 1er constructeur (celui pour les guerriers ou mages !!)
 		this.niveau = niveau;
 	}
 	

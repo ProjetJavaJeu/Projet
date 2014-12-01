@@ -17,6 +17,7 @@ public class Player {
 	private boolean moving = false;
 	private Animation[] animations = new Animation[8];
 	private Map map;
+
 	private Personnage perso;
 
 	// private boolean onStair = false; //si nécessité de rajouter des
@@ -29,6 +30,10 @@ public class Player {
 
 	public Personnage getPerso() {
 		return perso;
+	}
+	
+	public void setPerso(Personnage perso) {
+		this.perso = perso;
 	}
 	
 	public float getX() {
