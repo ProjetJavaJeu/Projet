@@ -1,5 +1,6 @@
 package gui;
 
+import main.Combat;
 import main.Player;
 import main.PlayerController;
 import main.TriggerController;
@@ -11,6 +12,10 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
+import PPersonnages.MonstresCommuns;
+import PPersonnages.MonstresElites;
+import PPersonnages.Personnage;
+
 public class WindowMap extends BasicGame {
 	
 	final static double SEUIL_COMBAT = 95; // Si le résultat du random est supérieur à 95, il y a combat.
@@ -20,6 +25,8 @@ public class WindowMap extends BasicGame {
 	private Camera camera = new Camera(player);
 	private TriggerController triggers = new TriggerController(map, player);
 	private Hud hud = new Hud();
+	private MonstresCommuns tabMonstres[];
+	private MonstresElites tabElites[];
 	public WindowMap() {
 		super("The Epic School Adventure !");
 	}
@@ -70,11 +77,17 @@ public class WindowMap extends BasicGame {
 			if ((Math.random() * 100) > SEUIL_COMBAT){
 				//lancer combat
 				System.out.println("Combat");
+				this.container.pause();
+				this.player.setMoving(false);
+				Personnage monstre = tabMonstres[(int)Math.random()];
+				Combat combat = new Combat(player, monstre);
 			}
 		}	
 	}
 	
-	public void launchMap() throws SlickException{
+	public void launchMap(MonstresCommuns tabM[], MonstresElites tabE[]) throws SlickException{
+		tabMonstres = tabM;
+		tabElites = tabE;
 		new AppGameContainer(this, 1366, 768, true).start();
 	}
 }

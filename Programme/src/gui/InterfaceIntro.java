@@ -27,8 +27,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class InterfaceIntro extends JFrame implements MouseListener{
-	final static int NBR_MAX_MONSTRES = 40;
-	final static int NBR_MAX_ELITES = 10;
+	final static int NBR_MAX_MONSTRES = 5;
+	final static int NBR_MAX_ELITES = 6;
 	
 	private static final long serialVersionUID = 1L;
 	private int choix = 0;
@@ -76,13 +76,6 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 				} catch (ClassNotFoundException e3) {
 					e3.printStackTrace();
 				}
-			try {
-				
-				windowMap.launchMap();
-			} catch (SlickException e1) {
-				
-				e1.printStackTrace();
-			}
 			break;
 				
 			case 2 : 
@@ -93,17 +86,17 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}
-			try {
-				windowMap.launchMap();
-			} catch (SlickException e1) {
-				
-				e1.printStackTrace();
-			}
 			break;
 			
 			case 3 : new InitPartie(windowMap).options();
 			}		
 			if (choix != 0 )
+				try {
+					windowMap.launchMap(tabMonstres, tabElites);
+				} catch (SlickException e1) {
+					
+					e1.printStackTrace();
+				}
 				this.dispose();
 		}
 

@@ -29,7 +29,7 @@ public class JDBCLocalTest { // Save as JdbcSelectTest.java
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver"); // Driver
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:8888/jeujava","essaihome", "essai"); // Information de connection
+			connect = DriverManager.getConnection("jdbc:mysql://localhost:8888/jeujava","root", "essai"); // Information de connection
 
 			dec = connect.createStatement(); // Connection
 
@@ -92,7 +92,7 @@ public class JDBCLocalTest { // Save as JdbcSelectTest.java
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver"); // Driver
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:8888/jeujava","essaihome", "essai"); // Information de connection
+			connect = DriverManager.getConnection("jdbc:mysql://localhost:8888/jeujava","root", "essai"); // Information de connection
 							  // A changer par ->("jdbc:mysql://169.254.123.204:8888/jeujava", "Mart_Lap", "essai");
 
 			dec = connect.createStatement(); // Connection

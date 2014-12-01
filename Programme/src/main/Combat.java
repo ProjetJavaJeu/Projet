@@ -1,13 +1,14 @@
 package main;
 
+import PPersonnages.Personnage;
 import gui.WindowMap;
 
 public class Combat {
 
 	private Player one;
-	private Player monstre;
+	private Personnage monstre;
 
-	public Combat(Player one, Player monstre) {
+	public Combat(Player one, Personnage monstre) {
 		this.one = one;
 		this.monstre = monstre;
 	}
