@@ -5,11 +5,11 @@ import gui.WindowMap;
 
 public class Combat {
 
-	private Player one;
+	private Player player;
 	private Personnage monstre;
 
-	public Combat(Player one, Personnage monstre) {
-		this.one = one;
+	public Combat(Player player, Personnage monstre) {
+		this.player = player;
 		this.monstre = monstre;
 	}
 
@@ -20,13 +20,36 @@ public class Combat {
 	 * 
 	 * @return int = puissance de l'attaque
 	 */
-	public int attaque() {
+	public void attaque(Personnage attaquant, Personnage victime) {
 		double rand = Math.random();
-		if (rand >= 0.85)
-			return 2;
-		else if ((rand < 0.85) && (rand >= 0.15))
+		if (verifType(attaquant) == 1){
+			if (rand >= 0.85){
+				
+			}
+			else if ((rand < 0.85) && (rand >= 0.15)){
+				
+			}
+			else{
+				
+			}
+		}
+			
+	}
+	
+	public int verifType(Personnage attaquant){
+		if (attaquant.getType() == 'M'){
 			return 1;
-		else
-			return 0;
+		}
+		else {
+			return 2;
+		}
+	}
+	
+	public char getPlayerType(){
+		return player.getPerso().getType();
+	}
+	
+	public char getMonstreType(){
+		return monstre.getType();
 	}
 }

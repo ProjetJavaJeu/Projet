@@ -27,6 +27,7 @@ public class WindowMap extends BasicGame {
 	private Hud hud = new Hud();
 	private MonstresCommuns tabMonstres[];
 	private MonstresElites tabElites[];
+	
 	public WindowMap() {
 		super("The Epic School Adventure !");
 	}
@@ -69,7 +70,7 @@ public class WindowMap extends BasicGame {
 		this.triggers.update();
 		this.player.update(delta);
 		this.camera.update(container);
-		
+		randomCombat();
 	}
 
 	public void randomCombat(){
@@ -81,6 +82,7 @@ public class WindowMap extends BasicGame {
 				this.player.setMoving(false);
 				Personnage monstre = tabMonstres[(int)Math.random()];
 				Combat combat = new Combat(player, monstre);
+				
 			}
 		}	
 	}

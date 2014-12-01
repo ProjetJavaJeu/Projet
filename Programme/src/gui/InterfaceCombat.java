@@ -15,6 +15,7 @@ import javax.swing.border.Border;
 
 import java.awt.Color;
 
+import main.Combat;
 import main.Player;
 
 import org.newdawn.slick.SlickException;
@@ -22,44 +23,64 @@ import org.newdawn.slick.SlickException;
 import PPersonnages.Personnage;
 
 public class InterfaceCombat extends JFrame {
-	
+	final static String PATH_GUERRIER = "ressources/imagesCombat/warrior.jpg";
+	final static String PATH_MAGE = "ressources/imagesCombat/mage2.jpg";
 	private static final long serialVersionUID = 2L;
+	private Combat combat;
 
-	public InterfaceCombat(Player one, Player monster) throws SlickException {
-		
-		//getContentPane().setBackground(Color.black);
+	public InterfaceCombat(Combat combat) throws SlickException {
+		this.combat = combat;
+		// getContentPane().setBackground(Color.black);
 		getContentPane().setLayout(new BorderLayout(0, 0));
-		
-		//Panel Joueur
+		creationPanelJoueur();
+		creationPanelMonstre();
+		creationPanelAction();
+	}
+
+	public void creationPanelJoueur() {
+		// Panel Joueur
 		JPanel playerPanel = new JPanel();
 		getContentPane().add(playerPanel, BorderLayout.WEST);
 		playerPanel.setLayout(new BorderLayout(0, 0));
-		//playerPanel.setBackground(Color.black);
+		// playerPanel.setBackground(Color.black);
+		creationLabelJoueur(playerPanel);
+		playerPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+	}
+
+	public void creationLabelJoueur(JPanel playerPanel) {
 		JLabel playerLabel = new JLabel();
-		//Chemin avec Slick mettre un slash pour commencer. Avec Swing PAS !
-		if (one.getPerso().getType() == 'G'){
-			playerLabel.setIcon(new ImageIcon("ressources/imagesCombat/warrior.jpg"));
+		// Chemin avec Slick mettre un slash pour commencer. Avec Swing PAS !
+		if (combat.getPlayerType() == 'G') {
+			playerLabel.setIcon(new ImageIcon(PATH_GUERRIER));
+		} else {
+			playerLabel.setIcon(new ImageIcon(PATH_MAGE));
 		}
-		else 
-			playerLabel.setIcon(new ImageIcon("ressources/imagesCombat/mage2.jpg"));
 		playerPanel.add(playerLabel);
-		playerPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-				
-		//Panel monstre
-		JPanel enemyPanel= new JPanel();
-		getContentPane().add(enemyPanel, BorderLayout.EAST);
-		enemyPanel.setLayout(new BorderLayout(0, 0));
-		//enemyPanel.setBackground(Color.black);
+	}
+
+	public void creationPanelMonstre() {
+		// Panel monstre
+		JPanel panelMonstre = new JPanel();
+		getContentPane().add(panelMonstre, BorderLayout.EAST);
+		panelMonstre.setLayout(new BorderLayout(0, 0));
+		// enemyPanel.setBackground(Color.black);
+		creationLabelMonstre(panelMonstre);
+	}
+	
+	public void creationLabelMonstre(JPanel enemyPanel){
 		JLabel enemyLabel = new JLabel();
-		if (monster.getPerso().getType() == '1'){
-			enemyLabel.setIcon(new ImageIcon("ressources/imagesCombat/orc2.jpg"));
-		}
-		else if (monster.getPerso().getType() == '2'){
-			enemyLabel.setIcon(new ImageIcon("ressources/imagesCombat/murloc.jpg"));
+		if (combat.getMonstreType() == '1') {
+			enemyLabel
+					.setIcon(new ImageIcon("ressources/imagesCombat/orc2.jpg"));
+		} else if (combat.getMonstreType() == '2') {
+			enemyLabel.setIcon(new ImageIcon(
+					"ressources/imagesCombat/murloc.jpg"));
 		}
 		enemyPanel.add(enemyLabel);
-		
-		//Panel avec le bouton d'attaque et le champ d'info.
+	}
+
+	public void creationPanelAction() {
+		// Panel avec le bouton d'attaque et le champ d'info.
 		JPanel actionPanel = new JPanel();
 		getContentPane().add(actionPanel, BorderLayout.SOUTH);
 		JButton btnAttaque = new JButton("Attaque");
@@ -68,16 +89,13 @@ public class InterfaceCombat extends JFrame {
 		actionPanel.add(label);
 	}
 
-	public static void main(String[] args) throws SlickException {
-		Map map = new Map();
-		Player one = new Player(map, 200, 200);
-		one.getPerso().setType('M');
-		Player monster = new Player(map, 200, 200);
-		monster.getPerso().setType('2');
-		InterfaceCombat inter = new InterfaceCombat(one, monster);
-		inter.setVisible(true);
-		inter.setSize(800, 600);
-		inter.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		inter.setLocationRelativeTo(null);
-	}
+	/*
+	 * public static void main(String[] args) throws SlickException { Map map =
+	 * new Map(); Player one = new Player(map, 200, 200);
+	 * one.getPerso().setType('M'); Player monster = new Player(map, 200, 200);
+	 * monster.getPerso().setType('2'); InterfaceCombat inter = new
+	 * InterfaceCombat(one, monster); inter.setVisible(true); inter.setSize(800,
+	 * 600); inter.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	 * inter.setLocationRelativeTo(null); }
+	 */// MAin de test.
 }
