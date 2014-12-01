@@ -44,7 +44,6 @@ public class Personnage {
 		this.caracter = caracter;
 		this.repliqueMonstres = repliqueMonstres;
 		this.type = type; // Vérification type?
-		System.out.println("type = " + type);
 		if ((type == '1') | (type =='2') | (type == '3') | (type == '4') | (type == '5')){
 			// Pour les Communs
 			this.pv = caracter.getEndurance()*5;}

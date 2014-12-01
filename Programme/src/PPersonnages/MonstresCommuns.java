@@ -23,9 +23,9 @@ public class MonstresCommuns extends Personnage{
 		int i = market.xpDonnee();
 		System.out.println("-----------------");
 		System.out.println("nom = " + market.getNom());
-		System.out.println("xp donnée = " + i);
+		//ystem.out.println("xp donnée = " + i);
 		System.out.println("FORCE = " + car.getForce());
 		System.out.println("INTEL = " + car.getIntelligence());
 		System.out.println("ENDU = "+ car.getEndurance());
-		}
+	}
 }

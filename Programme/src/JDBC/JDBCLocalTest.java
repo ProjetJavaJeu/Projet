@@ -98,7 +98,6 @@ public class JDBCLocalTest { // Save as JdbcSelectTest.java
 			dec = connect.createStatement(); // Connection
 			System.out.println();
 			System.out.println();
-			System.out.println("TIENS LES MONSTRES BEMH KEBRAHH"); // A delete ofc :D
 			String strSelect = "SELECT idMonstres, nom, carForce, carIntel, carEndu, type, replique, xpDonnee FROM monstres";
 			System.out.println("The SQL query is: " + strSelect);
 			System.out.println();
@@ -108,29 +107,23 @@ public class JDBCLocalTest { // Save as JdbcSelectTest.java
 
 			System.out.println("The records selected are:");
 			int rowCount = 0;
-			MonstresCommuns[] ME = new MonstresCommuns[20];
-			// for (rowCount = 0; rset.next()  OU rowCount < 5; rowcount++)
+			MonstresCommuns[] tabM = new MonstresCommuns[20];
 			while (rset.next()) {
-				//int idMonstres = rset.getInt("idMonstres"); //Stock dans un int + typecast
 				String nom = rset.getString("nom");
 				int carForce = rset.getInt("carForce");
 				int carIntel = rset.getInt("carIntel");
 				int carEndu = rset.getInt("carEndu");
 				char type = rset.getString("type").charAt(0);
+				
 				String replique = rset.getString("replique");
 				int xpDonnee = rset.getInt("xpDonnee");
 				Caract car = new Caract(carForce, carIntel, carEndu);
-				MonstresCommuns i = new MonstresCommuns(nom, car, type, replique, xpDonnee);
-				ME[rowCount] = i;
 
-				/*System.out.println(idMonstres + ", " + nom + ", "
-						+ carForce + ", " + carIntel + ", " + carEndu
-						+ ", " + type + ", " + replique + ", " + xpDonnee); */
-				System.out.println();
-				System.out.println("Ici");
-				System.out.println("Ici2 = " + ME[rowCount].getNom());
-				System.out.println();
-				++rowCount;
+				MonstresCommuns i = new MonstresCommuns(nom, car, type, replique, xpDonnee);
+
+				tabM[rowCount] = i;
+				System.out.println("Ici2 = " + tabM[rowCount].getNom());
+				rowCount++;
 			}
 			System.out.println("Total number of records = " + rowCount);
 
