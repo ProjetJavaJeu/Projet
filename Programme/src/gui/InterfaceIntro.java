@@ -62,9 +62,9 @@ public class InterfaceIntro extends JFrame implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		choix = e.getButton();
-
+		System.out.println(choix);
 		if (choix == 3) {
-			new InitPartie(windowMap).options();
+			game.getInit().options();
 		} else {
 
 			try {
@@ -76,11 +76,12 @@ public class InterfaceIntro extends JFrame implements MouseListener {
 				e3.printStackTrace();
 			}
 			try {
-				windowMap.launchMap(tabMonstres, tabElites, perso);
+				windowMap.launchMap(game.getTabMonstres(), game.getTabElites(), perso);
 			} catch (SlickException e1) {
 
 				e1.printStackTrace();
 			}
+			System.out.println("Ca passe ici");
 			this.dispose();
 		}
 	}
