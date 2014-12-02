@@ -8,7 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
 
+import main.Game;
 import main.InitPartie;
+
 import org.newdawn.slick.SlickException;
 
 import PPersonnages.MonstresCommuns;
@@ -19,18 +21,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class InterfaceIntro extends JFrame implements MouseListener {
-	final static int NBR_MAX_MONSTRES = 5;
-	final static int NBR_MAX_ELITES = 6;
+	
 
 	private static final long serialVersionUID = 1L;
 	private int choix = 0;
 	private WindowMap windowMap;
-	private MonstresCommuns tabMonstres[] = new MonstresCommuns[NBR_MAX_MONSTRES];
-	private MonstresElites tabElites[] = new MonstresElites[NBR_MAX_ELITES];
 	private Personnage perso = new Personnage();
-
-	public InterfaceIntro(WindowMap windowMap) {
-		this.windowMap = windowMap;
+	private Game game;
+	
+	public InterfaceIntro(Game game) {
+		this.game = game;
+		this.windowMap = game.getWindowMap();
 		this.setVisible(true);
 		this.setSize(800, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -67,12 +68,10 @@ public class InterfaceIntro extends JFrame implements MouseListener {
 		} else {
 
 			try {
-				InitPartie init = new InitPartie(windowMap);
-				tabMonstres = init.initMonstres(tabMonstres);
-				perso = init.initPerso(perso, choix);
+				
+				game.setTabMonstres(game.getInit().initMonstres(game.getTabMonstres()));
+				perso = game.getInit().initPerso(perso, choix);
 
-				System.out.println("Vérif init monstres dans InterfaceIntro : "
-						+ tabMonstres[0].getNom());
 			} catch (ClassNotFoundException e3) {
 				e3.printStackTrace();
 			}
