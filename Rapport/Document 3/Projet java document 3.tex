@@ -1,4 +1,4 @@
-\documentclass[8pt,a4paper,titlepage]{article}
+\documentclass[a4paper,titlepage]{article}
 \usepackage[utf8]{inputenc}
 \author{Baptiste Vergote & Martin Schreinemachers}
 \begin{document}
@@ -18,21 +18,62 @@
 \noindent
 \tableofcontents
 \clearpage
-\section{Introduction}
+\section{TODO}
+\begin{enumerate}
+	\item Un document word comprenant : 
+	\begin{enumerate}
+		\item Une page de garde (noms, prénoms, class, titre du projet, un screenshot du projet, année académique).
+		\item Une introduction où vous présentez votre projet.
+		\item Le diagramme UML des classes OO que vous avez (ou un extrait intéressant).
+		\item Un texte expliquant tout ce qui est nécessaire pour que votre projet fonctionne (modification du path, driver à installer et dans ce cas les fournir, …).
+		\item Quelques screenshots de votre projet (idéalement pour illustrer des passages de votre travail – donc vous ne faites pas un titre screenshot mais vous en mettez là où c’est utile).
+		\item Le code source (ou un extrait représentatif) documenté du package principal de l’application (+fichier package-info.java).
+		\item La documentation du package principal (fichiers html générés par la javadoc)
+		\item Une description de votre stratégie de validation.
+		\item Une conclusion : que vous a apporté ce projet, quelles ont été les difficultés rencontrées, comment peut-on l’améliorer.
+	\end{enumerate}
+	\item Tous vos codes sources et tests unitaires (le projet eclipse).
+	\item Le fichier JAR de votre application.
+\end{enumerate}
 \clearpage
-\section{kikoo}
+\section{Introduction}
+Une introduction où vous présentez votre projet. -> A SUPPRIMER\\
+C'est dans les environs de Louvain-La-Neuve que l'aventure a démarré...\\
+Nous sommes assis dans une classe trop sombre, trop petite et qui sent la transpiration
+
+\clearpage
+\section{Diagramme UML}
+Le diagramme UML des classes OO que vous avez (ou un extrait intéressant).\\
+\clearpage
+
+\section{Necessité pour la fonctionnalité}
+Un texte expliquant tout ce qui est nécessaire pour que votre projet fonctionne (modification du path, driver à installer et dans ce cas les fournir, …).
+\clearpage
+
+\section{Captures d'écran}
+Quelques screenshots de votre projet (idéalement pour illustrer des passages de votre travail – donc vous ne faites pas un titre screenshot mais vous en mettez là où c’est utile).
+\clearpage
+
+\section{Documentation du package}
+\clearpage
+
+\section{Description de la stratégie de validation}
+\clearpage
+
+\section{Conclusion}
+\clearpage
+
 
 \section{Différentes classes}
 	Il existe deux classes dans notre programme : le Guerrier et le Mage.\\
 	Ces deux classes ont un attribut principal, et un attribut secondaire.\\
 	Le niveau maximum du jeu est 10.
+	
 \subsection{Guerrier}
 	La force est la caractéristique principale du guerrier, celle ci augmente de 1 chaque level !\\
 	L'endurance augmente aussi chaque level de 1\\
 	Endurance initial à 1, *10 pour obtenir ses pv, force à 1 !\\
 	Pour ce qui est de l'intelligence, elle est aussi élevée que celle de martin...\\ Je lui ai appliqué des valeurs (dans un tableau) en fonction du niveau du personnage : 	\{0,0,0,0,1,1,1,1,2,2\}
-	
-	
 	
 \subsection{Mage}
 	endurance initial à 1, *7 pour obtenir ses pv, force à 0, inteligence à 1 !
