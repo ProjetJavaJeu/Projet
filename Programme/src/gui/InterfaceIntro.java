@@ -67,11 +67,14 @@ public class InterfaceIntro extends JFrame implements MouseListener{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-			switch (e.getButton()){
+			switch (e.getButton()){ 
 			case 1 : 
 				choix =1;
 				try {
-					new InitPartie(tabMonstres, tabElites, perso).initPartie(choix);
+					InitPartie init = new InitPartie(windowMap);
+					tabMonstres = init.initMonstres(tabMonstres);
+					perso = init.initPerso(perso, choix);
+				
 					System.out.println("Vérif init monstres dans InterfaceIntro : " + tabMonstres[0].getNom());
 				} catch (ClassNotFoundException e3) {
 					e3.printStackTrace();

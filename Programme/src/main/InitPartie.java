@@ -14,15 +14,6 @@ import PPersonnages.Personnage;
 
 public class InitPartie {
 	private WindowMap windowMap;
-	private MonstresCommuns tabMonstres[];
-	private MonstresElites tabElites[];
-	private Personnage perso;
-	
-	public InitPartie(MonstresCommuns tM[], MonstresElites tE[], Personnage perso){
-		this.tabMonstres = tM;
-		this.tabElites = tE;
-		this.perso = perso;
-	}
 
 	public InitPartie(WindowMap windowMap) {
 		super();
@@ -30,10 +21,16 @@ public class InitPartie {
 	}
 
 
-	public void initPartie(int choix) throws ClassNotFoundException{
+	public Personnage initPerso(Personnage perso, int choix) throws ClassNotFoundException{
 		JDBCAcces acc = new JDBCAcces();
-		acc.JDBCMonstres();
 		acc.JDBCPersonnage(perso);		
+		return perso;
+	}
+	
+	public MonstresCommuns[] initMonstres(MonstresCommuns tabMonstres[]) throws ClassNotFoundException{
+		JDBCAcces acc = new JDBCAcces();
+		tabMonstres = acc.JDBCMonstres(tabMonstres);
+		return tabMonstres;
 	}
 	
 	public void options() {

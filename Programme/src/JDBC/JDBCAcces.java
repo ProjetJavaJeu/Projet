@@ -92,7 +92,7 @@ public class JDBCAcces { // Save as JdbcSelectTest.java
 	 * 
 	 * @throws ClassNotFoundException
 	 */
-	public void JDBCMonstres() throws ClassNotFoundException {
+	public MonstresCommuns[] JDBCMonstres(MonstresCommuns tabmonstres[]) throws ClassNotFoundException {
 		Connection connect = null;
 		Statement dec = null;
 		try {
@@ -146,5 +146,6 @@ public class JDBCAcces { // Save as JdbcSelectTest.java
 				ex.printStackTrace();
 			}
 		}
+		return null;
 	}
 }
