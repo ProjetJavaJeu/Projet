@@ -17,9 +17,8 @@ import PPersonnages.MonstresElites;
 import PPersonnages.Personnage;
 
 public class WindowMap extends BasicGame {
-
-	final static double SEUIL_COMBAT = 95; // Si le résultat du random est
-											// supérieur à 95, il y a combat.
+	
+	final static double SEUIL_COMBAT = 95; // Si le résultat du random est supérieur à 95, il y a combat.
 	private GameContainer container;
 	private Map map = new Map();
 	private Player player = new Player(map, 200, 200);
@@ -28,7 +27,7 @@ public class WindowMap extends BasicGame {
 	private Hud hud = new Hud();
 	private MonstresCommuns tabMonstres[];
 	private MonstresElites tabElites[];
-
+	
 	public WindowMap() {
 		super("The Epic School Adventure !");
 	}
@@ -42,13 +41,13 @@ public class WindowMap extends BasicGame {
 		this.map.init();
 		this.player.init();
 		this.container = container;
-		PlayerController controller = new PlayerController(this.player,
-				this.container);
+		PlayerController controller = new PlayerController(this.player, this.container);
 		container.getInput().addControllerListener(controller);
 		container.getInput().addKeyListener(controller);
-		Music background = new Music("/ressources/sounds/EyeOfTheTiger.ogg");
+		Music background = new Music(
+				"/ressources/sounds/EyeOfTheTiger.ogg");
 		background.loop();
-
+		
 		this.hud.init();
 	}
 
@@ -74,22 +73,21 @@ public class WindowMap extends BasicGame {
 		randomCombat();
 	}
 
-	public void randomCombat() {
-		if (this.player.isMoving() == true) {
-			if ((Math.random() * 100) > SEUIL_COMBAT) {
-				// lancer combat
+	public void randomCombat(){
+		if (this.player.isMoving() == true){
+			if ((Math.random() * 100) > SEUIL_COMBAT){
+				//lancer combat
 				System.out.println("Combat");
 				this.container.pause();
 				this.player.setMoving(false);
-				Personnage monstre = tabMonstres[(int) Math.random()];
+				Personnage monstre = tabMonstres[(int)Math.random()];
 				Combat combat = new Combat(player, monstre);
-
+				
 			}
-		}
+		}	
 	}
-
-	public void launchMap(MonstresCommuns tabM[], MonstresElites tabE[],
-			Personnage perso) throws SlickException {
+	
+	public void launchMap(MonstresCommuns tabM[], MonstresElites tabE[], Personnage perso) throws SlickException{
 		tabMonstres = tabM;
 		tabElites = tabE;
 		player.setPerso(perso);

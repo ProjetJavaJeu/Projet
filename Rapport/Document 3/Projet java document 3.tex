@@ -1,80 +1,123 @@
-\documentclass[a4paper,titlepage]{article}
-\usepackage[utf8]{inputenc}
-\author{Baptiste Vergote & Martin Schreinemachers}
-\begin{document}
-% Page de titre
-\titlepage{
-	\today \\[5cm]
-	\begin{flushright}\sf\Huge
-	{\bfseries \underline{Document 1 :}} \\[2mm]
-	{\bfseries Langage avancé de programmation} \\[3mm]
-	{\huge Mme Vroman \& \\Mme Van Den Schrieck}
-	\end{flushright}
-	\ \\[8cm]
-	\textbf{Baptiste Vergote \& Martin Schreinemachers 2TL2} \\
-	EPHEC LLN -- 2014-2015
-}
-\clearpage
-\noindent
-\tableofcontents
-\clearpage
-\section{TODO}
-\begin{enumerate}
-	\item Un document word comprenant : 
+	\documentclass[a4paper,titlepage]{article}
+	\usepackage[utf8]{inputenc}
+	\usepackage[export]{adjustbox}
+	\usepackage{graphicx}
+	\usepackage[margin=1.3in]{geometry}
+	
+	
+	\author{Baptiste Vergote & Martin Schreinemachers}
+	\begin{document}
+	% Page de titre
+	\titlepage{
+		\displaydate{16 Décembre 2014} \\[2cm]
+		\begin{center}\sf\Huge
+		{\bfseries \underline{Document 3 :}} \\[2mm]
+		{\bfseries Langage avancé de programmation} \\[3mm]
+		\begin{figure}[!h]
+		\centering
+			\includegraphics[scale=0.55]{image/800x600.jpg}
+		\end{figure}
+		\begin{center}
+		{\huge RPG - The Epic School Adventure}
+		
+		\end{center}
+		
+		\end{center}
+		\ \\[4cm]
+		\textbf{Baptiste Vergote \& Martin Schreinemachers 2TL2} \\
+		EPHEC LLN -- 2014-2015
+	}
+	\clearpage
+	\tableofcontents
+	\clearpage
+	\section*{TODO}
 	\begin{enumerate}
-		\item Une page de garde (noms, prénoms, class, titre du projet, un screenshot du projet, année académique).
-		\item Une introduction où vous présentez votre projet.
-		\item Le diagramme UML des classes OO que vous avez (ou un extrait intéressant).
-		\item Un texte expliquant tout ce qui est nécessaire pour que votre projet fonctionne (modification du path, driver à installer et dans ce cas les fournir, …).
-		\item Quelques screenshots de votre projet (idéalement pour illustrer des passages de votre travail – donc vous ne faites pas un titre screenshot mais vous en mettez là où c’est utile).
-		\item Le code source (ou un extrait représentatif) documenté du package principal de l’application (+fichier package-info.java).
-		\item La documentation du package principal (fichiers html générés par la javadoc)
-		\item Une description de votre stratégie de validation.
-		\item Une conclusion : que vous a apporté ce projet, quelles ont été les difficultés rencontrées, comment peut-on l’améliorer.
+		\item Un document word comprenant : 
+		\begin{enumerate}
+			\item Une page de garde (noms, prénoms, class, titre du projet, un screenshot du projet, année académique).
+			\item Une introduction où vous présentez votre projet.
+			\item Le diagramme UML des classes OO que vous avez (ou un extrait intéressant).
+			\item Un texte expliquant tout ce qui est nécessaire pour que votre projet fonctionne (modification du path, driver à installer et dans ce cas les fournir, …).
+			\item Quelques screenshots de votre projet (idéalement pour illustrer des passages de votre travail – donc vous ne faites pas un titre screenshot mais vous en mettez là où c’est utile).
+			\item Le code source (ou un extrait représentatif) documenté du package principal de l’application (+fichier package-info.java).
+			\item La documentation du package principal (fichiers html générés par la javadoc).
+			\item Une description de votre stratégie de validation.
+			\item Une conclusion : que vous a apporté ce projet, quelles ont été les difficultés rencontrées, comment peut-on l’améliorer.
+		\end{enumerate}
+		\item Tous vos codes sources et tests unitaires (le projet eclipse).
+		\item Le fichier JAR de votre application.
 	\end{enumerate}
-	\item Tous vos codes sources et tests unitaires (le projet eclipse).
-	\item Le fichier JAR de votre application.
-\end{enumerate}
-\clearpage
-\section{Introduction}
-Une introduction où vous présentez votre projet. -> A SUPPRIMER\\
-C'est dans les environs de Louvain-La-Neuve que l'aventure a démarré...\\
-Nous sommes assis dans une classe trop sombre, trop petite et qui sent la transpiration
-
-\clearpage
-\section{Diagramme UML}
-Le diagramme UML des classes OO que vous avez (ou un extrait intéressant).\\
-\clearpage
-
-\section{Necessité pour la fonctionnalité}
-Un texte expliquant tout ce qui est nécessaire pour que votre projet fonctionne (modification du path, driver à installer et dans ce cas les fournir, …).
-\clearpage
-
-\section{Captures d'écran}
-Quelques screenshots de votre projet (idéalement pour illustrer des passages de votre travail – donc vous ne faites pas un titre screenshot mais vous en mettez là où c’est utile).
-\clearpage
-
-\section{Documentation du package}
-\clearpage
-
-\section{Description de la stratégie de validation}
-\clearpage
-
-\section{Conclusion}
-\clearpage
-
-
-\section{Différentes classes}
-	Il existe deux classes dans notre programme : le Guerrier et le Mage.\\
-	Ces deux classes ont un attribut principal, et un attribut secondaire.\\
-	Le niveau maximum du jeu est 10.
+	\clearpage
+	\section{Introduction}
+	\textit{Une introduction où vous présentez votre projet. -> A SUPPRIMER}\\
 	
-\subsection{Guerrier}
-	La force est la caractéristique principale du guerrier, celle ci augmente de 1 chaque level !\\
-	L'endurance augmente aussi chaque level de 1\\
-	Endurance initial à 1, *10 pour obtenir ses pv, force à 1 !\\
-	Pour ce qui est de l'intelligence, elle est aussi élevée que celle de martin...\\ Je lui ai appliqué des valeurs (dans un tableau) en fonction du niveau du personnage : 	\{0,0,0,0,1,1,1,1,2,2\}
+	Dans un petite bourgade en plein centre du monde que j'attire votre attention...\\
+	Dans les environs de Louvain-La-Neuve, c'est en amont d'un lac puant que l'aventure a démarré...\\
 	
-\subsection{Mage}
-	endurance initial à 1, *7 pour obtenir ses pv, force à 0, inteligence à 1 !
-\end{document}
+	Une journée bien trop remplie... 3 heures à rester assis, à écouter et suivre, sans un mot ( ou ?de cours d'affilées), un challenge que peu arrive à endurer. C'est en êtres surhumains que les deux apprentis programmeurs, dont nous parlerons plus tard, se sont lancés dans un projet fou, insensé et sans fin..\\
+	
+	Actuellement, ils sommes assis dans une classe trop sombre, trop petite, qui sent la transpiration... Interdit/empécher(autre à trouver?) d'aérer à cause des autochtones qui peuplent l'établissement... Ceux ci ne cesse de l'empester de leurs parfums et de leurs fumées ragoutantes/répugnantes... Quel supplice de devoir les supporter au quotidien...\\
+	Ces derniers sont prèts à tout pour bouter nos héros hors de leur forteresse(chateau/royaume(?)).\\
+	
+	Mais nos deux héros, accompagnés d'une poignée, sont des durs à cuire, ils subissent des attaques de toute part mais ne flanchent pas(tiennent bon? (non, suite<-))..\\ 
+	Ils tiennent tête(s?) à ces soldats fous, fervants défenseurs des grands champions, "Ceux-dont-on-ne-doit-pas-prononcer-le-nom".\\
+	
+	Encourage par leurs proches, nos deux programmeurs aliénés/déséquilibrés(=Fou a l'extreme) se sont lancés dans l'aventure/expédition/odyssée/épreuve.\\
+	Accompagné de leur PC et de leurs cerveaus, affaiblis par les attaques répétées, ils ont commencé à imaginer un moyen d'arriver(non, autre) à leur but ultime (NO SPOIL !!).\\
+	
+	Serez vous assez fort pour les aider?\\
+	Parviendrez vous à arrêter toutes les menaces auxquels vous serez confrontés?\\
+	Si oui, suivez nous, arpentez vous dans ces contrées dangereuse et devenez protecteur des faibles et des opprimés!
+	
+	\clearpage
+	\section{Diagramme UML}
+	Le diagramme UML des classes OO que vous avez (ou un extrait intéressant).\\
+	\clearpage
+	
+	\section{Necessité pour la fonctionnalité}
+	Un texte expliquant tout ce qui est nécessaire pour que votre projet fonctionne (modification du path, driver à installer et dans ce cas les fournir, …).
+	\clearpage
+	
+	\section{Captures d'écran}
+	Quelques screenshots de votre projet (idéalement pour illustrer des passages de votre travail – donc vous ne faites pas un titre screenshot mais vous en mettez là où c’est utile).
+	
+	\begin{figure}
+	%	\includegraphics[scale=1]{Introduction.jpg}
+	\end{figure}
+		
+	\begin{figure}
+	%	\includegraphics[scale=1]{Introduction.jpg}
+	\end{figure}
+		
+	\begin{figure}
+	%	\includegraphics[scale=1]{Introduction.jpg}
+	\end{figure}
+	\clearpage
+	
+	\section{Documentation du package}
+	La documentation du package principal (fichiers html générés par la javadoc).
+	\clearpage
+	
+	\section{Description de la stratégie de validation}
+	Une description de votre stratégie de validation.
+	\clearpage
+	
+	\section{Conclusion}
+	Une conclusion : que vous a apporté ce projet, quelles ont été les difficultés rencontrées, comment peut-on l’améliorer.
+	\clearpage
+	
+	
+	\section{Différentes classes}
+		Il existe deux classes dans notre programme : le Guerrier et le Mage.\\
+		Ces deux classes ont un attribut principal, et un attribut secondaire.\\
+		Le niveau maximum du jeu est 10.
+		
+	\subsection{Guerrier}
+		La force est la caractéristique principale du guerrier, celle ci augmente de 1 chaque level !\\
+		L'endurance augmente aussi chaque level de 1\\
+		Endurance initial à 1, *10 pour obtenir ses pv, force à 1 !\\
+		Pour ce qui est de l'intelligence, elle est aussi élevée que celle de martin...\\ Je lui ai appliqué des valeurs (dans un tableau) en fonction du niveau du personnage : 	\{0,0,0,0,1,1,1,1,2,2\}
+		
+	\subsection{Mage}
+		endurance initial à 1, *7 pour obtenir ses pv, force à 0, inteligence à 1 !
+	\end{document}

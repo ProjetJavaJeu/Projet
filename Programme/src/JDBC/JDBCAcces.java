@@ -15,7 +15,10 @@ import PPersonnages.Personnage;
  *
  */
 
-public class JDBCAcces {
+public class JDBCAcces { // Save as JdbcSelectTest.java
+	//private MonstresCommuns tabMonstres[];
+	//private MonstresElites tabElites[];
+	//private Personnage perso;
 
 	public Statement initiationBDD(Connection connect, Statement dec)
 			throws ClassNotFoundException {
@@ -31,8 +34,7 @@ public class JDBCAcces {
 		return dec;
 	}
 
-	public Personnage JDBCPersonnage(Personnage perso, int choix)
-			throws ClassNotFoundException {
+	public void JDBCPersonnage(Personnage perso) throws ClassNotFoundException {
 		Connection connect = null;
 		Statement dec = null;
 		Caract caracter = new Caract();
@@ -65,7 +67,7 @@ public class JDBCAcces {
 				perso.getExperience().setXpAct(xp, niveau);
 				perso.getExperience().setNiveau(niveau);
 				int mana = rset.getInt("mana");
-
+				
 				rowCount++;
 			}
 
@@ -83,15 +85,14 @@ public class JDBCAcces {
 				ex.printStackTrace();
 			}
 		}
-		return perso;
+		
 	}
 
 	/**
 	 * 
 	 * @throws ClassNotFoundException
 	 */
-	public MonstresCommuns[] JDBCMonstres(MonstresCommuns tabMonstres[])
-			throws ClassNotFoundException {
+	public MonstresCommuns[] JDBCMonstres(MonstresCommuns tabmonstres[]) throws ClassNotFoundException {
 		Connection connect = null;
 		Statement dec = null;
 		try {
@@ -145,6 +146,6 @@ public class JDBCAcces {
 				ex.printStackTrace();
 			}
 		}
-		return tabMonstres;
+		return null;
 	}
 }

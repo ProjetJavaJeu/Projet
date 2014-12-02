@@ -7,7 +7,6 @@ public class Personnage {
 	private char type;
 	private String repliqueMonstres;
 	private Experience experience;
-	private int niveau;
 	
 	/**
 	 * Constructeur pour Monstres communs et elites/bosses
