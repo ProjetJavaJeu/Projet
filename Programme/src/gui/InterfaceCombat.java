@@ -66,8 +66,8 @@ public class InterfaceCombat extends JFrame {
 		// enemyPanel.setBackground(Color.black);
 		creationLabelMonstre(panelMonstre);
 	}
-	
-	public void creationLabelMonstre(JPanel enemyPanel){
+
+	public void creationLabelMonstre(JPanel enemyPanel) {
 		JLabel enemyLabel = new JLabel();
 		if (combat.getMonstreType() == '1') {
 			enemyLabel
@@ -89,13 +89,4 @@ public class InterfaceCombat extends JFrame {
 		actionPanel.add(label);
 	}
 
-	/*
-	 * public static void main(String[] args) throws SlickException { Map map =
-	 * new Map(); Player one = new Player(map, 200, 200);
-	 * one.getPerso().setType('M'); Player monster = new Player(map, 200, 200);
-	 * monster.getPerso().setType('2'); InterfaceCombat inter = new
-	 * InterfaceCombat(one, monster); inter.setVisible(true); inter.setSize(800,
-	 * 600); inter.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	 * inter.setLocationRelativeTo(null); }
-	 */// MAin de test.
 }

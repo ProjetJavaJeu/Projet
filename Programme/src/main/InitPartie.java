@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import gui.InterfaceCreationPersonnage;
 import gui.WindowMap;
 import JDBC.JDBCAcces;
 import PPersonnages.MonstresCommuns;
@@ -20,10 +21,15 @@ public class InitPartie {
 		this.windowMap = windowMap;
 	}
 
-
+	// Passer en paramètre Game.
 	public Personnage initPerso(Personnage perso, int choix) throws ClassNotFoundException{
 		JDBCAcces acc = new JDBCAcces();
-		acc.JDBCPersonnage(perso);		
+		if (choix == 1){
+			InterfaceCreationPersonnage interCreation = new InterfaceCreationPersonnage(perso);
+			perso = interCreation.getNouveauPersonnage();
+		}
+		
+		acc.JDBCPersonnage(perso, choix);		
 		return perso;
 	}
 	
