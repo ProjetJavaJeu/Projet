@@ -33,6 +33,8 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 	final static String PATH_MURLOC = "ressources/imagesCombat/murloc.jpg";
 	final static String CRITIQUE = " Coup Critique !!";
 	final static String FAIL = "Raté !";
+	final static String VICTOIRE = "victoire";
+	final static String DEFAITE = "defaite";
 
 	private static final long serialVersionUID = 2L;
 	private Game game;									// ATTENTION ! VERIFIER SI INTERFACECOMBAT A VRAIMENT BESOIN DE game.
@@ -138,18 +140,39 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 		}
 	}
 	
-	public void messageFinDeCombat(){
-		labelInfo.setText("");
+	/*
+	 * Post : renvoie un message signifiant que le joueur a gagné ou perdu.
+	 */
+	public void messageFinDeCombat(String message){	
+		labelInfo.setText("message");
 	}
 	
+	/*
+	 * Post : Appelle la méthode messageFinDeCombat et lui passe en paramètre un String contenant Victoire ou Defaite.
+	 */
+	public void checkCombat(){	//Vérifie si le joueur a gagné ou perdu.
+		if (combat.getMonstreKO() == true){
+			messageFinDeCombat(VICTOIRE);
+		}
+		else if (combat.getJoueurKO()== true){
+			messageFinDeCombat(DEFAITE);
+		}
+		
+		try {
+			Thread.sleep(3000);
+			this.dispose();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		combat.setMonstre(afficherRemarqueCoup(combat.attaque(combat.getJoueur(), combat.getMonstre()), combat.getJoueur().getType()));
-		if (combat.getMonstreKO() == true){
-			messageFinDeCombat();
-		}
-		afficherRemarqueCoup(combat.attaque(combat.getJoueur(), combat.getMonstre()), combat.getJoueur().getType());
-		
+		combat.setMonstre(combat.attaque(combat.getJoueur(), combat.getMonstre()));
+		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getJoueur().getType());
+		checkCombat();
+		combat.setJoueur(combat.attaque(combat.getJoueur(), combat.getMonstre()));
+		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getMonstre().getType());
+		checkCombat();
 	}
 
 }

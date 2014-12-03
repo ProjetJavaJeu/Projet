@@ -43,6 +43,15 @@ public class Combat {
 	public boolean getJoueurKO(){
 		return joueurKO;
 	}
+	
+	public char getEtatAttaque() {
+		return etatAttaque;
+	}	
+	
+	public void ajouterExperience(){// ??? Monstre doit changer de type
+		game.getJoueur().getExperience().setXpAct(monstre.), game.getJoueur().get);
+	}
+	
 	public void setVictimeKO(Personnage victime){
 		if (victime.getPv() <= 0){
 			victime.setPv(0);
@@ -82,5 +91,6 @@ public class Combat {
 			}
 			etatAttaque = 'E';
 			return null;
-		}	
+		}
+
 }

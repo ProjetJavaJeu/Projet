@@ -81,10 +81,8 @@ public class WindowMap extends BasicGame {
 				System.out.println("Combat");
 				this.container.pause();
 				this.player.setMoving(false);
-				// ICI lancer le combat et l'interface
 				Combat combat = new Combat(game);
 				InterfaceCombat interCombat = new InterfaceCombat(game, combat);
-
 			}
 		}
 	}
