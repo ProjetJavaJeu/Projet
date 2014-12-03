@@ -74,6 +74,10 @@ public class Personnage {
 		this.pv = pv;
 	}
 
+	public void setPvDiminution(int dommages){	//Cette méthode permet de retirer des points de vie lors d'une attaque.
+		this.pv = pv - dommages;
+	}
+	
 	public Caract getCaracter() {
 		return caracter;
 	}

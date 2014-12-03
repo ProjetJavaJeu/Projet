@@ -1,16 +1,58 @@
 package main;
 
+import javax.swing.text.StyledEditorKit.StyledTextAction;
+
 import PPersonnages.Personnage;
 import gui.WindowMap;
 
 public class Combat {
 
-	private Player player;
+	private Personnage joueur;
 	private Personnage monstre;
+	private Game game;
+	private boolean monstreKO = false;	//Donne l'etat du monste : en vie ou ko.
+	private boolean joueurKO = false;
+	private char etatAttaque;	//Représente l'état de l'attaque : Coup critique, raté ou erreur.
+	
+	public Combat(Game game){
+		this.game = game;
+		this.joueur = game.getJoueur();
+		this.monstre = game.getMonstre((int)Math.random());
+	}
+	
+	public Personnage getJoueur() {
+		return joueur;
+	}
 
-	public Combat(Player player, Personnage monstre) {
-		this.player = player;
+	public void setJoueur(Personnage joueur){
+		this.joueur = joueur;
+	}
+	
+	public void setMonstre(Personnage monstre){
 		this.monstre = monstre;
+	}
+	
+	public Personnage getMonstre() {
+		return monstre;
+	}
+
+	public boolean getMonstreKO(){
+		return monstreKO;
+	}
+	
+	public boolean getJoueurKO(){
+		return joueurKO;
+	}
+	public void setVictimeKO(Personnage victime){
+		if (victime.getPv() <= 0){
+			victime.setPv(0);
+			if (victime.getType() == 'M' | victime.getType() == 'G'){
+				joueurKO = true;
+			}
+			else {
+				monstreKO = true;
+			}
+		}
 	}
 
 	/**
@@ -20,36 +62,25 @@ public class Combat {
 	 * 
 	 * @return int = puissance de l'attaque
 	 */
-	public void attaque(Personnage attaquant, Personnage victime) {
+	public Personnage attaque(Personnage victime, Personnage attaquant) {
 		double rand = Math.random();
-		if (verifType(attaquant) == 1){
 			if (rand >= 0.85){
-				
+				victime.setPvDiminution(attaquant.getCaracter().getForce() * 2);
+				setVictimeKO(victime);
+				etatAttaque = 'C';
+				return victime;
 			}
 			else if ((rand < 0.85) && (rand >= 0.15)){
-				
+				victime.setPvDiminution(attaquant.getCaracter().getForce() * 2);
+				setVictimeKO(victime);
+				etatAttaque = 'N';
+				return victime;
 			}
 			else{
+				etatAttaque = 'F';
 				
 			}
-		}
-			
-	}
-	
-	public int verifType(Personnage attaquant){
-		if (attaquant.getType() == 'M'){
-			return 1;
-		}
-		else {
-			return 2;
-		}
-	}
-	
-	public char getPlayerType(){
-		return player.getPerso().getType();
-	}
-	
-	public char getMonstreType(){
-		return monstre.getType();
-	}
+			etatAttaque = 'E';
+			return null;
+		}	
 }

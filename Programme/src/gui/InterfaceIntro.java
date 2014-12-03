@@ -26,7 +26,6 @@ public class InterfaceIntro extends JFrame implements MouseListener {
 	private static final long serialVersionUID = 1L;
 	private int choix = 0;
 	private WindowMap windowMap;
-	private Personnage perso = new Personnage();
 	private Game game;
 	
 	public InterfaceIntro(Game game) {
@@ -69,14 +68,14 @@ public class InterfaceIntro extends JFrame implements MouseListener {
 
 			try {
 				
-				game.setTabMonstres(game.getInit().initMonstres(game.getTabMonstres()));
-				perso = game.getInit().initPerso(perso, choix);
+				game.setTabMonstres(game.getInit().initMonstres(game.getTabMonstres()));	//On remplit le(s) tableau(x) de monstres.
+				game.setJoueur(game.getInit().initPerso(game.getJoueur(), choix));		//On crée le personnage.
 
 			} catch (ClassNotFoundException e3) {
 				e3.printStackTrace();
 			}
 			try {
-				windowMap.launchMap(game.getTabMonstres(), game.getTabElites(), perso);
+				windowMap.launchMap(game);		//On lance l'interface de déplacement.
 			} catch (SlickException e1) {
 
 				e1.printStackTrace();

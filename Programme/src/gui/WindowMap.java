@@ -1,6 +1,7 @@
 package gui;
 
 import main.Combat;
+import main.Game;
 import main.Player;
 import main.PlayerController;
 import main.TriggerController;
@@ -26,8 +27,7 @@ public class WindowMap extends BasicGame {
 	private Camera camera = new Camera(player);
 	private TriggerController triggers = new TriggerController(map, player);
 	private Hud hud = new Hud();
-	private MonstresCommuns tabMonstres[];
-	private MonstresElites tabElites[];
+	private Game game;
 
 	public WindowMap() {
 		super("The Epic School Adventure !");
@@ -81,18 +81,16 @@ public class WindowMap extends BasicGame {
 				System.out.println("Combat");
 				this.container.pause();
 				this.player.setMoving(false);
-				Personnage monstre = tabMonstres[(int) Math.random()];
-				Combat combat = new Combat(player, monstre);
+				// ICI lancer le combat et l'interface
+				Combat combat = new Combat(game);
+				InterfaceCombat interCombat = new InterfaceCombat(game, combat);
 
 			}
 		}
 	}
 
-	public void launchMap(MonstresCommuns tabM[], MonstresElites tabE[],
-			Personnage perso) throws SlickException {
-		tabMonstres = tabM;
-		tabElites = tabE;
-		player.setPerso(perso);
+	public void launchMap(Game game) throws SlickException {
+		this.game = game;
 		new AppGameContainer(this, 1366, 768, true).start();
 	}
 }

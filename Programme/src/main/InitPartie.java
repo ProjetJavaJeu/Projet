@@ -28,7 +28,6 @@ public class InitPartie {
 			InterfaceCreationPersonnage interCreation = new InterfaceCreationPersonnage(perso);
 			perso = interCreation.getNouveauPersonnage();
 		}
-		
 		acc.JDBCPersonnage(perso, choix);		
 		return perso;
 	}
