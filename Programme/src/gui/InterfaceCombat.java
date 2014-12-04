@@ -1,30 +1,19 @@
 package gui;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Insets;
-
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import main.Combat;
 import main.Game;
-import main.Player;
-
-import org.newdawn.slick.SlickException;
-
 import PPersonnages.MonstresCommuns;
-import PPersonnages.Personnage;
 
 public class InterfaceCombat extends JFrame implements ActionListener {
 
@@ -187,7 +176,7 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 		majInformations(combat.getFrappe(), combat.getJoueur().getType());
 		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getJoueur().getType());
 		checkCombat();
-		combat.setJoueur(combat.attaque(combat.getJoueur(), combat.getMonstre()));
+		game.setJoueur(combat.attaque(combat.getJoueur(), combat.getMonstre()));
 		majInformations(combat.getFrappe(), combat.getMonstre().getType());
 		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getMonstre().getType());
 		checkCombat();

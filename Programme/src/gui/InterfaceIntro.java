@@ -9,28 +9,19 @@ import javax.swing.JButton;
 import javax.swing.border.EmptyBorder;
 
 import main.Game;
-import main.InitPartie;
-
 import org.newdawn.slick.SlickException;
-
-import PPersonnages.MonstresCommuns;
-import PPersonnages.MonstresElites;
-import PPersonnages.Personnage;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class InterfaceIntro extends JFrame implements MouseListener {
-	
 
 	private static final long serialVersionUID = 1L;
 	private int choix = 0;
-	private WindowMap windowMap;
 	private Game game;
-	
+
 	public InterfaceIntro(Game game) {
 		this.game = game;
-		this.windowMap = game.getWindowMap();
 		this.setVisible(true);
 		this.setSize(800, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -67,21 +58,16 @@ public class InterfaceIntro extends JFrame implements MouseListener {
 		} else {
 
 			try {
-				
-				game.setTabMonstres(game.getInit().initMonstres(game.getTabMonstres()));	//On remplit le(s) tableau(x) de monstres.
-				game.setJoueur(game.getInit().initPerso(game.getJoueur(), choix));		//On crée le personnage.
+				game.setTabMonstres(game.getInit().initMonstres(
+						game.getTabMonstres())); // On remplit le(s) tableau(x)
+													// de monstres.
+				game.getInit()
+						.initPerso(game, choix); // On crée le
+				this.dispose();					// personnages
 
 			} catch (ClassNotFoundException e3) {
 				e3.printStackTrace();
 			}
-			try {
-				windowMap.launchMap(game);		//On lance l'interface de déplacement.
-			} catch (SlickException e1) {
-
-				e1.printStackTrace();
-			}
-			System.out.println("Ca passe ici");
-			this.dispose();
 		}
 	}
 

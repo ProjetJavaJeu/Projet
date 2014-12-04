@@ -12,37 +12,35 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-
-import javax.swing.BoxLayout;
-
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.Box;
 
-public class InterfaceCreationPersonnage extends JFrame implements ActionListener, MouseListener{
+import org.newdawn.slick.SlickException;
+
+import main.Game;
+
+public class InterfaceCreationPersonnage extends JFrame implements MouseListener{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -3929685799739067735L;
-	private Personnage perso;
+	private Game game;
 	private JTextField textField;
 	private JLabel messageErreurClasse;
 	private JLabel messageErreurPseudo;
 	
-	public InterfaceCreationPersonnage(Personnage perso){
-		this.perso = perso;
+	public InterfaceCreationPersonnage(Game game){
+		this.game = game;
 		this.setVisible(true);
+		this.setSize(800, 600);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);	//A retirer ? A voir.
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		flowLayout.setVgap(20);
@@ -64,15 +62,15 @@ public class InterfaceCreationPersonnage extends JFrame implements ActionListene
 		panel_1.add(verticalBox);
 		
 		JRadioButton rdbtnGuerrier = new JRadioButton("Guerrier");
-		rdbtnGuerrier.addActionListener(this);
+		rdbtnGuerrier.addMouseListener(this);
 		verticalBox.add(rdbtnGuerrier);
 		
 		JRadioButton rdbtnMage = new JRadioButton("Mage");
-		rdbtnMage.addActionListener(this);
+		rdbtnMage.addMouseListener(this);
 		verticalBox.add(rdbtnMage);
 		
 		JButton btnContinuer = new JButton("Continuer");
-		btnContinuer.addActionListener(this);
+		btnContinuer.addMouseListener(this);
 		verticalBox.add(btnContinuer);
 		
 		JPanel panel_2 = new JPanel();
@@ -83,40 +81,47 @@ public class InterfaceCreationPersonnage extends JFrame implements ActionListene
 		panel_2.add(messageErreurClasse);
 		
 		messageErreurPseudo = new JLabel("Veuillez entrer un pseudonyme pour continuer ");
-		messageErreurClasse.setVisible(false);
+		messageErreurPseudo.setVisible(false);
 		panel_2.add(messageErreurPseudo);
 		
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionValider() throws SlickException {
 		String pseudo = textField.getText();
+		System.out.println("pseudo = "+ pseudo);
 		if (pseudo.equals("")){
 			this.messageErreurPseudo.setVisible(true);
 		}
 		else {
-			perso.setNom(pseudo);
+			game.getJoueur().setNom(pseudo);
 			this.messageErreurPseudo.setVisible(false);
+			
+			if ((game.getJoueur().getType() != 'M') | (game.getJoueur().getType() != 'G')){
+				this.messageErreurClasse.setVisible(true);
+			}
+			else {
+				this.messageErreurClasse.setVisible(false);
+				game.getWindowMap().launchMap(game);
+				this.dispose();
+			}
 		}
-		if ((perso.getType() != 'M') | (perso.getType() != 'G')){
-			this.messageErreurClasse.setVisible(true);
-		}
-		else {
-			this.messageErreurClasse.setVisible(false);
-		}
-	}
-
-	public Personnage getNouveauPersonnage(){
-		return perso;
 	}
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getButton() == 1){
-			perso.setType('G');
+			game.getJoueur().setType('G');
 		}
-		else
-			perso.setType('M');
+		else if (e.getButton()== 2){
+			game.getJoueur().setType('M');
+		}
+		else if (e.getButton() == 3){
+			try {
+				actionValider();
+			} catch (SlickException e1) {
+				e1.printStackTrace();
+			}
+		}
 	}
 
 	@Override

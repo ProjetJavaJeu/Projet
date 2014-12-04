@@ -60,7 +60,6 @@ public class Personnage {
 	
 	//Constructeur vide
 	public Personnage(){
-		
 	}
 	
 	public void setPvIntial(){

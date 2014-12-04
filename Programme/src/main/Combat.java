@@ -1,10 +1,7 @@
 package main;
 
-import javax.swing.text.StyledEditorKit.StyledTextAction;
-
 import PPersonnages.MonstresCommuns;
 import PPersonnages.Personnage;
-import gui.WindowMap;
 
 public class Combat {
 

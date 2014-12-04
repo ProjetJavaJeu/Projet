@@ -9,6 +9,7 @@ import java.sql.Statement;
 import gui.InterfaceCreationPersonnage;
 import gui.WindowMap;
 import JDBC.JDBCAcces;
+import PPersonnages.Caract;
 import PPersonnages.MonstresCommuns;
 import PPersonnages.MonstresElites;
 import PPersonnages.Personnage;
@@ -22,20 +23,27 @@ public class InitPartie {
 	}
 
 	// Passer en paramètre Game.
-	public Personnage initPerso(Personnage perso, int choix) throws ClassNotFoundException{
+	public void initPerso(Game game, int choix) throws ClassNotFoundException{
 		JDBCAcces acc = new JDBCAcces();
 		if (choix == 1){
-			InterfaceCreationPersonnage interCreation = new InterfaceCreationPersonnage(perso);
-			perso = interCreation.getNouveauPersonnage();
-			interCreation.dispose();
+			InterfaceCreationPersonnage interCreation = new InterfaceCreationPersonnage(game);
 		}
-		perso = acc.JDBCPersonnage(perso, choix);		
-		return perso;
+		//perso = acc.JDBCPersonnage(perso, choix);		
+		//Creation perso hardcode pour test
+		game.getJoueur().setCaracter(new Caract(1, 0, 1));
+		game.getJoueur().setNiveau(1);
+		game.getJoueur().setPvIntial();
+		game.getJoueur().setType('G');
 	}
 	
 	public MonstresCommuns[] initMonstres(MonstresCommuns tabMonstres[]) throws ClassNotFoundException{
-		JDBCAcces acc = new JDBCAcces();
-		tabMonstres = acc.JDBCMonstres(tabMonstres);
+		//JDBCAcces acc = new JDBCAcces();
+		//tabMonstres = acc.JDBCMonstres(tabMonstres);
+		Caract caract = new Caract(1, 2, 5);
+		MonstresCommuns monstre = new MonstresCommuns("Orc", caract, '1', "", 2);
+		for (int i = 0; i < 5; i++){
+			tabMonstres[i] = monstre;
+		}
 		return tabMonstres;
 	}
 	

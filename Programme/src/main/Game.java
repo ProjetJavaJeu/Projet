@@ -1,11 +1,7 @@
 package main;
 
-import gui.InterfaceCombat;
 import gui.InterfaceIntro;
 import gui.WindowMap;
-
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 
 import org.newdawn.slick.SlickException;
 
@@ -66,6 +62,7 @@ public class Game{
 	
 	public static void main(String[] args) throws SlickException, InterruptedException {
 		Game game = new Game();
+		game.joueur = new Personnage();
 		InterfaceIntro interDebut = new InterfaceIntro(game);	
 	}
 }

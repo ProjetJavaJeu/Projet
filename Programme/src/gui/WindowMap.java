@@ -13,10 +13,6 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 
-import PPersonnages.MonstresCommuns;
-import PPersonnages.MonstresElites;
-import PPersonnages.Personnage;
-
 public class WindowMap extends BasicGame {
 
 	final static double SEUIL_COMBAT = 95; // Si le résultat du random est
