@@ -2,22 +2,28 @@ package main;
 
 import javax.swing.text.StyledEditorKit.StyledTextAction;
 
+import PPersonnages.MonstresCommuns;
 import PPersonnages.Personnage;
 import gui.WindowMap;
 
 public class Combat {
 
 	private Personnage joueur;
-	private Personnage monstre;
+	private MonstresCommuns monstre;
 	private Game game;
 	private boolean monstreKO = false;	//Donne l'etat du monste : en vie ou ko.
 	private boolean joueurKO = false;
 	private char etatAttaque;	//Représente l'état de l'attaque : Coup critique, raté ou erreur.
+	private int frappe;			//Représente numériquement la frappe à afficher en informations (voir interfaceCombat).
 	
 	public Combat(Game game){
 		this.game = game;
 		this.joueur = game.getJoueur();
 		this.monstre = game.getMonstre((int)Math.random());
+	}
+	
+	public int getFrappe(){
+		return frappe;
 	}
 	
 	public Personnage getJoueur() {
@@ -28,7 +34,7 @@ public class Combat {
 		this.joueur = joueur;
 	}
 	
-	public void setMonstre(Personnage monstre){
+	public void setMonstre(MonstresCommuns monstre){
 		this.monstre = monstre;
 	}
 	
@@ -49,7 +55,10 @@ public class Combat {
 	}	
 	
 	public void ajouterExperience(){// ??? Monstre doit changer de type
-		game.getJoueur().getExperience().setXpAct(monstre.), game.getJoueur().get);
+		boolean levelUp = game.getJoueur().getExperience().setXpAct(monstre.xpDonnee(), game.getJoueur().getNiveau());
+		if (levelUp == true){	//Vérifier limite level max ? if level <= 10 ?
+			game.getJoueur().setNiveau(game.getJoueur().getNiveau() + 1);
+		}
 	}
 	
 	public void setVictimeKO(Personnage victime){
@@ -74,13 +83,15 @@ public class Combat {
 	public Personnage attaque(Personnage victime, Personnage attaquant) {
 		double rand = Math.random();
 			if (rand >= 0.85){
-				victime.setPvDiminution(attaquant.getCaracter().getForce() * 2);
+				frappe = attaquant.getCaracter().getForce() * 2;
+				victime.setPvDiminution(frappe);
 				setVictimeKO(victime);
 				etatAttaque = 'C';
 				return victime;
 			}
 			else if ((rand < 0.85) && (rand >= 0.15)){
-				victime.setPvDiminution(attaquant.getCaracter().getForce() * 2);
+				frappe = attaquant.getCaracter().getForce();
+				victime.setPvDiminution(frappe);
 				setVictimeKO(victime);
 				etatAttaque = 'N';
 				return victime;

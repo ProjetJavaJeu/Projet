@@ -96,9 +96,13 @@ public class InterfaceCreationPersonnage extends JFrame implements ActionListene
 		}
 		else {
 			perso.setNom(pseudo);
+			this.messageErreurPseudo.setVisible(false);
 		}
 		if ((perso.getType() != 'M') | (perso.getType() != 'G')){
 			this.messageErreurClasse.setVisible(true);
+		}
+		else {
+			this.messageErreurClasse.setVisible(false);
 		}
 	}
 

@@ -27,8 +27,9 @@ public class InitPartie {
 		if (choix == 1){
 			InterfaceCreationPersonnage interCreation = new InterfaceCreationPersonnage(perso);
 			perso = interCreation.getNouveauPersonnage();
+			interCreation.dispose();
 		}
-		acc.JDBCPersonnage(perso, choix);		
+		perso = acc.JDBCPersonnage(perso, choix);		
 		return perso;
 	}
 	

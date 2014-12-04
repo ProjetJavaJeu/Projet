@@ -23,6 +23,7 @@ import main.Player;
 
 import org.newdawn.slick.SlickException;
 
+import PPersonnages.MonstresCommuns;
 import PPersonnages.Personnage;
 
 public class InterfaceCombat extends JFrame implements ActionListener {
@@ -50,6 +51,7 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 		creationPanelJoueur();
 		creationPanelMonstre();
 		creationPanelAction();
+		creationPanelInfoCoup();
 	}
 
 	public void creationPanelJoueur() {
@@ -103,7 +105,9 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 		actionPanel.add(btnAttaque);
 		labelInfo = new JLabel("C'est votre tour !");
 		actionPanel.add(labelInfo);
-
+	}
+	
+	public void creationPanelInfoCoup(){
 		JPanel remarqueCoup = new JPanel();
 		getContentPane().add(remarqueCoup, BorderLayout.NORTH);
 		
@@ -146,7 +150,6 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 	public void messageFinDeCombat(String message){	
 		labelInfo.setText("message");
 	}
-	
 	/*
 	 * Post : Appelle la méthode messageFinDeCombat et lui passe en paramètre un String contenant Victoire ou Defaite.
 	 */
@@ -165,14 +168,30 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 			e.printStackTrace();
 		}
 	}
+	
+	public void majInformations(int frappe, char typeAttaquant){
+		if (typeAttaquant == 'M' | typeAttaquant =='G'){
+			labelInfo.setText("Vous infligez "+ frappe+ " points de dégats ! ");
+		}
+		else {
+			labelInfo.setText("Le monstre vous inflige "+ frappe + " points de dégats");
+		}
+	}
+	
 	@Override
+	/*
+	 * Lorsque l'utilisateur clique sur le bouton attaque, une attaque est lancée du joueur sur le monstre.
+	 */
 	public void actionPerformed(ActionEvent arg0) {
-		combat.setMonstre(combat.attaque(combat.getJoueur(), combat.getMonstre()));
+		combat.setMonstre((MonstresCommuns)combat.attaque(combat.getJoueur(), combat.getMonstre()));	//Typecast c'est la vie ! <3 <3 <3
+		majInformations(combat.getFrappe(), combat.getJoueur().getType());
 		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getJoueur().getType());
 		checkCombat();
 		combat.setJoueur(combat.attaque(combat.getJoueur(), combat.getMonstre()));
+		majInformations(combat.getFrappe(), combat.getMonstre().getType());
 		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getMonstre().getType());
 		checkCombat();
+		
 	}
 
 }

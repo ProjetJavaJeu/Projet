@@ -51,8 +51,11 @@ public class JDBCAcces {
 
 			while (rset.next()) {
 				perso.setType(rset.getString("type").charAt(0));
-				int id = rset.getInt("id"); // Stock dans un int + typecast
-				perso.setNom(rset.getString("Nom"));
+				int id = rset.getInt("id"); // Stock dans un int + typecast(getInt)
+				String nom = rset.getString("Nom");
+				if (choix == 2){
+					perso.setNom(nom);
+				}
 				String typePersonnage = rset.getString("typePersonnage");
 				caracter.setForce(rset.getInt("carForce"));
 				caracter.setIntelligence(rset.getInt("carIntel"));
@@ -63,7 +66,7 @@ public class JDBCAcces {
 				perso.setPvIntial();
 				int niveau = rset.getInt("niveau");
 				perso.getExperience().setXpAct(xp, niveau);
-				perso.getExperience().setNiveau(niveau);
+				perso.setNiveau(niveau);
 				int mana = rset.getInt("mana");
 
 				rowCount++;
@@ -94,6 +97,8 @@ public class JDBCAcces {
 			throws ClassNotFoundException {
 		Connection connect = null;
 		Statement dec = null;
+		MonstresCommuns monstre = new MonstresCommuns();
+		Caract caracteristique = new Caract();
 		try {
 
 			dec = initiationBDD(connect, dec);
@@ -106,23 +111,18 @@ public class JDBCAcces {
 
 			System.out.println("The records selected are:");
 			int rowCount = 0;
-			MonstresCommuns[] tabM = new MonstresCommuns[20];
 			while (rset.next()) {
-				String nom = rset.getString("nom");
-				int carForce = rset.getInt("carForce");
-				int carIntel = rset.getInt("carIntel");
-				int carEndu = rset.getInt("carEndu");
-				char type = rset.getString("type").charAt(0);
+				monstre.setNom(rset.getString("nom"));
+				caracteristique.setForce(rset.getInt("carForce"));
+				caracteristique.setIntelligence(rset.getInt("carIntel"));
+				caracteristique.setEndurance(rset.getInt("carEndu"));
+				monstre.setType(rset.getString("type").charAt(0));
 
-				String replique = rset.getString("replique");
-				int xpDonnee = rset.getInt("xpDonnee");
-				Caract car = new Caract(carForce, carIntel, carEndu);
+				monstre.setRepliqueMonstres(rset.getString("replique"));
+				monstre.setXpDonnee(rset.getInt("xpDonnee"));
 
-				MonstresCommuns i = new MonstresCommuns(nom, car, type,
-						replique, xpDonnee);
-
-				tabM[rowCount] = i;
-				System.out.println("nom = " + tabM[rowCount].getNom());
+				tabMonstres[rowCount] = monstre;
+				System.out.println("nom = " + tabMonstres[rowCount].getNom());
 
 				/*
 				 * System.out.println(id + ", " + nom + ", " + typePersonnage +

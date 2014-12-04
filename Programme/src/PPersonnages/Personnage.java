@@ -9,6 +9,14 @@ public class Personnage {
 	private Experience experience;
 	private int niveau;
 	
+	public void setNiveau(int niveau) {
+		this.niveau = niveau;
+	}
+
+	public int getNiveau() {
+		return niveau;
+	}
+
 	/**
 	 * Constructeur pour Monstres communs et elites/bosses
 	 * @param nom

@@ -10,6 +10,17 @@ public class MonstresCommuns extends Personnage{
 		this.xpDonnee = xpDonnee;
 	}
 	
+	public MonstresCommuns(){
+		
+	}
+
+	public int getXpDonnee() {
+		return xpDonnee;
+	}
+
+	public void setXpDonnee(int xpDonnee) {
+		this.xpDonnee = xpDonnee;
+	}
 
 	public int xpDonnee(){
 		return this.xpDonnee;
