@@ -15,7 +15,7 @@ import org.newdawn.slick.SlickException;
 
 public class WindowMap extends BasicGame {
 
-	final static double SEUIL_COMBAT = 95; // Si le résultat du random est
+	final static double SEUIL_COMBAT = 98; // Si le résultat du random est
 											// supérieur à 95, il y a combat.
 	private GameContainer container;
 	private Map map = new Map();
@@ -67,6 +67,7 @@ public class WindowMap extends BasicGame {
 		this.triggers.update();
 		this.player.update(delta);
 		this.camera.update(container);
+		System.out.println("ca passe ici");
 		randomCombat();
 	}
 
@@ -74,7 +75,6 @@ public class WindowMap extends BasicGame {
 		if (this.player.isMoving() == true) {
 			if ((Math.random() * 100) > SEUIL_COMBAT) {
 				// lancer combat
-				System.out.println("Combat");
 				this.container.pause();
 				this.player.setMoving(false);
 				Combat combat = new Combat(game);

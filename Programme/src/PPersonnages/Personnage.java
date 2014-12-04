@@ -133,12 +133,4 @@ public class Personnage {
 			return -1;
 	}
 */
-	public static void main(String[] args) {
-		Caract car = new Caract(1,2,3);
-		//Personnage un = new Personnage("bonjour", car, 'M'); //String nom, int intel, int force, int endu, char type ,int pv
-		//System.out.println("Endu = " + un.caracter.getEndurance() + " PV =  " + un.pv); // Pour vérifier que PV=7*endu mais plante !!	
-		//String nom, Caract caracter, char typeMonstres, String repliqueMonstres
-		Personnage monst = new Personnage("Hihi", car, '1', "U SHALL NOT PASS");
-		System.out.println("Monstres = " + monst.pv);
-	}
 }

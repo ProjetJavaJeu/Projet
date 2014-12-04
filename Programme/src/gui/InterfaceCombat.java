@@ -35,6 +35,9 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 	public InterfaceCombat(Game game, Combat combat) {
 		this.game = game;
 		this.combat = combat;
+		this.setVisible(true);
+		this.setSize(800, 600);
+		this.setLocationRelativeTo(null);
 		// getContentPane().setBackground(Color.black);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		creationPanelJoueur();
@@ -132,7 +135,6 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 			e.printStackTrace();
 		}
 	}
-	
 	/*
 	 * Post : renvoie un message signifiant que le joueur a gagné ou perdu.
 	 */

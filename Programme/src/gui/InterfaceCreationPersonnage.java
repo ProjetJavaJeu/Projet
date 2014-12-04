@@ -7,6 +7,7 @@ import PPersonnages.Personnage;
 import javax.swing.JPanel;
 
 import java.awt.BorderLayout;
+import java.awt.MouseInfo;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -25,7 +26,7 @@ import org.newdawn.slick.SlickException;
 
 import main.Game;
 
-public class InterfaceCreationPersonnage extends JFrame implements MouseListener{
+public class InterfaceCreationPersonnage extends JFrame implements ActionListener{
 	
 	/**
 	 * 
@@ -35,19 +36,23 @@ public class InterfaceCreationPersonnage extends JFrame implements MouseListener
 	private JTextField textField;
 	private JLabel messageErreurClasse;
 	private JLabel messageErreurPseudo;
+	private JButton btnContinuer;
+	private JRadioButton rdBtnGuerrier;
+	private JRadioButton rdBtnMage;
 	
 	public InterfaceCreationPersonnage(Game game){
 		this.game = game;
 		this.setVisible(true);
 		this.setSize(800, 600);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);	//A retirer ? A voir.
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);//A retirer ? A voir.
+		this.setLocationRelativeTo(null);
 		JPanel panel = new JPanel();
 		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
 		flowLayout.setVgap(20);
 		getContentPane().add(panel, BorderLayout.NORTH);
 		
-		JLabel lblPseudo = new JLabel("Pseudo : ");
-		panel.add(lblPseudo);
+		JLabel labelPseudo = new JLabel("Pseudo : ");
+		panel.add(labelPseudo);
 		
 		textField = new JTextField();
 		panel.add(textField);
@@ -61,42 +66,43 @@ public class InterfaceCreationPersonnage extends JFrame implements MouseListener
 		Box verticalBox = Box.createVerticalBox();
 		panel_1.add(verticalBox);
 		
-		JRadioButton rdbtnGuerrier = new JRadioButton("Guerrier");
-		rdbtnGuerrier.addMouseListener(this);
-		verticalBox.add(rdbtnGuerrier);
+		rdBtnGuerrier = new JRadioButton("Guerrier");
+		rdBtnGuerrier.addActionListener(this);
+		verticalBox.add(rdBtnGuerrier);
 		
-		JRadioButton rdbtnMage = new JRadioButton("Mage");
-		rdbtnMage.addMouseListener(this);
-		verticalBox.add(rdbtnMage);
+		rdBtnMage = new JRadioButton("Mage");
+		rdBtnMage.addActionListener(this);
+		verticalBox.add(rdBtnMage);
 		
-		JButton btnContinuer = new JButton("Continuer");
-		btnContinuer.addMouseListener(this);
+		btnContinuer = new JButton("Continuer");
+		btnContinuer.addActionListener(this);
 		verticalBox.add(btnContinuer);
 		
 		JPanel panel_2 = new JPanel();
 		getContentPane().add(panel_2, BorderLayout.SOUTH);
 		
-		messageErreurClasse = new JLabel("Veuillez choisir une classe avant de continuer ! ");
+		messageErreurClasse = new JLabel("Veuillez choisir une classe avant de continuer !");
 		messageErreurClasse.setVisible(false);
 		panel_2.add(messageErreurClasse);
 		
-		messageErreurPseudo = new JLabel("Veuillez entrer un pseudonyme pour continuer ");
+		messageErreurPseudo = new JLabel("Veuillez entrer un pseudonyme pour continuer !");
 		messageErreurPseudo.setVisible(false);
 		panel_2.add(messageErreurPseudo);
 		
 	}
 
 	public void actionValider() throws SlickException {
+		System.out.println("type : " + game.getJoueur().getType());
 		String pseudo = textField.getText();
-		System.out.println("pseudo = "+ pseudo);
+		System.out.println("pseudo = " + pseudo);
 		if (pseudo.equals("")){
 			this.messageErreurPseudo.setVisible(true);
 		}
 		else {
 			game.getJoueur().setNom(pseudo);
 			this.messageErreurPseudo.setVisible(false);
-			
-			if ((game.getJoueur().getType() != 'M') | (game.getJoueur().getType() != 'G')){
+			System.out.println(game.getJoueur().getType());
+			if ((game.getJoueur().getType() != 'M') & (game.getJoueur().getType() != 'G')){
 				this.messageErreurClasse.setVisible(true);
 			}
 			else {
@@ -108,45 +114,24 @@ public class InterfaceCreationPersonnage extends JFrame implements MouseListener
 	}
 	
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		if (e.getButton() == 1){
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		if (source == rdBtnGuerrier){
 			game.getJoueur().setType('G');
 		}
-		else if (e.getButton()== 2){
+		else if (source == rdBtnMage){
 			game.getJoueur().setType('M');
 		}
-		else if (e.getButton() == 3){
+		else if (source == btnContinuer){
+			System.out.println("Continuer");
 			try {
 				actionValider();
 			} catch (SlickException e1) {
 				e1.printStackTrace();
+			
+		
 			}
-		}
-	}
 
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		}	
 	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
 }

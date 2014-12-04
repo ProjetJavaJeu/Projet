@@ -52,7 +52,6 @@ public class InterfaceIntro extends JFrame implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		choix = e.getButton();
-		System.out.println(choix);
 		if (choix == 3) {
 			game.getInit().options();
 		} else {
