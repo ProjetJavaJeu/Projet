@@ -15,8 +15,10 @@ import org.newdawn.slick.SlickException;
 
 public class WindowMap extends BasicGame {
 
-	final static double SEUIL_COMBAT = 98; // Si le résultat du random est
-											// supérieur à 95, il y a combat.
+	final static double SEUIL_COMBAT = 98; 	// Si le résultat du random est
+	final static int MAX_FPS = 60;		// supérieur à 95, il y a combat.
+	
+	private AppGameContainer appGame;
 	private GameContainer container;
 	private Map map = new Map();
 	private Player player = new Player(map, 200, 200);
@@ -67,14 +69,13 @@ public class WindowMap extends BasicGame {
 		this.triggers.update();
 		this.player.update(delta);
 		this.camera.update(container);
-		System.out.println("ca passe ici");
 		randomCombat();
 	}
 
 	public void randomCombat() {
 		if (this.player.isMoving() == true) {
 			if ((Math.random() * 100) > SEUIL_COMBAT) {
-				// lancer combat
+				
 				this.container.pause();
 				this.player.setMoving(false);
 				Combat combat = new Combat(game);
@@ -85,6 +86,11 @@ public class WindowMap extends BasicGame {
 
 	public void launchMap(Game game) throws SlickException {
 		this.game = game;
-		new AppGameContainer(this, 1366, 768, true).start();
+		appGame = new AppGameContainer(this, 800, 600, true);
+		appGame.setTargetFrameRate(MAX_FPS);
+		appGame.start();
+		appGame.setAlwaysRender(false);
+		appGame.setTargetFrameRate(MAX_FPS);
+		appGame.setMaximumLogicUpdateInterval(MAX_FPS);
 	}
 }
