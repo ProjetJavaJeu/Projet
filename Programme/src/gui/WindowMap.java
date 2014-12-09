@@ -76,7 +76,7 @@ public class WindowMap extends BasicGame {
 		if (this.player.isMoving() == true) {
 			if ((Math.random() * 100) > SEUIL_COMBAT) {
 				
-				this.container.pause();
+				//this.container.pause();
 				this.player.setMoving(false);
 				Combat combat = new Combat(game);
 				InterfaceCombat interCombat = new InterfaceCombat(game, combat);
@@ -90,6 +90,7 @@ public class WindowMap extends BasicGame {
 		appGame.setTargetFrameRate(MAX_FPS);
 		appGame.start();
 		appGame.setAlwaysRender(false);
+		
 		appGame.setTargetFrameRate(MAX_FPS);
 		appGame.setMaximumLogicUpdateInterval(MAX_FPS);
 	}

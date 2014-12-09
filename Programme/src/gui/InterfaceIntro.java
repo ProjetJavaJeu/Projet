@@ -63,7 +63,7 @@ public class InterfaceIntro extends JFrame implements MouseListener {
 				game.getInit()
 						.initPerso(game, choix); // On crée le
 				this.dispose();					// personnages
-
+				System.out.println("ca passe par le dispose");
 			} catch (ClassNotFoundException e3) {
 				e3.printStackTrace();
 			}
