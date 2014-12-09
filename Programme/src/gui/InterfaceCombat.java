@@ -27,12 +27,13 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 	final static String DEFAITE = "defaite";
 
 	private static final long serialVersionUID = 2L;
-	private Game game;									// ATTENTION ! VERIFIER SI INTERFACECOMBAT A VRAIMENT BESOIN DE game.
+	private Game game; // ATTENTION ! VERIFIER SI INTERFACECOMBAT A VRAIMENT
+						// BESOIN DE game.
 	private Combat combat;
 	private JLabel etatAttaque;
 	private JLabel labelInfo;
-	
-	public InterfaceCombat(Game game, Combat combat) {
+
+	public InterfaceCombat( Game game, Combat combat ) {
 		this.game = game;
 		this.combat = combat;
 		this.setVisible(true);
@@ -79,11 +80,9 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 	public void creationLabelMonstre(JPanel enemyPanel) {
 		JLabel enemyLabel = new JLabel();
 		if (combat.getMonstre().getType() == '1') {
-			enemyLabel
-					.setIcon(new ImageIcon(PATH_ORC));
+			enemyLabel.setIcon(new ImageIcon(PATH_ORC));
 		} else if (combat.getMonstre().getType() == '2') {
-			enemyLabel.setIcon(new ImageIcon(
-					PATH_MURLOC));
+			enemyLabel.setIcon(new ImageIcon(PATH_MURLOC));
 		}
 		enemyPanel.add(enemyLabel);
 	}
@@ -98,17 +97,17 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 		labelInfo = new JLabel("C'est votre tour !");
 		actionPanel.add(labelInfo);
 	}
-	
-	public void creationPanelInfoCoup(){
+
+	public void creationPanelInfoCoup() {
 		JPanel remarqueCoup = new JPanel();
 		getContentPane().add(remarqueCoup, BorderLayout.NORTH);
-		
+
 		etatAttaque = new JLabel("");
 		etatAttaque.setVisible(false);
 		remarqueCoup.add(etatAttaque);
 	}
 
-	public void afficherRemarqueCoup(char attaque, char type){
+	public void afficherRemarqueCoup(char attaque, char type) {
 		switch (attaque) {
 		case 'C':
 			etatAttaque.setText(CRITIQUE);
@@ -119,39 +118,42 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 			break;
 
 		case 'E':
-			System.out.println("Il y a une erreur à propos du champ d'infoCoup.");
+			System.out
+					.println("Il y a une erreur à propos du champ d'infoCoup.");
 		}
 		etatAttaque.setVisible(true);
-		if (type == 'M' | type == 'G'){
+		if (type == 'M' | type == 'G') {
 			etatAttaque.setBackground(Color.GREEN);
-		}
-		else {
+		} else {
 			etatAttaque.setBackground(Color.RED);
 		}
-			
+
 		try {
-			Thread.sleep(2000);	//Permet d'attendre deux secondes avant d'effectuer l'attaque adverse.
+			Thread.sleep(2000); // Permet d'attendre deux secondes avant
+								// d'effectuer l'attaque adverse.
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
+
 	/*
 	 * Post : renvoie un message signifiant que le joueur a gagné ou perdu.
 	 */
-	public void messageFinDeCombat(String message){	
+	public void messageFinDeCombat(String message) {
 		labelInfo.setText("message");
 	}
+
 	/*
-	 * Post : Appelle la méthode messageFinDeCombat et lui passe en paramètre un String contenant Victoire ou Defaite.
+	 * Post : Appelle la méthode messageFinDeCombat et lui passe en paramètre un
+	 * String contenant Victoire ou Defaite.
 	 */
-	public void checkCombat(){	//Vérifie si le joueur a gagné ou perdu.
-		if (combat.getMonstreKO() == true){
+	public void checkCombat() { // Vérifie si le joueur a gagné ou perdu.
+		if (combat.getMonstreKO() == true) {
 			messageFinDeCombat(VICTOIRE);
-		}
-		else if (combat.getJoueurKO()== true){
+		} else if (combat.getJoueurKO() == true) {
 			messageFinDeCombat(DEFAITE);
 		}
-		
+
 		try {
 			Thread.sleep(3000);
 			this.dispose();
@@ -159,30 +161,34 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 			e.printStackTrace();
 		}
 	}
-	
-	public void majInformations(int frappe, char typeAttaquant){
-		if (typeAttaquant == 'M' | typeAttaquant =='G'){
-			labelInfo.setText("Vous infligez "+ frappe+ " points de dégats ! ");
+
+	public void majInformations(int frappe, char typeAttaquant) {
+		if (typeAttaquant == 'M' | typeAttaquant == 'G') {
+			labelInfo.setText("Vous infligez " + frappe
+					+ " points de dégats ! ");
+		} else {
+			labelInfo.setText("Le monstre vous inflige " + frappe
+					+ " points de dégats");
 		}
-		else {
-			labelInfo.setText("Le monstre vous inflige "+ frappe + " points de dégats");
-		}
-	}
-	
-	@Override
-	/*
-	 * Lorsque l'utilisateur clique sur le bouton attaque, une attaque est lancée du joueur sur le monstre.
-	 */
-	public void actionPerformed(ActionEvent arg0) {
-		combat.setMonstre((MonstresCommuns)combat.attaque(combat.getJoueur(), combat.getMonstre()));	//Typecast c'est la vie ! <3 <3 <3
-		majInformations(combat.getFrappe(), combat.getJoueur().getType());
-		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getJoueur().getType());
-		checkCombat();
-		
-		game.setJoueur(combat.attaque(combat.getJoueur(), combat.getMonstre()));
-		majInformations(combat.getFrappe(), combat.getMonstre().getType());
-		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getMonstre().getType());
-		checkCombat();
 	}
 
+	@Override
+	/*
+	 * Lorsque l'utilisateur clique sur le bouton attaque, une attaque est
+	 * lancée du joueur sur le monstre.
+	 */
+	public void actionPerformed(ActionEvent arg0) {
+		combat.setMonstre((MonstresCommuns) combat.attaque(combat.getJoueur(),
+				combat.getMonstre())); // Typecast c'est la vie ! <3 <3 <3
+		majInformations(combat.getFrappe(), combat.getJoueur().getType());
+		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getJoueur()
+				.getType());
+		checkCombat();
+
+		game.setJoueur(combat.attaque(combat.getJoueur(), combat.getMonstre()));
+		majInformations(combat.getFrappe(), combat.getMonstre().getType());
+		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getMonstre()
+				.getType());
+		checkCombat();
+	}
 }
