@@ -92,9 +92,9 @@ public class InterfaceCreationPersonnage extends JFrame implements ActionListene
 	}
 
 	public void actionValider() throws SlickException {
-		System.out.println("type : " + game.getJoueur().getType());
+		
 		String pseudo = textField.getText();
-		System.out.println("pseudo = " + pseudo);
+		System.out.println(game.getJoueur().getNiveau());
 		if (pseudo.equals("")){
 			this.messageErreurPseudo.setVisible(true);
 		}

@@ -115,7 +115,7 @@ public class Player {
 		// permettre de placer une ombre
 		// sous le joueur.
 		g.fillOval(x - 16, y - 8, 32, 16);
-		g.drawAnimation(animations[direction + (moving ? 4 : 0)], x - 32,
+		g.drawAnimation(animations[direction + (moving ? 4 : 2)], x - 32,
 				y - 60); // moving ? 4: 1 => 1 définit la direction du
 		// personnage. 0 vers le haut, 1 vers la gauche,
 		// 2 vers le bas et 3 vers la droite. Pas encore
