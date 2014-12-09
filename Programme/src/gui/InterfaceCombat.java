@@ -178,11 +178,11 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 		majInformations(combat.getFrappe(), combat.getJoueur().getType());
 		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getJoueur().getType());
 		checkCombat();
+		
 		game.setJoueur(combat.attaque(combat.getJoueur(), combat.getMonstre()));
 		majInformations(combat.getFrappe(), combat.getMonstre().getType());
 		afficherRemarqueCoup(combat.getEtatAttaque(), combat.getMonstre().getType());
 		checkCombat();
-		
 	}
 
 }
