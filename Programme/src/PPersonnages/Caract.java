@@ -28,7 +28,7 @@ public class Caract {
 	 * Que faire si force > 100?
 	 */
 	public void setForce(int force) {
-		if(force < 100 && force > 0) 
+		if(force < 100 | force > 0) 
 			this.force = force;
 		else
 			System.err.println("force trop élevée !");

@@ -89,6 +89,7 @@ public class WindowMap extends BasicGame {
 		appGame = new AppGameContainer(this, 800, 600, true);
 		appGame.setTargetFrameRate(MAX_FPS);
 		appGame.start();
+		
 		appGame.setAlwaysRender(false);
 		appGame.setTargetFrameRate(MAX_FPS);
 		appGame.setMaximumLogicUpdateInterval(MAX_FPS);

@@ -9,6 +9,10 @@ public class Experience {
 		this.xpAct = xp;	
 	}
 	
+	public Experience(){
+		
+	}
+	
 	/*
 	 * get / set lvl up
 	 * si xp = 116 -> 116 - 100 (valeur pour lvl up), inc lvl, augmente caract, <== OK !

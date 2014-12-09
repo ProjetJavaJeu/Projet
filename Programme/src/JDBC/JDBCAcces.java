@@ -31,14 +31,15 @@ public class JDBCAcces {
 		return dec;
 	}
 
-	public Personnage JDBCPersonnage(Personnage perso, int choix)
+	public Personnage JDBCPersonnage(int choix)
 			throws ClassNotFoundException {
 		Connection connect = null;
 		Statement dec = null;
+		Personnage perso = new Personnage();
 		Caract caracter = new Caract();
 		try {
 			dec = initiationBDD(connect, dec);
-			String selection = "SELECT idmonstres, nom, carForce, carIntel, carEndu, type, replique, xpDonnee FROM monstres";
+			String selection = "SELECT id, Nom, typePersonnage, carForce, carIntel, carEndu, type, pv, xp, niveau FROM personnages";
 
 			// A ENLEVER :
 			System.out.println("The SQL query is: " + selection);
@@ -112,6 +113,7 @@ public class JDBCAcces {
 			System.out.println("The records selected are:");
 			int rowCount = 0;
 			while (rset.next()) {
+				rset.getInt("idmonstres");
 				monstre.setNom(rset.getString("nom"));
 				caracteristique.setForce(rset.getInt("carForce"));
 				caracteristique.setIntelligence(rset.getInt("carIntel"));
