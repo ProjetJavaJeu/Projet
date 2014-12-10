@@ -7,6 +7,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
 public class Hud {
+	// STATIC A VIRER !! (deja fait dans l'uMlolololol)
 	private static final int P_BAR_X = 30;
 	private static final int P_BAR_Y = 30;
 	private static final Color LIFE_COLOR = new Color(255, 0, 0);
