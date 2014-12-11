@@ -1,96 +1,85 @@
 package gui;
 
-import javax.swing.JFrame;
-
-import java.awt.GridLayout;
-
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import javax.swing.border.EmptyBorder;
-
 import main.Game;
+import main.Constantes;
+
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.MouseListener;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.gui.ComponentListener;
+import org.newdawn.slick.gui.MouseOverArea;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+public class InterfaceIntro extends BasicGameState implements MouseListener {
 
-public class InterfaceIntro extends JFrame implements MouseListener {
-
-	private static final long serialVersionUID = 1L;
+	private final static int ID = 1;
 	private int choix = 0;
 	private Game game;
+	private MouseOverArea boutonNouvellePartie;
+	private Image image;
 
 	public InterfaceIntro(Game game) {
 		this.game = game;
-		this.setVisible(true);
-		this.setSize(800, 600);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setLocationRelativeTo(null);
-		getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
-		JPanel panel = new JPanel();
-		getContentPane().add(panel);
-
-		JPanel panel_1 = new JPanel();
-		getContentPane().add(panel_1);
-		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
-		panel_1.setBorder(new EmptyBorder(20, 200, 20, 200));
-
-		JButton btnnouvellePartie = new JButton("Nouvelle Partie");
-		btnnouvellePartie.addMouseListener(this);
-		panel_1.add(btnnouvellePartie);
-
-		JButton btnContinuerPartie = new JButton("Continuer Partie");
-		panel_1.add(btnContinuerPartie);
-
-		JButton btnOptions = new JButton("Options");
-		panel_1.add(btnOptions);
-
-		JPanel panel_2 = new JPanel();
-		getContentPane().add(panel_2);
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		choix = e.getButton();
-		if (choix == 3) {
-			game.getInit().options();
-		} else {
+	public void init(GameContainer container, StateBasedGame interfJeu)
+			throws SlickException {
+		image = new Image("/ressources/map/sunrise.png");
+	}/*MouseOverArea nouvJeuArea = new MouseOverArea(container, image, 353, 182,
+			(int) Constantes.LARGEUR_BOUTTON,
+			(int) Constantes.HAUTEUR_BOUTTON);
+*/
+	@Override
+	public void render(GameContainer container, StateBasedGame interfJeu,
+			Graphics g) throws SlickException {
 
-			try {
-				game.setTabMonstres(game.getInit().initMonstres(
-						game.getTabMonstres())); // On remplit le(s) tableau(x)
-													// de monstres.
-				game.getInit()
-						.initPerso(game, choix); // On crée le
-				this.dispose();					// personnages
-			} catch (ClassNotFoundException e3) {
-				e3.printStackTrace();
-			}
-		}
+		// float xInitial= (container.getWidth() - Constantes.LARGEUR_BOUTTON) /
+		// 2;
+		// float yInitial = (container.getHeight() - Constantes.HAUTEUR_BOUTTON)
+		// / 2 * 0.75f;
+		g.drawString("InterfaceIntro", 100, 100);
+		g.drawImage(image, 0, 75);
+		/*
+		 * g.drawRect(xInitial, yInitial, Constantes.LARGEUR_BOUTTON,
+		 * Constantes.HAUTEUR_BOUTTON); g.drawString(Constantes.NOUV_PARTIE,
+		 * xInitial + 7, yInitial + 7); // + x : Permet de centrer le texte.
+		 * g.drawRect(xInitial, yInitial + 50, Constantes.LARGEUR_BOUTTON,
+		 * Constantes.HAUTEUR_BOUTTON); g.drawString(Constantes.CONT_PARTIE,
+		 * xInitial + 7, yInitial + 58);
+		 */
 	}
 
 	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+	public void update(GameContainer container, StateBasedGame interfJeu,
+			int delta) throws SlickException {
+		/*
+		 * if (container.getInput().isButton1Pressed(1)){
+		 * interfJeu.enterState(Constantes.CREATION_PERSO, new
+		 * FadeOutTransition(), new FadeInTransition()); } else {
+		 * interfJeu.enterState(Constantes.CARTE_JEU, new FadeOutTransition(),
+		 * new FadeInTransition()); }
+		 */
 
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+		/*
+		 * A replacer
+		 * 
+		 * game.setTabMonstres(game.getInit().initMonstres(
+		 * game.getTabMonstres())); // On remplit le(s) tableau(x) // de
+		 * monstres. game.getInit() .initPerso(game, choix); // On crée le //
+		 * personnages
+		 */
 
 	}
 
 	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+	public int getID() {
+		return ID;
 	}
 
 }

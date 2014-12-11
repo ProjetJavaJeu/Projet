@@ -1,7 +1,8 @@
 package main;
 
 import gui.InterfaceIntro;
-import gui.WindowMap;
+import gui.InterfaceCarte;
+import gui.InterfaceJeu;
 
 import org.newdawn.slick.SlickException;
 
@@ -17,7 +18,7 @@ public class Game{
 	private Personnage joueur;
 	private MonstresCommuns tabMonstres[] = new MonstresCommuns[NBR_MAX_MONSTRES];
 	private MonstresElites tabElites[] = new MonstresElites[NBR_MAX_ELITES];
-	private WindowMap windowMap = new WindowMap();
+	private InterfaceCarte windowMap = new InterfaceCarte();
 	private InitPartie init = new InitPartie(windowMap);
 	
 	public Game() {
@@ -47,10 +48,10 @@ public class Game{
 		this.tabElites = tabElites;
 	}
 	
-	public WindowMap getWindowMap() {
+	public InterfaceCarte getWindowMap() {
 		return windowMap;
 	}
-	public void setWindowMap(WindowMap windowMap) {
+	public void setWindowMap(InterfaceCarte windowMap) {
 		this.windowMap = windowMap;
 	}
 	public InitPartie getInit() {
@@ -63,7 +64,9 @@ public class Game{
 	public static void main(String[] args) throws SlickException, InterruptedException {
 		Game game = new Game();
 		game.joueur = new Personnage();
-		InterfaceIntro interDebut = new InterfaceIntro(game);	
+		InterfaceJeu interfJeu = new InterfaceJeu(Constantes.NOM_JEU, game);
+		interfJeu.launchMap();
+		
 	}
 }
 	

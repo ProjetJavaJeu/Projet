@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import gui.InterfaceCreationPersonnage;
-import gui.WindowMap;
+import gui.InterfaceCarte;
 import JDBC.JDBCAcces;
 import PPersonnages.Caract;
 import PPersonnages.MonstresCommuns;
@@ -15,9 +15,9 @@ import PPersonnages.MonstresElites;
 import PPersonnages.Personnage;
 
 public class InitPartie {
-	private WindowMap windowMap;
+	private InterfaceCarte windowMap;
 
-	public InitPartie(WindowMap windowMap) {
+	public InitPartie(InterfaceCarte windowMap) {
 		super();
 		this.windowMap = windowMap;
 	}

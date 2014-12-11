@@ -51,25 +51,20 @@ public class JDBCAcces {
 			int rowCount = 0;
 
 			while (rset.next()) {
-				perso.setType(rset.getString("type").charAt(0));
-				int id = rset.getInt("id"); // Stock dans un int + typecast(getInt)
-				String nom = rset.getString("Nom");
-				if (choix == 2){
-					perso.setNom(nom);
-				}
-				String typePersonnage = rset.getString("typePersonnage");
+				rset.getInt("id"); // Stock dans un int + typecast(getInt)
+				String nom = rset.getString("Nom");	
+				rset.getString("typePersonnage");
 				caracter.setForce(rset.getInt("carForce"));
 				caracter.setIntelligence(rset.getInt("carIntel"));
 				caracter.setEndurance(rset.getInt("carEndu"));
 				perso.setCaracter(caracter);
+				perso.setType(rset.getString("type").charAt(0));
 				int pv = rset.getInt("pv");
 				int xp = rset.getInt("xp");
 				perso.setPvIntial();
 				int niveau = rset.getInt("niveau");
 				perso.getExperience().setXpAct(xp, niveau);
 				perso.setNiveau(niveau);
-				int mana = rset.getInt("mana");
-
 				rowCount++;
 			}
 
