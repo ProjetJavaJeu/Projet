@@ -20,9 +20,7 @@ public class InterfaceIntro extends BasicGameState implements MouseListener {
 	private final static int ID = 1;
 	private int choix = 0;
 	private Game game;
-	private MouseOverArea boutonNouvellePartie;
 	private Image image;
-
 	public InterfaceIntro(Game game) {
 		this.game = game;
 	}
@@ -31,33 +29,21 @@ public class InterfaceIntro extends BasicGameState implements MouseListener {
 	public void init(GameContainer container, StateBasedGame interfJeu)
 			throws SlickException {
 		image = new Image("/ressources/map/sunrise.png");
-	}/*MouseOverArea nouvJeuArea = new MouseOverArea(container, image, 353, 182,
-			(int) Constantes.LARGEUR_BOUTTON,
-			(int) Constantes.HAUTEUR_BOUTTON);
-*/
+		container.getInput().addMouseListener(this);
+	}
 	@Override
 	public void render(GameContainer container, StateBasedGame interfJeu,
 			Graphics g) throws SlickException {
-
-		// float xInitial= (container.getWidth() - Constantes.LARGEUR_BOUTTON) /
-		// 2;
-		// float yInitial = (container.getHeight() - Constantes.HAUTEUR_BOUTTON)
-		// / 2 * 0.75f;
-		g.drawString("InterfaceIntro", 100, 100);
 		g.drawImage(image, 0, 75);
-		/*
-		 * g.drawRect(xInitial, yInitial, Constantes.LARGEUR_BOUTTON,
-		 * Constantes.HAUTEUR_BOUTTON); g.drawString(Constantes.NOUV_PARTIE,
-		 * xInitial + 7, yInitial + 7); // + x : Permet de centrer le texte.
-		 * g.drawRect(xInitial, yInitial + 50, Constantes.LARGEUR_BOUTTON,
-		 * Constantes.HAUTEUR_BOUTTON); g.drawString(Constantes.CONT_PARTIE,
-		 * xInitial + 7, yInitial + 58);
-		 */
 	}
 
 	@Override
 	public void update(GameContainer container, StateBasedGame interfJeu,
 			int delta) throws SlickException {
+			if (choix != 0){
+				interfJeu.enterState(choix);
+			}
+		
 		/*
 		 * if (container.getInput().isButton1Pressed(1)){
 		 * interfJeu.enterState(Constantes.CREATION_PERSO, new
@@ -80,6 +66,20 @@ public class InterfaceIntro extends BasicGameState implements MouseListener {
 	@Override
 	public int getID() {
 		return ID;
+	}
+	
+	public void mouseClicked(int button, int x, int y, int clickCount){
+		if (x > 305 & x < 495){
+			if (y > 125 & y < 160){
+				choix = Constantes.CREATION_PERSO;
+			}
+			else if (y > 195 & y < 226){
+				//choix = Constantes.CONT_JEU;
+			}
+			else if (y > 253 & y < 296){
+				choix = Constantes.OPTIONS_JEU;
+			}
+		}
 	}
 
 }

@@ -1,6 +1,7 @@
 package gui;
 
 import main.Combat;
+import main.Constantes;
 import main.Game;
 import main.Player;
 import main.PlayerController;
@@ -18,7 +19,6 @@ public class InterfaceCarte extends BasicGameState {
 
 	final static double SEUIL_COMBAT = 99; 	// Si le résultat du random est
 	final static int MAX_FPS = 60;		// supérieur à 95, il y a combat.
-	final static int ID = 3;
 	private AppGameContainer appGame;
 	private GameContainer container;
 	private Map map = new Map();
@@ -27,7 +27,8 @@ public class InterfaceCarte extends BasicGameState {
 	private TriggerController triggers = new TriggerController(map, player);
 	private Hud hud = new Hud();
 	private Game game;
-	
+	private Music background;
+	private 
 	public InterfaceCarte() {
 
 	}
@@ -44,8 +45,8 @@ public class InterfaceCarte extends BasicGameState {
 				this.container);
 		container.getInput().addControllerListener(controller);
 		container.getInput().addKeyListener(controller);
-		Music background = new Music("/ressources/sounds/EyeOfTheTiger.ogg");
-		background.loop();
+		background = new Music("/ressources/sounds/EyeOfTheTiger.ogg");
+		background.pause();
 
 		this.hud.init();
 	}
@@ -67,6 +68,9 @@ public class InterfaceCarte extends BasicGameState {
 		this.triggers.update();
 		this.player.update(delta);
 		this.camera.update(container);
+		if (game.getCurrentState().getID() == 3){
+			background.loop();
+		}
 		randomCombat();
 	}
 
