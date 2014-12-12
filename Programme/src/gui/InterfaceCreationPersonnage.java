@@ -1,135 +1,102 @@
 package gui;
 
-import javax.swing.JFrame;
-
-import PPersonnages.Personnage;
-
-import javax.swing.JPanel;
-
-import java.awt.BorderLayout;
-import java.awt.MouseInfo;
-
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JRadioButton;
-
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-import javax.swing.JButton;
-import javax.swing.Box;
-
+import org.newdawn.slick.Color;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.MouseListener;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.gui.TextField;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
+import main.Constantes;
 import main.Game;
 
-public class InterfaceCreationPersonnage extends JFrame implements ActionListener{
+public class InterfaceCreationPersonnage extends BasicGameState implements MouseListener{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -3929685799739067735L;
 	private Game game;
-	private JTextField textField;
-	private JLabel messageErreurClasse;
-	private JLabel messageErreurPseudo;
-	private JButton btnContinuer;
-	private JRadioButton rdBtnGuerrier;
-	private JRadioButton rdBtnMage;
+	private Image image;
+	private TextField champPseudo;
+	private int choixClasse;
+	private boolean confirm = false;
+	private Rectangle rectangle;
+	private float xRectangleConfirm;
+	private float yRectangleConfirm;
 	
 	public InterfaceCreationPersonnage(Game game){
 		this.game = game;
-		this.setVisible(true);
-		this.setSize(800, 600);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);//A retirer ? A voir.
-		this.setLocationRelativeTo(null);
-		JPanel panel = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
-		flowLayout.setVgap(20);
-		getContentPane().add(panel, BorderLayout.NORTH);
-		
-		JLabel labelPseudo = new JLabel("Pseudo : ");
-		panel.add(labelPseudo);
-		
-		textField = new JTextField();
-		panel.add(textField);
-		textField.setColumns(10);
-		
-		JPanel panel_1 = new JPanel();
-		getContentPane().add(panel_1, BorderLayout.CENTER);
-		FlowLayout fl_panel_1 = new FlowLayout(FlowLayout.CENTER, 5, 10);
-		panel_1.setLayout(fl_panel_1);
-		
-		Box verticalBox = Box.createVerticalBox();
-		panel_1.add(verticalBox);
-		
-		rdBtnGuerrier = new JRadioButton("Guerrier");
-		rdBtnGuerrier.addActionListener(this);
-		verticalBox.add(rdBtnGuerrier);
-		
-		rdBtnMage = new JRadioButton("Mage");
-		rdBtnMage.addActionListener(this);
-		verticalBox.add(rdBtnMage);
-		
-		btnContinuer = new JButton("Continuer");
-		btnContinuer.addActionListener(this);
-		verticalBox.add(btnContinuer);
-		
-		JPanel panel_2 = new JPanel();
-		getContentPane().add(panel_2, BorderLayout.SOUTH);
-		
-		messageErreurClasse = new JLabel("Veuillez choisir une classe avant de continuer !");
-		messageErreurClasse.setVisible(false);
-		panel_2.add(messageErreurClasse);
-		
-		messageErreurPseudo = new JLabel("Veuillez entrer un pseudonyme pour continuer !");
-		messageErreurPseudo.setVisible(false);
-		panel_2.add(messageErreurPseudo);
-		
+		choixClasse = 0;
 	}
 
-	public void actionValider() throws SlickException {
-		
-		String pseudo = textField.getText();
-		if (pseudo.equals("")){
-			this.messageErreurPseudo.setVisible(true);
+	@Override
+	public void init(GameContainer container, StateBasedGame interfJeu)
+			throws SlickException {
+		image = new Image(Constantes.IMAGE_CREATION_PERSO);
+		champPseudo = new TextField(container,container.getDefaultFont(), (container.getWidth() - 150) / 2 , (container.getHeight() / 14), 150, 40);
+		champPseudo.setMaxLength(32);
+		container.getInput().addMouseListener(this);
+		xRectangleConfirm = (float)((container.getWidth() - Constantes.LARGEUR_BOUTON) / 2);
+		yRectangleConfirm = (float)(container.getHeight() * 9 / 10);
+		rectangle = new Rectangle(xRectangleConfirm, yRectangleConfirm , 150, 40);
+	}
+
+	@Override
+	public void render(GameContainer container, StateBasedGame interfJeu, Graphics g)
+			throws SlickException {
+		g.drawImage(image, 0, 0);
+		g.drawString("Pseudo ", (container.getWidth() - 300) / 2, (container.getHeight() - 40) / 11);
+		champPseudo.render(container, g);
+		g.draw(rectangle);
+		g.drawString("Confirmer", xRectangleConfirm + 35, (float)(container.getHeight() * 11 / 12));
+		g.setColor(Color.black);
+		if (choixClasse == 1){
+			g.drawRect(98, 113, 464, 512);
 		}
-		else {
-			game.getJoueur().setNom(pseudo);
-			this.messageErreurPseudo.setVisible(false);
-			if ((game.getJoueur().getType() != 'M') & (game.getJoueur().getType() != 'G')){
-				this.messageErreurClasse.setVisible(true);
-			}
-			else {
-				this.messageErreurClasse.setVisible(false);
-				game.getWindowMap().launchMap(game);
-				this.dispose();
-			}
+		if (choixClasse == 2){
+			g.drawRect(716, 113, 464, 512);
+		}
+	}
+
+	@Override
+	public void update(GameContainer container, StateBasedGame interfJeu, int delta)
+			throws SlickException {
+		if (confirm == true){
+			interfJeu.enterState(Constantes.CARTE_JEU, new FadeOutTransition(), new FadeInTransition());
 		}
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		Object source = e.getSource();
-		if (source == rdBtnGuerrier){
-			game.getJoueur().setType('G');
-		}
-		else if (source == rdBtnMage){
-			game.getJoueur().setType('M');
-		}
-		else if (source == btnContinuer){
-			System.out.println("Continuer");
-			try {
-				actionValider();
-			} catch (SlickException e1) {
-				e1.printStackTrace();
-			
-		
-			}
+	public int getID() {
+		return Constantes.CREATION_PERSO;
+	}
 
-		}	
+	@Override
+	public void mouseClicked(int button, int x, int y, int clickCount) {
+		//System.out.println("x = " + x + " y = " + y);
+		if (x > 100 & x < 564){
+			if (y > 113 & y < 680){
+				game.getJoueur().setType('G');
+				choixClasse = 1;
+			}
+		}
+		else if (x > 716 & x < 1180){
+			if (y > 113 & y < 680){
+				game.getJoueur().setType('M');
+				choixClasse = 2;
+			}
+		}
+		
+		if (x > 605 & x < 755){			//Permet de signifier qu'on a cliqué sur "Confirmer".
+			if (y > 643 & y < 693){
+				if (!champPseudo.equals("")){	
+					game.getJoueur().setNom(champPseudo.getText());
+					confirm = true;
+				}
+			}
+		}
 	}
 }

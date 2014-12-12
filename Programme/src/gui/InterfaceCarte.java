@@ -28,7 +28,7 @@ public class InterfaceCarte extends BasicGameState {
 	private Hud hud = new Hud();
 	private Game game;
 	private Music background;
-	private 
+	
 	public InterfaceCarte() {
 
 	}
@@ -46,8 +46,7 @@ public class InterfaceCarte extends BasicGameState {
 		container.getInput().addControllerListener(controller);
 		container.getInput().addKeyListener(controller);
 		background = new Music("/ressources/sounds/EyeOfTheTiger.ogg");
-		background.pause();
-
+		background.pause();	//Ou faire reprendre la musique ? 
 		this.hud.init();
 	}
 
@@ -68,9 +67,6 @@ public class InterfaceCarte extends BasicGameState {
 		this.triggers.update();
 		this.player.update(delta);
 		this.camera.update(container);
-		if (game.getCurrentState().getID() == 3){
-			background.loop();
-		}
 		randomCombat();
 	}
 
@@ -93,6 +89,6 @@ public class InterfaceCarte extends BasicGameState {
 
 	@Override
 	public int getID() {
-		return ID;
+		return Constantes.CARTE_JEU; // = 5
 	}
 }

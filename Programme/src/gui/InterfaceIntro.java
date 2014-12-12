@@ -17,7 +17,7 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 
 public class InterfaceIntro extends BasicGameState implements MouseListener {
 
-	private final static int ID = 1;
+
 	private int choix = 0;
 	private Game game;
 	private Image image;
@@ -28,57 +28,53 @@ public class InterfaceIntro extends BasicGameState implements MouseListener {
 	@Override
 	public void init(GameContainer container, StateBasedGame interfJeu)
 			throws SlickException {
-		image = new Image("/ressources/map/sunrise.png");
+		image = new Image(Constantes.IMAGE_INTRO);
 		container.getInput().addMouseListener(this);
 	}
 	@Override
 	public void render(GameContainer container, StateBasedGame interfJeu,
 			Graphics g) throws SlickException {
-		g.drawImage(image, 0, 75);
+		g.drawImage(image, 0, 0);
 	}
 
 	@Override
 	public void update(GameContainer container, StateBasedGame interfJeu,
 			int delta) throws SlickException {
-			if (choix != 0){
-				interfJeu.enterState(choix);
+			if (choix != 0 & choix != 3){
+				//initialiserTableauxEtPersonnages();
+				interfJeu.enterState(choix, new FadeOutTransition(), new FadeInTransition());
 			}
-		
-		/*
-		 * if (container.getInput().isButton1Pressed(1)){
-		 * interfJeu.enterState(Constantes.CREATION_PERSO, new
-		 * FadeOutTransition(), new FadeInTransition()); } else {
-		 * interfJeu.enterState(Constantes.CARTE_JEU, new FadeOutTransition(),
-		 * new FadeInTransition()); }
-		 */
-
-		/*
-		 * A replacer
-		 * 
-		 * game.setTabMonstres(game.getInit().initMonstres(
-		 * game.getTabMonstres())); // On remplit le(s) tableau(x) // de
-		 * monstres. game.getInit() .initPerso(game, choix); // On crée le //
-		 * personnages
-		 */
-
 	}
 
 	@Override
 	public int getID() {
-		return ID;
+		return Constantes.NOUV_JEU;
 	}
 	
 	public void mouseClicked(int button, int x, int y, int clickCount){
-		if (x > 305 & x < 495){
-			if (y > 125 & y < 160){
+		
+		if (x > 515 & x < 765){
+			if (y > 250 & y < 310){
 				choix = Constantes.CREATION_PERSO;
 			}
-			else if (y > 195 & y < 226){
-				//choix = Constantes.CONT_JEU;
+			else if (y > 330 & y < 390){
+				choix = Constantes.CARTE_JEU;
+				System.out.println("Continuer");
 			}
-			else if (y > 253 & y < 296){
-				choix = Constantes.OPTIONS_JEU;
+			else if (y > 410 & y < 40){
+				//choix = Constantes.OPTIONS_JEU;
+				System.out.println("Options");
 			}
+		}
+	}
+	
+	public void initialiserTableauxEtPersonnages(){
+		try {
+			game.setTabMonstres(game.getInit().initMonstres(game.getTabMonstres()));
+			game.getInit().initPerso(game, choix);
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 	}
 
