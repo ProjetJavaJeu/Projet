@@ -22,6 +22,7 @@ public class Constantes {
 	public final static String PATH_MAGE = "ressources/imagesCombat/mage2.jpg";
 	public final static String PATH_ORC = "ressources/imagesCombat/orc2.jpg";
 	public final static String PATH_MURLOC = "ressources/imagesCombat/murloc.jpg";
+	public final static String PATH_FOND = "ressources/map/bg.png";
 	public final static String CRITIQUE = " Coup Critique !!";
 	public final static String FAIL = "Raté !";
 	public final static String VICTOIRE = "victoire";

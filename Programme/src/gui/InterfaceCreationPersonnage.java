@@ -24,6 +24,7 @@ public class InterfaceCreationPersonnage extends BasicGameState implements Mouse
 	private int choixClasse;
 	private boolean confirm = false;
 	private Rectangle rectangle;
+	private Graphics f;
 	private float xRectangleConfirm;
 	private float yRectangleConfirm;
 	
@@ -42,6 +43,7 @@ public class InterfaceCreationPersonnage extends BasicGameState implements Mouse
 		xRectangleConfirm = (float)((container.getWidth() - Constantes.LARGEUR_BOUTON) / 2);
 		yRectangleConfirm = (float)(container.getHeight() * 9 / 10);
 		rectangle = new Rectangle(xRectangleConfirm, yRectangleConfirm , 150, 40);
+		//f = new Graphics();
 	}
 
 	@Override

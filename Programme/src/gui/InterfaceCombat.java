@@ -9,14 +9,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -36,6 +37,9 @@ public class InterfaceCombat extends BasicGameState implements ActionListener {
 	private Image imageMurloc;
 	private Image imageMage;
 	private Image imageGuerrier;
+	private Image imageFond;
+	private Rectangle rectAttaque;
+	private Graphics f;
 	
 	public InterfaceCombat(Game game) {
 		this.game = game;
@@ -48,6 +52,9 @@ public class InterfaceCombat extends BasicGameState implements ActionListener {
 			imageGuerrier = new Image(Constantes.PATH_GUERRIER);
 			imageOrc = new Image(Constantes.PATH_ORC);
 			imageMurloc = new Image(Constantes.PATH_MURLOC);
+			imageFond = new Image(Constantes.PATH_FOND);
+			rectAttaque = new Rectangle((container.getWidth() - 200) / 2, (container.getHeight() - 100) , 200, 50);
+			f = new Graphics();
 	}
 	
 	@Override
@@ -56,11 +63,16 @@ public class InterfaceCombat extends BasicGameState implements ActionListener {
 		if (initCombat == false){
 			initCombat();
 		}
+		
+		
 		setImageJoueur();
 		setImageMonstre();
+		f.setColor(new Color(212, 129, 47));
+		g.drawImage(imageFond, 0, 0);
 		g.drawImage(imageJoueur, 80, 180);
 		g.drawImage(imageMonstre, 850, 180);
-		//g.drawRect((container.getWidth() - 150) / 2, container.getHeight());
+		f.draw(rectAttaque);
+		f.fill(rectAttaque);
 	}
 	
 	@Override
