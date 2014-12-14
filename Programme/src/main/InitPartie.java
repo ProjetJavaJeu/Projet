@@ -8,6 +8,7 @@ import java.sql.Statement;
 
 import gui.InterfaceCreationPersonnage;
 import gui.InterfaceCarte;
+import gui.InterfaceJeu;
 import JDBC.JDBCAcces;
 import PPersonnages.Caract;
 import PPersonnages.MonstresCommuns;
@@ -15,20 +16,21 @@ import PPersonnages.MonstresElites;
 import PPersonnages.Personnage;
 
 public class InitPartie {
-	private InterfaceCarte windowMap;
-
-	public InitPartie(InterfaceCarte windowMap) {
-		super();
-		this.windowMap = windowMap;
+	
+	private InterfaceJeu interfJeu;
+	
+	public InitPartie(InterfaceJeu interfJeu) {
+		this.interfJeu = interfJeu;
 	}
 
 	// Passer en paramètre Game.
 	public void initPerso(Game game, int choix) throws ClassNotFoundException{
 		JDBCAcces acc = new JDBCAcces();
 		if (choix == 1){
-			InterfaceCreationPersonnage interCreation = new InterfaceCreationPersonnage(game);
+			game.setJoueur(acc.JDBCPersonnage(choix));
+			interfJeu.enterState(Constantes.CREATION_PERSO);
 		}
-		game.setJoueur(acc.JDBCPersonnage(choix));		
+				
 		//Creation perso hardcode pour test
 		/*game.getJoueur().setCaracter(new Caract(1, 0, 1));
 		game.getJoueur().setNiveau(1);

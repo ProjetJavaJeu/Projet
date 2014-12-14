@@ -20,10 +20,10 @@ public class InterfaceJeu extends StateBasedGame {
 	public void launchMap() throws SlickException{
 		appGame = new AppGameContainer(this, 1280, 720, true);
 		appGame.setTargetFrameRate(MAX_FPS);
-		appGame.start();
 		appGame.setAlwaysRender(false);
 		appGame.setTargetFrameRate(MAX_FPS);
 		appGame.setMaximumLogicUpdateInterval(MAX_FPS);
+		appGame.start();
 	}
 	
 	@Override
@@ -31,6 +31,6 @@ public class InterfaceJeu extends StateBasedGame {
 		addState(new InterfaceIntro(game));
 		addState(new InterfaceCreationPersonnage(game));
 		addState(new InterfaceCarte());
-		addState(new InterfaceCombat(game, new Combat(game)));
+		addState(new InterfaceCombat(game));
 	}
 }

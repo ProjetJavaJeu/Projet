@@ -65,6 +65,7 @@ public class InterfaceCreationPersonnage extends BasicGameState implements Mouse
 	public void update(GameContainer container, StateBasedGame interfJeu, int delta)
 			throws SlickException {
 		if (confirm == true){
+			container.getInput().removeMouseListener(this);
 			interfJeu.enterState(Constantes.CARTE_JEU, new FadeOutTransition(), new FadeInTransition());
 		}
 	}

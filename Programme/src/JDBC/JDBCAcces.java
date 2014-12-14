@@ -22,7 +22,7 @@ public class JDBCAcces {
 		try {
 			Class.forName("com.mysql.jdbc.Driver"); // IP : 169.254.123.204
 			connect = DriverManager.getConnection(
-					"jdbc:mysql://91.177.165.110:139/jeujava", "myUser",
+					"jdbc:mysql://192.168.1.4:8888/jeujava", "myUser",
 					"essai");
 			dec = connect.createStatement();
 		} catch (SQLException ex) {
@@ -39,8 +39,10 @@ public class JDBCAcces {
 		Caract caracter = new Caract();
 		try {
 			dec = initiationBDD(connect, dec);
+			
 			String selection = "SELECT id, Nom, typePersonnage, carForce, carIntel, carEndu, type, pv, xp, niveau FROM personnages";
-
+				
+				
 			// A ENLEVER :
 			System.out.println("The SQL query is: " + selection);
 			System.out.println();

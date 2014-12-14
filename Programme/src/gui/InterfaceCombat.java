@@ -27,34 +27,40 @@ import PPersonnages.MonstresCommuns;
 
 public class InterfaceCombat extends BasicGameState implements ActionListener {
 
-	
-	private Game game; // ATTENTION ! VERIFIER SI INTERFACECOMBAT A VRAIMENT
-						// BESOIN DE game.
+	private Game game;
 	private Combat combat;
+	private boolean initCombat;
 	private Image imageJoueur;
 	private Image imageMonstre;
+	private Image imageOrc;
+	private Image imageMurloc;
+	private Image imageMage;
+	private Image imageGuerrier;
 	
-	public InterfaceCombat( Game game, Combat combat ) {
+	public InterfaceCombat(Game game) {
 		this.game = game;
-		this.combat = combat;
-	
 	}
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame interfJeu)
 			throws SlickException {
-		if (game.getJoueur().getType() == 'M'){
-			imageJoueur = new Image(Constantes.PATH_MAGE);
-		}
-		else {
-			imageJoueur = new Image(Constantes.PATH_GUERRIER);
-		}
+			imageMage = new Image(Constantes.PATH_MAGE);
+			imageGuerrier = new Image(Constantes.PATH_GUERRIER);
+			imageOrc = new Image(Constantes.PATH_ORC);
+			imageMurloc = new Image(Constantes.PATH_MURLOC);
 	}
 	
 	@Override
 	public void render(GameContainer container, StateBasedGame interfJeu, Graphics g)
 			throws SlickException {
+		if (initCombat == false){
+			initCombat();
+		}
+		setImageJoueur();
+		setImageMonstre();
 		g.drawImage(imageJoueur, 80, 180);
+		g.drawImage(imageMonstre, 850, 180);
+		//g.drawRect((container.getWidth() - 150) / 2, container.getHeight());
 	}
 	
 	@Override
@@ -68,6 +74,28 @@ public class InterfaceCombat extends BasicGameState implements ActionListener {
 		return Constantes.COMBAT;
 	}
 	
+	public void initCombat(){
+		combat = new Combat(game);
+		initCombat = true;
+	}
+	
+	public void setImageJoueur(){
+		if (combat.getJoueur().getType() == 'M'){
+			imageJoueur = imageMage;
+		}
+		else {
+			imageJoueur = imageGuerrier;
+		}
+	}
+	
+	public void setImageMonstre(){
+		if (combat.getMonstre().getType() == '1'){
+			imageMonstre = imageMurloc;
+		}
+		else {
+			imageMonstre = imageOrc;
+		}
+	}
 	/*public void afficherRemarqueCoup(char attaque, char type) {
 		switch (attaque) {
 		case 'C':

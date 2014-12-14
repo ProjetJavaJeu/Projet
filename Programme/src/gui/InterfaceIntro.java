@@ -43,6 +43,7 @@ public class InterfaceIntro extends BasicGameState implements MouseListener {
 			int delta) throws SlickException {
 			if (choix != 0 & choix != 3){
 				initialiserTableauxEtPersonnages();
+				container.getInput().removeMouseListener(this);
 				interfJeu.enterState(choix, new FadeOutTransition(), new FadeInTransition());
 			}
 	}

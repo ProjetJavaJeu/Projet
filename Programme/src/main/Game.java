@@ -12,14 +12,13 @@ import PPersonnages.Personnage;
 
 public class Game{
 	
-	final static int NBR_MAX_MONSTRES = 5;
-	final static int NBR_MAX_ELITES = 6;
+	
 	
 	private Personnage joueur;
-	private MonstresCommuns tabMonstres[] = new MonstresCommuns[NBR_MAX_MONSTRES];
-	private MonstresElites tabElites[] = new MonstresElites[NBR_MAX_ELITES];
-	private InterfaceCarte windowMap = new InterfaceCarte();
-	private InitPartie init = new InitPartie(windowMap);
+	private MonstresCommuns tabMonstres[] = new MonstresCommuns[Constantes.NBR_MAX_MONSTRES];
+	private MonstresElites tabElites[] = new MonstresElites[Constantes.NBR_MAX_ELITES];
+	//private InterfaceCarte windowMap = new InterfaceCarte();
+	private InitPartie init;
 	
 	public Game() {
 		
@@ -48,12 +47,12 @@ public class Game{
 		this.tabElites = tabElites;
 	}
 	
-	public InterfaceCarte getWindowMap() {
+	/*public InterfaceCarte getWindowMap() {
 		return windowMap;
 	}
 	public void setWindowMap(InterfaceCarte windowMap) {
 		this.windowMap = windowMap;
-	}
+	}*/
 	public InitPartie getInit() {
 		return init;
 	}
@@ -65,6 +64,7 @@ public class Game{
 		Game game = new Game();
 		game.joueur = new Personnage();
 		InterfaceJeu interfJeu = new InterfaceJeu(Constantes.NOM_JEU, game);
+		game.setInit(new InitPartie(interfJeu));
 		interfJeu.launchMap();
 		
 	}

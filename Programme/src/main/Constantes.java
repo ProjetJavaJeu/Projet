@@ -1,6 +1,9 @@
 package main;
 
 public class Constantes {
+	
+	final static int NBR_MAX_MONSTRES = 5;
+	final static int NBR_MAX_ELITES = 6;
 	public final static int NOUV_JEU  = 1;
 	public final static int CREATION_PERSO = 2; //Valeur d'état de jeu pour passer à l'interface de création de perso.
 	public final static int CONT_JEU = 3;

@@ -14,6 +14,8 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 public class InterfaceCarte extends BasicGameState {
 
@@ -62,22 +64,24 @@ public class InterfaceCarte extends BasicGameState {
 
 	}
 
-	public void update(GameContainer container, StateBasedGame game, int delta)
+	public void update(GameContainer container, StateBasedGame interfJeu, int delta)
 			throws SlickException {
 		this.triggers.update();
 		this.player.update(delta);
 		this.camera.update(container);
-		randomCombat();
+		if (randomCombat() == true){
+			interfJeu.enterState(Constantes.COMBAT, new FadeOutTransition(), new FadeInTransition());
+		}
 	}
 
-	public void randomCombat() {
+	public boolean randomCombat() {
 		if (this.player.isMoving() == true) {
 			if ((Math.random() * 100) > SEUIL_COMBAT) {
 				this.player.setMoving(false);
-				Combat combat = new Combat(game);
-				InterfaceCombat interCombat = new InterfaceCombat(game, combat);
+				return true;
 			}
 		}
+		return false;
 	}
 
 	public void launchMap(Game game) throws SlickException {
