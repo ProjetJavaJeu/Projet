@@ -39,6 +39,7 @@ public class InterfaceCreationPersonnage extends BasicGameState implements Mouse
 		image = new Image(Constantes.IMAGE_CREATION_PERSO);
 		champPseudo = new TextField(container,container.getDefaultFont(), (container.getWidth() - 150) / 2 , (container.getHeight() / 14), 150, 40);
 		champPseudo.setMaxLength(32);
+		champPseudo.setText("");
 		container.getInput().addMouseListener(this);
 		xRectangleConfirm = (float)((container.getWidth() - Constantes.LARGEUR_BOUTON) / 2);
 		yRectangleConfirm = (float)(container.getHeight() * 9 / 10);
@@ -95,7 +96,7 @@ public class InterfaceCreationPersonnage extends BasicGameState implements Mouse
 		
 		if (x > 605 & x < 755){			//Permet de signifier qu'on a cliqué sur "Confirmer".
 			if (y > 643 & y < 693){
-				if (!champPseudo.equals("")){	
+				if ((!champPseudo.equals("")) & (choixClasse != 0)){	
 					game.getJoueur().setNom(champPseudo.getText());
 					confirm = true;
 				}

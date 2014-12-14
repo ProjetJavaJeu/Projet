@@ -1,6 +1,5 @@
 package main;
 
-import gui.InterfaceIntro;
 import gui.InterfaceCarte;
 import gui.InterfaceJeu;
 
