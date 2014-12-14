@@ -50,8 +50,8 @@ public class InterfaceCarte extends BasicGameState {
 				this.container);
 		container.getInput().addControllerListener(controller);
 		container.getInput().addKeyListener(controller);
-		background = new Music("/ressources/sounds/EyeOfTheTiger.ogg");
-		background.pause();	//Ou faire reprendre la musique ? 
+		//background = new Music("/ressources/sounds/EyeOfTheTiger.ogg");
+		//background.pause();	//Ou faire reprendre la musique ? 
 		this.hud.init();
 	}
 

@@ -13,14 +13,6 @@ public class Personnage {
 	private String repliqueMonstres;
 	private Experience experience;
 	private int niveau;
-	
-	public void setNiveau(int niveau) {
-		this.niveau = niveau;
-	}
-
-	public int getNiveau() {
-		return niveau;
-	}
 
 	/**
 	 * Constructeur pour Monstres communs et elites/bosses
@@ -48,6 +40,15 @@ public class Personnage {
 
 		//Constructeur vide
 	public Personnage(){
+	
+	}
+	
+	public void setNiveau(int niveau) {
+		this.niveau = niveau;
+	}
+
+	public int getNiveau() {
+		return niveau;
 	}
 	
 	/**

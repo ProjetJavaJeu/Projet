@@ -8,8 +8,8 @@ public class Combat {
 	private Personnage joueur;
 	private MonstresCommuns monstre;
 	private Game game;
-	private boolean monstreKO = false;	//Donne l'etat du monste : en vie ou ko.
-	private boolean joueurKO = false;
+	private boolean monstreKO; 	//Donne l'etat du monste : en vie ou ko.
+	private boolean joueurKO;
 	private char etatAttaque;	//Représente l'état de l'attaque : Coup critique, raté ou erreur.
 	private int frappe;			//Représente numériquement la frappe à afficher en informations (voir interfaceCombat).
 	
@@ -17,6 +17,9 @@ public class Combat {
 		this.game = game;
 		this.joueur = game.getJoueur();
 		this.monstre = game.getMonstre((int)Math.random());
+		frappe = 0;
+		monstreKO = false;
+		joueurKO = false;
 	}
 	
 	public int getFrappe(){
@@ -35,7 +38,7 @@ public class Combat {
 		this.monstre = monstre;
 	}
 	
-	public Personnage getMonstre() {
+	public MonstresCommuns getMonstre() {
 		return monstre;
 	}
 
@@ -51,7 +54,7 @@ public class Combat {
 		return etatAttaque;
 	}	
 	
-	public void ajouterExperience(){// ??? Monstre doit changer de type
+	public void ajouterExperience(){
 		boolean levelUp = game.getJoueur().getExperience().setXpAct(monstre.xpDonnee(), game.getJoueur().getNiveau());
 		if (levelUp == true){	//Vérifier limite level max ? if level <= 10 ?
 			game.getJoueur().setNiveau(game.getJoueur().getNiveau() + 1);
@@ -77,7 +80,31 @@ public class Combat {
 	 * 
 	 * @return int = puissance de l'attaque
 	 */
-	public Personnage attaque(Personnage victime, Personnage attaquant) {
+	public MonstresCommuns attaqueSurMonstre(MonstresCommuns victime, Personnage attaquant) {
+		double rand = Math.random();
+			if (rand >= 0.85){
+				frappe = attaquant.getCaracter().getForce() * 2;
+				victime.setPvDiminution(frappe);
+				setVictimeKO(victime);
+				etatAttaque = 'C';
+				return victime;
+			}
+			else if ((rand < 0.85) && (rand >= 0.15)){
+				frappe = attaquant.getCaracter().getForce();
+				victime.setPvDiminution(frappe);
+				setVictimeKO(victime);
+				etatAttaque = 'N';
+				return victime;
+			}
+			else{
+				etatAttaque = 'F';
+				
+			}
+			etatAttaque = 'E';
+			return null;
+		}
+	
+	public Personnage attaqueSurPersonnage(Personnage victime, MonstresCommuns attaquant) {
 		double rand = Math.random();
 			if (rand >= 0.85){
 				frappe = attaquant.getCaracter().getForce() * 2;

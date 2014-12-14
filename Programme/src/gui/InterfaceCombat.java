@@ -64,7 +64,7 @@ public class InterfaceCombat extends BasicGameState implements
 		imageFond = new Image(Constantes.PATH_IMAGEFOND);
 		rectAttaque = new Rectangle((container.getWidth() - 200) / 2,
 				(container.getHeight() - 100), 200, 50);
-		infosCombat = new Rectangle((container.getWidth() + 100) / 2, (container.getHeight() - 100) , 200, 50);
+		infosCombat = new Rectangle((container.getWidth() + 200) / 2, (container.getHeight() - 100) , 200, 50);
 		f = new Graphics();
 		// container.getInput().addMouseListener(this);
 		boutonAttaque = new MouseOverArea(container,
@@ -90,9 +90,9 @@ public class InterfaceCombat extends BasicGameState implements
 		f.draw(infosCombat);
 		g.drawString("Attaquer", (float) ((container.getWidth() - 80) / 2),
 				(float) ((container.getHeight() - 83)));
-		if (clickBoutonAttaque) {
+		if (combat.getFrappe() != 0) {
 			g.drawString("Vous infligez " + combat.getFrappe() + " dégats",
-					(container.getWidth() - 420) / 2,
+					(container.getWidth() - 320) / 2,
 					(container.getHeight() - 85));
 		}
 		boutonAttaque.render(container, g);
@@ -101,7 +101,10 @@ public class InterfaceCombat extends BasicGameState implements
 	@Override
 	public void update(GameContainer container, StateBasedGame interfJeu,
 			int delta) throws SlickException {
-
+		if (combat.getFrappe() != 0){
+			frappeMonstre();
+				
+		}
 	}
 
 	@Override
@@ -138,23 +141,24 @@ public class InterfaceCombat extends BasicGameState implements
 	 * /* try { Thread.sleep(3000); } catch (InterruptedException e) {
 	 * e.printStackTrace(); } }
 	 */
-	public void echangeCoups() {
-		combat.setMonstre((MonstresCommuns) (combat.attaque(combat.getJoueur(),
-				combat.getMonstre())));
+	public void frappePersonnage() {
+		combat.setMonstre(combat.attaqueSurMonstre(combat.getMonstre(), combat.getJoueur()));
 		clickBoutonAttaque = true;
+	}
+
+	public void frappeMonstre(){
 		try {
 			Thread.sleep(2000); // Permet d'attendre deux secondes avant
 								// d'effectuer l'attaque adverse.
-			game.setJoueur(combat.attaque(combat.getJoueur(),
+			game.setJoueur(combat.attaqueSurPersonnage(combat.getJoueur(),
 					combat.getMonstre()));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@Override
 	public void componentActivated(AbstractComponent e) {
-		System.out.println("Ca passe ou paaaaas ? ");
-		echangeCoups();
+		frappePersonnage();
 	}
 }

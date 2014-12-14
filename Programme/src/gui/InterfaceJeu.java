@@ -1,6 +1,5 @@
 package gui;
 
-import main.Combat;
 import main.Game;
 
 import org.newdawn.slick.AppGameContainer;

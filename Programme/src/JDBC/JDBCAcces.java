@@ -113,6 +113,7 @@ public class JDBCAcces {
 				caracteristique.setForce(rset.getInt("carForce"));
 				caracteristique.setIntelligence(rset.getInt("carIntel"));
 				caracteristique.setEndurance(rset.getInt("carEndu"));
+				monstre.setCaracter(caracteristique);
 				monstre.setType(rset.getString("type").charAt(0));
 				monstre.setRepliqueMonstres(rset.getString("replique"));
 				monstre.setXpDonnee(rset.getInt("xpDonnee"));
