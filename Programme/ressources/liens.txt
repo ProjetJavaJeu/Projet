@@ -21,14 +21,5 @@ LIEN MAGE (GW2) :
 https://d3b4yo2b5lbfy.cloudfront.net/wp-content/uploads/wallpapers/GW2ElementalistPainted-1600x1200.jpg
 
 
-http://openclassrooms.com/courses/apprenez-a-programmer-en-java/positionner-des-boutons
-
-http://fr.wikipedia.org/wiki/Couleurs_du_Web
-
-http://www.infres.enst.fr/~hudry/coursJava/interSwing/index.html => Check KeyListener !
-
-http://opengameart.org/ => Sources tuiles (pour la carte).
-
-Fond d'écran interfaceCombat : 
-
-http://opengameart.org/content/bloody-wall.
+Choix de la couleur
+http://colorizer.org/

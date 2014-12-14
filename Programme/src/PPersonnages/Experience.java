@@ -1,5 +1,10 @@
 package PPersonnages;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
 public class Experience {
 		
 	static int xp[] = {2, 3, 7, 13, 29, 41, 73, 97, 150, 400};

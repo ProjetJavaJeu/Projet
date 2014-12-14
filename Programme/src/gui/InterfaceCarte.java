@@ -19,6 +19,9 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 
 public class InterfaceCarte extends BasicGameState {
 
+	//
+	// /!\ A REPLACER DANS main.constantes !!! + changer accesseurs !!
+	//
 	final static double SEUIL_COMBAT = 99; 	// Si le résultat du random est
 	final static int MAX_FPS = 60;		// supérieur à 95, il y a combat.
 	private AppGameContainer appGame;

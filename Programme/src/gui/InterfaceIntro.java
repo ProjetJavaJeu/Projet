@@ -8,14 +8,14 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.MouseListener;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.gui.ComponentListener;
+import org.newdawn.slick.gui.MouseOverArea;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
 public class InterfaceIntro extends BasicGameState implements MouseListener {
-
-
 	private int choix = 0;
 	private Game game;
 	private Image image;

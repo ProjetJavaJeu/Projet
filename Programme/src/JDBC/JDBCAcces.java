@@ -8,11 +8,9 @@ import PPersonnages.MonstresElites;
 import PPersonnages.Personnage;
 
 /**
- * 
  * @author Baptiste Vergote & Martin Schreinemachers
  * @Class 2TL2
- * @version 1.0
- *
+ * 
  */
 
 public class JDBCAcces {
@@ -116,18 +114,10 @@ public class JDBCAcces {
 				caracteristique.setIntelligence(rset.getInt("carIntel"));
 				caracteristique.setEndurance(rset.getInt("carEndu"));
 				monstre.setType(rset.getString("type").charAt(0));
-
 				monstre.setRepliqueMonstres(rset.getString("replique"));
 				monstre.setXpDonnee(rset.getInt("xpDonnee"));
-
 				tabMonstres[rowCount] = monstre;
 				System.out.println("nom = " + tabMonstres[rowCount].getNom());
-
-				/*
-				 * System.out.println(id + ", " + nom + ", " + typePersonnage +
-				 * ", " + carForce + ", " + carIntel + ", " + carEndu + ", " +
-				 * type + ", " + pv + ", " + xp + ", " + niveau + ", " + mana);
-				 */
 				rowCount++;
 			}
 			System.out.println("Total number of records = " + rowCount);
