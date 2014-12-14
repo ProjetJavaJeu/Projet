@@ -36,12 +36,13 @@ public class InterfaceIntro extends BasicGameState implements MouseListener {
 			Graphics g) throws SlickException {
 		g.drawImage(image, 0, 0);
 	}
+	
 
 	@Override
 	public void update(GameContainer container, StateBasedGame interfJeu,
 			int delta) throws SlickException {
 			if (choix != 0 & choix != 3){
-				//initialiserTableauxEtPersonnages();
+				initialiserTableauxEtPersonnages();
 				interfJeu.enterState(choix, new FadeOutTransition(), new FadeInTransition());
 			}
 	}

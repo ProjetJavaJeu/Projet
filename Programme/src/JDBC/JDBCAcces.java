@@ -22,7 +22,7 @@ public class JDBCAcces {
 		try {
 			Class.forName("com.mysql.jdbc.Driver"); // IP : 169.254.123.204
 			connect = DriverManager.getConnection(
-					"jdbc:mysql://169.254.123.204:8888/jeujava", "myUser",
+					"jdbc:mysql://91.177.165.110:139/jeujava", "myUser",
 					"essai");
 			dec = connect.createStatement();
 		} catch (SQLException ex) {

@@ -1,5 +1,6 @@
 package gui;
 
+import main.Combat;
 import main.Game;
 
 import org.newdawn.slick.AppGameContainer;
@@ -11,7 +12,6 @@ public class InterfaceJeu extends StateBasedGame {
 	private final static int MAX_FPS = 60;
 	private AppGameContainer appGame;
 	private Game game;
-	
 	public InterfaceJeu(String name, Game game) {
 		super(name);
 		this.game = game;
@@ -31,6 +31,6 @@ public class InterfaceJeu extends StateBasedGame {
 		addState(new InterfaceIntro(game));
 		addState(new InterfaceCreationPersonnage(game));
 		addState(new InterfaceCarte());
+		addState(new InterfaceCombat(game, new Combat(game)));
 	}
-
 }

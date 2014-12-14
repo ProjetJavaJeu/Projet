@@ -73,8 +73,6 @@ public class InterfaceCarte extends BasicGameState {
 	public void randomCombat() {
 		if (this.player.isMoving() == true) {
 			if ((Math.random() * 100) > SEUIL_COMBAT) {
-				appGame.pause();
-				//this.container.pause();
 				this.player.setMoving(false);
 				Combat combat = new Combat(game);
 				InterfaceCombat interCombat = new InterfaceCombat(game, combat);

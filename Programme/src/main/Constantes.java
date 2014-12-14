@@ -5,7 +5,8 @@ public class Constantes {
 	public final static int CREATION_PERSO = 2; //Valeur d'état de jeu pour passer à l'interface de création de perso.
 	public final static int CONT_JEU = 3;
 	public final static int OPTIONS_JEU = 4;
-	public final static int CARTE_JEU = 5;				//Valeur d'état de jeu pouyr passer  à la carte.
+	public final static int CARTE_JEU = 5; //Valeur d'état de jeu pouyr passer  à la carte.
+	public final static int COMBAT = 6;
 	public final static String NOM_JEU = "The Epic School Adventure";
 	public final static float LARGEUR_BOUTON = 150;
 	public final static float HAUTEUR_BOUTON = 35;

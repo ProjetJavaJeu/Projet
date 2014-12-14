@@ -9,6 +9,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,21 +25,50 @@ import main.Constantes;
 import main.Game;
 import PPersonnages.MonstresCommuns;
 
-public class InterfaceCombat extends JFrame implements ActionListener {
+public class InterfaceCombat extends BasicGameState implements ActionListener {
 
 	
 	private Game game; // ATTENTION ! VERIFIER SI INTERFACECOMBAT A VRAIMENT
 						// BESOIN DE game.
 	private Combat combat;
-	private JLabel etatAttaque;
-	private JLabel labelInfo;
-
+	private Image imageJoueur;
+	private Image imageMonstre;
+	
 	public InterfaceCombat( Game game, Combat combat ) {
 		this.game = game;
 		this.combat = combat;
 	
 	}
-	public void afficherRemarqueCoup(char attaque, char type) {
+	
+	@Override
+	public void init(GameContainer container, StateBasedGame interfJeu)
+			throws SlickException {
+		if (game.getJoueur().getType() == 'M'){
+			imageJoueur = new Image(Constantes.PATH_MAGE);
+		}
+		else {
+			imageJoueur = new Image(Constantes.PATH_GUERRIER);
+		}
+	}
+	
+	@Override
+	public void render(GameContainer container, StateBasedGame interfJeu, Graphics g)
+			throws SlickException {
+		g.drawImage(imageJoueur, 80, 180);
+	}
+	
+	@Override
+	public void update(GameContainer container, StateBasedGame interfJeu, int delta)
+			throws SlickException {
+		
+	}
+	
+	@Override
+	public int getID() {
+		return Constantes.COMBAT;
+	}
+	
+	/*public void afficherRemarqueCoup(char attaque, char type) {
 		switch (attaque) {
 		case 'C':
 			etatAttaque.setText(Constantes.CRITIQUE);
@@ -74,14 +110,13 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 	 */
 	public void checkCombat() { // Vérifie si le joueur a gagné ou perdu.
 		if (combat.getMonstreKO() == true) {
-			messageFinDeCombat(VICTOIRE);
+			messageFinDeCombat(Constantes.VICTOIRE);
 		} else if (combat.getJoueurKO() == true) {
-			messageFinDeCombat(DEFAITE);
+			messageFinDeCombat(Constantes.DEFAITE);
 		}
 
 		try {
 			Thread.sleep(3000);
-			this.dispose();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -102,7 +137,7 @@ public class InterfaceCombat extends JFrame implements ActionListener {
 	 * Lorsque l'utilisateur clique sur le bouton attaque, une attaque est
 	 * lancée du joueur sur le monstre.
 	 */
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent container) {
 		combat.setMonstre((MonstresCommuns) combat.attaque(combat.getJoueur(),
 				combat.getMonstre())); // Typecast c'est la vie ! <3 <3 <3
 		majInformations(combat.getFrappe(), combat.getJoueur().getType());
