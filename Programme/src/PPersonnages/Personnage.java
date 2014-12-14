@@ -1,5 +1,10 @@
 package PPersonnages;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
 public class Personnage {
 	private String nom;
 	private Caract caracter;
@@ -19,11 +24,12 @@ public class Personnage {
 
 	/**
 	 * Constructeur pour Monstres communs et elites/bosses
-	 * @param nom
-	 * @param intel
-	 * @param force
-	 * @param endu
-	 * @param typeMonstres
+	 * @param nom du boss
+	 * @param intel du boss
+	 * @param force du boss
+	 * @param endurance du boss
+	 * @param typeMonstres si 1 <= typeMonstres <= 5 alors il s'agit d'un monstre commun
+	 * 						si 6 <= typeMonstres <=9 alors il s'agit d'un monstre Elite
 	 * @param pv
 	 * @param repliqueMonstres
 	 */
@@ -40,28 +46,15 @@ public class Personnage {
 			this.pv = caracter.getEndurance()*7;
 	}
 
-	/**
-	 * Contructeur pour Guerrier ou Mage
-	 * @param nom 
-	 * @param intel
-	 * @param force
-	 * @param endu
-	 * @param pv
-	 
-	public Personnage(String nom, Caract caracter, char type) { 
-		this.nom = nom;
-		this.caracter = caracter;
-		this.type = type;
-		if (type == 'M')
-			this.pv = caracter.getEndurance()*7;
-		else
-			this.pv = caracter.getEndurance()*10; 
-	}*/
-	
-	//Constructeur vide
+		//Constructeur vide
 	public Personnage(){
 	}
 	
+	/**
+	 * Affecte l'endurance à la création du personnage, 2 cas possible :
+	 * 1) si c'est un mage : endurance = 7
+	 * 2) si c'est un guerrier : endurance = 10
+	 */
 	public void setPvIntial(){
 		if (type == 'M')
 			this.pv = caracter.getEndurance()*7;
@@ -116,21 +109,4 @@ public class Personnage {
 	public void setRepliqueMonstres(String repliqueMonstres) {
 		this.repliqueMonstres = repliqueMonstres;
 	}
-/*
-	/**
-	 * Créer les PV pour les monstres communs et pour les élites
-	 * @param endu*5 si monstres communs, endu*7 si montres Elite/boss
-	 * @param type 1,2,3,4,5 = monstres communs et 7,8 si monstres Elites
-	 * @return
-	 */
-/*
-	public int setPVMonstres(int endu, int type){
-		if ((type < 5 ) && (type > 0)) // type Monstres Communs
-			return endu*5;
-		else if ((type >= 5 ) && (type < 8)) // type Monstres boss -> type MAX A CHANGER !! 
-			return endu*7;
-		else 
-			return -1;
-	}
-*/
 }

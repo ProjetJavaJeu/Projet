@@ -9,6 +9,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class InterfaceJeu extends StateBasedGame {
+	// dans main.constantes?
 	private final static int MAX_FPS = 60;
 	private AppGameContainer appGame;
 	private Game game;

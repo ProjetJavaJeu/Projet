@@ -3,7 +3,11 @@
  */
 package PPersonnages;
 
-
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
 public class MonstresElites extends Personnage{
 	private int xpDonnee;
 	

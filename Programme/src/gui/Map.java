@@ -46,7 +46,7 @@ public class Map {
 	 }
 	 
 	 public void renderForeGround(){ //Ce qui est affiché à l'avant plan (devant le personnage).
-		
+		//PAS FINIIII OU DELETTEEE !??????
 	 }
 	 
 	 public boolean isCollision(float x, float y) {

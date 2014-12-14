@@ -16,8 +16,6 @@ import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
 public class InterfaceIntro extends BasicGameState implements MouseListener {
-
-
 	private int choix = 0;
 	private Game game;
 	private Image image;

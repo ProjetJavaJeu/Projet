@@ -1,5 +1,10 @@
 package PPersonnages;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
 public class Equipement {
 	int num;
 	String nom;
