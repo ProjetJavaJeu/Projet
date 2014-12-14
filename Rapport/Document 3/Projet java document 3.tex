@@ -64,6 +64,7 @@
 	Accompagné de leur PC et de leurs cerveaus, affaiblis par les attaques répétées, ils ont commencé à imaginer un moyen d'arriver(non, autre) à leur but ultime (NO SPOIL !!).\\
 	
 	Serez vous assez fort pour les aider?\\
+	
 	Parviendrez vous à arrêter toutes les menaces auxquels vous serez confrontés?\\
 	Si oui, suivez nous, arpentez vous dans ces contrées dangereuse et devenez protecteur des faibles et des opprimés!
 	
@@ -76,30 +77,29 @@
 	Un texte expliquant tout ce qui est nécessaire pour que votre projet fonctionne (modification du path, driver à installer et dans ce cas les fournir, …).
 	\clearpage
 	
-	\section{Captures d'écran}
-	Quelques screenshots de votre projet (idéalement pour illustrer des passages de votre travail – donc vous ne faites pas un titre screenshot mais vous en mettez là où c’est utile).
-	\subsection{Démarrage}
-	C'est dans les contrées du bois de Lauzelle
+	\section{Notre jeu étapes par étapes}
+	En double cliquant sur le fichier jar, le jeu se lance en plein écran, vous laissant apercevoir notre magnifique écran de démarrage :
 	\begin{figure}[h!]
-		\includegraphics[scale=0.7]{EcranDemarrage.png}
+		\includegraphics[scale=0.30]{EcranDebut.jpg}
 	\end{figure}
-	
-	\subsection{Création de personnage}
-	Que tout à commencé	
+	\\Sur cette image, trois boutons sont présents : 
+	\begin{enumerate}
+		\item Le bouton de création d'une Nouvelle Partie.
+		\item La bouton permettant de Continuer la partie en cours.
+		\item Un bouton pour changer les options.
+	\end{enumerate}
+	Dans cet exemple, nous partirons du principe que vous n'avez pas encore eu l'occasion de tester le jeu ! Nous exécuterons donc la création d'une Nouvelle Partie.\\
+	\\En cliquant sur cette case, un écran de sélection de personnage apparait :
 	\begin{figure}[h!]
-		\includegraphics[scale=0.7]{EcranCreationPersonnage.png}
+		\includegraphics[scale=0.30]{EcranCreationPersonnage.jpg}
 	\end{figure}
-	
-	\subsection{La carte du jeu}
+	\\Vous cliquez sur le personnage que vous souhaitez jouer, lui entrez un Pseudo et le jeu commence :
 	\begin{figure}[h!]
-		\includegraphics[scale=0.7]{EcranCarte.png}
+		\includegraphics[scale=0.65]{EcranCarte.png}
 	\end{figure}
-	
-
-	\subsection{Les combats}
-	\begin{figure}[h!]
-		\includegraphics[scale=0.7]{EcranCarte.png}
-	\end{figure}	
+	\\Comme vous pouvez le constater, le guerrier apparait en plein milieu de la carte, celle ci délimitée par les petits cailloux que vous ne pourriez, bien entendu, pas traverser ;) !\\
+	\\En se baladant dans la prairie, celui ci va se heurter à des rencontres inattendues ou notre champion va devoir vendre chèrement sa peau !\\
+	\\Nous ne dévoilerons pas la suite, à vous de la découvrir ! Bonne chance dans cet univers rempli de monstres sanguinaires !
 	\clearpage
 	
 	\section{Documentation du package}
@@ -110,22 +110,36 @@
 	Une description de votre stratégie de validation.
 	\clearpage
 	
+	\section{Difficultés rencontrées}
+	\begin{itemize}
+		\item Avoir un jeu fonctionnel !\\
+		==$>$ Beaucoup de petits problèmes sont survenus
+		\item L'interface Slick2D complexe et longue à maîtriser
+	\end{itemize}
 	\section{Conclusion}
-	Une conclusion : que vous a apporté ce projet, quelles ont été les difficultés rencontrées, comment peut-on l’améliorer.
+	Une conclusion : que vous a apporté ce projet, quelles ont été les difficultés rencontrées, comment peut-on l’améliorer.\\
+	\\
+	\\
+	Martin adorait l'idée d'un RPG, étant tous les deux des joueurs de RPG, nous nous sommes lancés très vite dans l'idée.
+	
+	
+	
 	\clearpage
+	\section*{Sources }
+		
 	
 	
-	\section{Différentes classes}
+	\section*{Différentes classes}
 		Il existe deux classes dans notre programme : le Guerrier et le Mage.\\
 		Ces deux classes ont un attribut principal, et un attribut secondaire.\\
 		Le niveau maximum du jeu est 10.
 		
-	\subsection{Guerrier}
+	\subsection*{Guerrier}
 		La force est la caractéristique principale du guerrier, celle ci augmente de 1 chaque level !\\
 		L'endurance augmente aussi chaque level de 1\\
 		Endurance initial à 1, *10 pour obtenir ses pv, force à 1 !\\
 		Pour ce qui est de l'intelligence, elle est aussi élevée que celle de martin...\\ Je lui ai appliqué des valeurs (dans un tableau) en fonction du niveau du personnage : 	\{0,0,0,0,1,1,1,1,2,2\}
 		
-	\subsection{Mage}
+	\subsection*{Mage}
 		endurance initial à 1, *7 pour obtenir ses pv, force à 0, inteligence à 1 !
 	\end{document}

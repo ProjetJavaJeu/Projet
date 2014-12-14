@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.25)  9 DEC 2014 14:42
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.10.25)  14 DEC 2014 12:00
 entering extended mode
 **Projet*java*document*3.tex
 
@@ -356,18 +356,18 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 ("C:\Program Files (x86)\MiKTeX\tex\latex\geometry\geometry.cfg"))
 ("C:\Users\Abrid\Desktop\EPHEC - 2 TL 2\T025 - Langage avancé de prog (exercic
 es)\Projet Java fin Q1\Projet\Rapport\Document 3\Projet java document 3.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
 
 ("C:\Program Files (x86)\MiKTeX\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -418,20 +418,20 @@ LaTeX Font Info:    ... okay on input line 9.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <24.88> on input line 14.
+(Font)              <24.88> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <20.74> on input line 14.
+(Font)              <20.74> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 14.
+(Font)              <17.28> on input line 12.
 <EcranCarte.png, id=1, 602.25pt x 451.6875pt>
 File: EcranCarte.png Graphic file (type png)
  <use EcranCarte.png>
-Package pdftex.def Info: EcranCarte.png used on input line 18.
+Package pdftex.def Info: EcranCarte.png used on input line 16.
 (pdftex.def)             Requested size: 331.23851pt x 248.42888pt.
  [1
 
@@ -439,12 +439,7 @@ Package pdftex.def Info: EcranCarte.png used on input line 18.
 rid/Desktop/EPHEC - 2 TL 2/T025 - Langage avancé de prog (exercices)/Projet Ja
 va fin Q1/Projet/Rapport/Document 3/EcranCarte.png>]
 ("C:\Users\Abrid\Desktop\EPHEC - 2 TL 2\T025 - Langage avancé de prog (exercic
-es)\Projet Java fin Q1\Projet\Rapport\Document 3\Projet java document 3.toc"
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 5.
-)
+es)\Projet Java fin Q1\Projet\Rapport\Document 3\Projet java document 3.toc")
 \tf@toc=\write3
 
 [2
@@ -452,51 +447,56 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ] [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--56
+Underfull \hbox (badness 10000) in paragraph at lines 52--54
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
 
-Overfull \hbox (3.70074pt too wide) in paragraph at lines 59--61
+Overfull \hbox (3.70074pt too wide) in paragraph at lines 57--59
 \OT1/cmr/m/n/10 Ces derniers sont prets a tout pour bouter nos heros hors de
  leur forter-esse(chateau/royaume(?)). 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--64
+Underfull \hbox (badness 10000) in paragraph at lines 60--62
 
  []
 
 
-Overfull \hbox (6.81194pt too wide) in paragraph at lines 65--67
+Overfull \hbox (6.81194pt too wide) in paragraph at lines 63--65
 []\OT1/cmr/m/n/10 Encourage par leurs proches, nos deux pro-gram-meurs aliene
 s/desequilibres(=Fou a l'extreme)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--67
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
 
  []
 
 [4
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
@@ -504,99 +504,96 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
 ] [6
 
-] <EcranDemarrage.png, id=27, 600.74437pt x 452.4403pt>
-File: EcranDemarrage.png Graphic file (type png)
+] <EcranDebut.jpg, id=27, 1284.8pt x 722.7pt>
+File: EcranDebut.jpg Graphic file (type jpg)
+ <use EcranDebut.jpg>
+Package pdftex.def Info: EcranDebut.jpg used on input line 83.
+(pdftex.def)             Requested size: 385.44298pt x 216.81166pt.
 
-<use EcranDemarrage.png>
-Package pdftex.def Info: EcranDemarrage.png used on input line 86.
-(pdftex.def)             Requested size: 420.51819pt x 316.70605pt.
+<EcranCreationPersonnage.jpg, id=28, 1284.8pt x 722.7pt>
+File: EcranCreationPersonnage.jpg Graphic file (type jpg)
 
-Overfull \hbox (10.91275pt too wide) in paragraph at lines 86--87
-[][] 
- []
-
-<EcranCreationPersonnage.png, id=29, 603.0028pt x 451.6875pt>
-File: EcranCreationPersonnage.png Graphic file (type png)
-
-<use EcranCreationPersonnage.png>
-Package pdftex.def Info: EcranCreationPersonnage.png used on input line 92.
-(pdftex.def)             Requested size: 422.09908pt x 316.17908pt.
-
-Overfull \hbox (12.49364pt too wide) in paragraph at lines 92--93
-[][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+<use EcranCreationPersonnage.jpg>
+Package pdftex.def Info: EcranCreationPersonnage.jpg used on input line 94.
+(pdftex.def)             Requested size: 385.44298pt x 216.81166pt.
 File: EcranCarte.png Graphic file (type png)
-<use EcranCarte.png>
-Package pdftex.def Info: EcranCarte.png used on input line 97.
-(pdftex.def)             Requested size: 421.57211pt x 316.17908pt.
+ <use EcranCarte.png>
+Package pdftex.def Info: EcranCarte.png used on input line 98.
+(pdftex.def)             Requested size: 391.45786pt x 293.59338pt.
 
-Overfull \hbox (11.96667pt too wide) in paragraph at lines 97--98
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 91--103
+
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 91--103
 
-File: EcranCarte.png Graphic file (type png)
-<use EcranCarte.png>
-Package pdftex.def Info: EcranCarte.png used on input line 103.
-(pdftex.def)             Requested size: 421.57211pt x 316.17908pt.
-
-Overfull \hbox (11.96667pt too wide) in paragraph at lines 103--104
-[][] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 10000) in paragraph at lines 91--103
+
+ []
 
 [7
 
  <C:/Users/Abrid/Desktop/EPHEC - 2 TL 2/T025 - Langage avancé de prog (exercic
-es)/Projet Java fin Q1/Projet/Rapport/Document 3/EcranDemarrage.png>]
-[8 <C:/Users/Abrid/Desktop/EPHEC - 2 TL 2/T025 - Langage avancé de prog (exerc
-ices)/Projet Java fin Q1/Projet/Rapport/Document 3/EcranCreationPersonnage.png>
-] [9] [10
-
-] [11
-
-] [12
+es)/Projet Java fin Q1/Projet/Rapport/Document 3/EcranDebut.jpg> <C:/Users/Abri
+d/Desktop/EPHEC - 2 TL 2/T025 - Langage avancé de prog (exercices)/Projet Java
+ fin Q1/Projet/Rapport/Document 3/EcranCreationPersonnage.jpg>] [8] [9
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 129.
+[10
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 115.
 
  ("C:\Program Files (x86)\MiKTeX\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 129.
-[13
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 115.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 116.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 116.
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--124
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--124
+
+ []
+
+[11
+
+] [12
 
 ]
 ("C:\Users\Abrid\Desktop\EPHEC - 2 TL 2\T025 - Langage avancé de prog (exercic
 es)\Projet Java fin Q1\Projet\Rapport\Document 3\Projet java document 3.aux") )
  
 Here is how much of TeX's memory you used:
- 2605 strings out of 494045
- 37495 string characters out of 3147580
+ 2608 strings out of 494045
+ 37502 string characters out of 3147580
  97551 words of memory out of 3000000
- 5869 multiletter control sequences out of 15000+200000
+ 5871 multiletter control sequences out of 15000+200000
  9457 words of font info for 33 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  40i,7n,68p,397b,366s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
 ogram Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program 
-Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (
-x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Program Files (x86)/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files (x86)/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX/font
-s/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on "Projet java document 3.pdf" (13 pages, 238392 bytes).
+Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files 
+(x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmss17.pfb><C:/Program Files (x86)/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files (x86)/MiKTeX/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmti10.pfb>
+Output written on "Projet java document 3.pdf" (12 pages, 293094 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
+ 76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
