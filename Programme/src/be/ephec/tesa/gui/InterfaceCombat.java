@@ -1,7 +1,5 @@
 package be.ephec.tesa.gui;
 
-import java.awt.BorderLayout;
-
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -25,10 +23,12 @@ import org.newdawn.slick.state.StateBasedGame;
 import be.ephec.main.Combat;
 import be.ephec.main.Constantes;
 import be.ephec.main.Game;
-import be.ephec.tesa.personnages.MonstresCommuns;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
 
 public class InterfaceCombat extends BasicGameState implements
 		ComponentListener {
@@ -59,14 +59,16 @@ public class InterfaceCombat extends BasicGameState implements
 		etatCombat = 0;
 		finCombat = false;
 	}
-
+	/**
+	 * Cette méthode initialise l'objet combat et tout les éléments graphiques nécessaires à l'affichage.
+	 */
 	@Override
 	public void init(GameContainer container, StateBasedGame interfJeu)
 			throws SlickException {
 		
 		imageMage = new Image(Constantes.PATH_MAGE);
 		imageGuerrier = new Image(Constantes.PATH_GUERRIER);
-		imageOrc = new Image(Constantes.PATH_ORC);
+		imageOrc = new Image(Constantes.PATH_COMPTABLE);
 		imageMurloc = new Image(Constantes.PATH_MURLOC);
 		imageFond = new Image(Constantes.PATH_IMAGEFOND);
 		
@@ -95,7 +97,9 @@ public class InterfaceCombat extends BasicGameState implements
 		finDeCombat = new Rectangle((container.getWidth() - 200) / 2,
 				(container.getHeight() - 50) / 2, 200, 50);
 	}
-
+	/**
+	 * Cette méthode affiche les éléments graphique à l'écran.
+	 */
 	@Override
 	public void render(GameContainer container, StateBasedGame interfJeu,
 			Graphics g) throws SlickException {
@@ -105,6 +109,7 @@ public class InterfaceCombat extends BasicGameState implements
 		
 		setImageJoueur();
 		setImageMonstre();
+		
 		g.setColor(Color.black);
 		f.setColor(new Color(212, 129, 47));
 		g.drawImage(imageFond, 0, 0);
@@ -144,6 +149,8 @@ public class InterfaceCombat extends BasicGameState implements
 			g.drawString("RETOUR A LA CARTE", (container.getWidth() - 200) / 2,
 					(container.getHeight() - 30) / 2);
 		} 
+		
+		
 		else if (combat.getJoueurKO() == true){
 			g.drawString(Constantes.DEFAITE, (container.getWidth()
 					- Constantes.MARGE_IMAGE - 300), yPositionBoutons);
@@ -157,6 +164,9 @@ public class InterfaceCombat extends BasicGameState implements
 		boutonFinDeCombat.render(container, g);
 	}
 
+	/**
+	 * Cette méthode permet ici de changer d'état de jeu.
+	 */
 	@Override
 	public void update(GameContainer container, StateBasedGame interfJeu,
 			int delta) throws SlickException {
@@ -175,6 +185,9 @@ public class InterfaceCombat extends BasicGameState implements
 		etatCombat = 1;
 	}
 
+	/**
+	 * Définit l'image du joueur, selon sa classe.
+	 */
 	public void setImageJoueur() {
 		if (combat.getJoueur().getType() == 'M') {
 			imageJoueur = imageMage;
@@ -183,6 +196,9 @@ public class InterfaceCombat extends BasicGameState implements
 		}
 	}
 
+	/**
+	 * Définit l'image du joueur, selon son type.
+	 */
 	public void setImageMonstre() {
 		if (combat.getMonstre().getType() == '1') {
 			imageMonstre = imageOrc;

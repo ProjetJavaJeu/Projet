@@ -17,32 +17,29 @@ import be.ephec.main.Player;
 import be.ephec.main.PlayerController;
 import be.ephec.main.TriggerController;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
+
 public class InterfaceCarte extends BasicGameState {
 
-	//
-	// /!\ A REPLACER DANS main.constantes !!! + changer accesseurs !!
-	//
-	final static double SEUIL_COMBAT = 99; 	// Si le résultat du random est
-	final static int MAX_FPS = 60;		// supérieur à 95, il y a combat.
-	private AppGameContainer appGame;
+	final static double SEUIL_COMBAT = 99;
+	final static int MAX_FPS = 60;		
 	private GameContainer container;
 	private Carte carte = new Carte();
 	private Player player = new Player(carte, 200, 200);
 	private Camera camera = new Camera(player);
 	private TriggerController triggers = new TriggerController(carte, player);
 	private Hud hud = new Hud();
-	private Game game;
 	private Music background;
 	
 	public InterfaceCarte(Game game) {
-		this.game = game;
 	}
 
 	public void init(GameContainer container, StateBasedGame interfJeu) throws SlickException {
-		/*
-		 * String path = System.getProperty("user.dir");
-		 * System.out.println(path);
-		 */
+		
 		this.carte.init();
 		this.player.init();
 		this.container = container;
@@ -57,8 +54,7 @@ public class InterfaceCarte extends BasicGameState {
 
 	public void render(GameContainer container, StateBasedGame interfJeu, Graphics g)
 			throws SlickException {
-		// ATTENTION : Placer d'abord la fonction qui fait la camera sinon ca
-		// marche pas! Ici place().
+		
 		this.camera.place(container, g);
 		this.carte.renderBackground();
 		this.player.render(g);

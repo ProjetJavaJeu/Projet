@@ -9,20 +9,39 @@ import org.newdawn.slick.Graphics;
 import be.ephec.tesa.gui.Carte;
 import be.ephec.tesa.personnages.Personnage;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
+
+/**
+ * 
+ * @float x, y les variables qui contiennent les coordonnées du joueur sur la carte.
+ * @int direction indique la direction dans lequel le personnage est tourné : 1 pour haut, 2 droite, 3 bas et 4 gauche.
+ * @boolean moving détermine si le personnage est en mouvement ou non.
+ * @Animation est un tableau qui contient les différents sprites d'animations du personnage.
+ * @carte contient la carte du jeu, sur lequel le personnage va pouvoir se déplacer.
+ */
+
 public class Player {
 	private float x;
 	private float y;
 	private int direction = 0;
 	private boolean moving = false;
 	private Animation[] animations = new Animation[8];
-	private Carte map;
+	private Carte carte;
 
 	private Personnage perso;
 
-	// private boolean onStair = false; //si nécessité de rajouter des
-	// escaliers.
+	/**
+	 * 
+	 * @param map la carte de jeu.
+	 * @param x la coordonnée x du personnage.
+	 * @param y la coordonnée y du personnage.
+	 */
 	public Player(Carte map, float x, float y) {
-		this.map = map;
+		this.carte = map;
 		this.x = x;
 		this.y = y;
 	}
@@ -76,16 +95,11 @@ public class Player {
 	public void setMoving(boolean moving) {
 		this.moving = moving;
 	}
-	/*
-	public boolean isOnStair() {
-		return onStair;
-	}
-
-	public void setOnStair(boolean onStair) {
-		this.onStair = onStair;
-	}
-	*/
 	
+	/**
+	 * Cette méthide initialise le contenu du tableau animation.
+	 * @throws SlickException
+	 */
 	public void init() throws SlickException {
 		SpriteSheet spriteSheet = new SpriteSheet(
 				"/ressources/sprites/baldricWalk.png", 64, 64);
@@ -125,7 +139,7 @@ public class Player {
 		if (this.moving) {
 			float futurX = getFuturX(delta);
 			float futurY = getFuturY(delta);
-			boolean collision = this.map.isCollision(futurX, futurY);
+			boolean collision = this.carte.isCollision(futurX, futurY);
 			if (collision) {
 				this.moving = false;
 			} else {

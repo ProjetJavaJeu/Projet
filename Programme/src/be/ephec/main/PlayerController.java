@@ -5,6 +5,12 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.KeyListener;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
+
 public class PlayerController implements KeyListener, ControllerListener {
 	private Player player;
 	private GameContainer container;

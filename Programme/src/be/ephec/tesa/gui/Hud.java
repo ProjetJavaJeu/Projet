@@ -6,11 +6,14 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
+
 public class Hud {
-	// STATIC A VIRER !! (deja fait dans l'uMlolololol)
-	//
-	// /!\ A REPLACER DANS main.constantes !!! + changer accesseurs !!
-	//
+	
 	private static final int P_BAR_X = 30;
 	private static final int P_BAR_Y = 30;
 	private static final Color LIFE_COLOR = new Color(255, 0, 0);

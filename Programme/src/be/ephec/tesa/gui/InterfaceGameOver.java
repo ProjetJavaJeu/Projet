@@ -9,6 +9,12 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import be.ephec.main.Constantes;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
+
 public class InterfaceGameOver extends BasicGameState {
 	@Override
 	public void init(GameContainer container, StateBasedGame interfJeu)
@@ -26,7 +32,6 @@ public class InterfaceGameOver extends BasicGameState {
 	@Override
 	public void update(GameContainer container, StateBasedGame interfJeu, int delta)
 			throws SlickException {
-		// TODO Auto-generated method stub
 		
 	}
 

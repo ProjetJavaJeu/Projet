@@ -21,10 +21,6 @@ public class Experience {
 		return xpAct;
 	}
 	
-	/*
-	 * get / set lvl up
-	 * si xp = 116 -> 116 - 100 (valeur pour lvl up), inc lvl, augmente caract, <== OK !
-	 */
 	public boolean setXpAct(int xpAct, int level) {
 		if (level == 10){
 			System.out.println("Level max atteint");

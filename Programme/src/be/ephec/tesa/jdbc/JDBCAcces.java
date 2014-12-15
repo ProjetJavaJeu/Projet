@@ -15,6 +15,13 @@ import be.ephec.tesa.personnages.Personnage;
 
 public class JDBCAcces {
 
+	/**
+	 * 
+	 * @param connect la variable qui contient les informations nécessaires à la connexion à la base de données.
+	 * @param dec la variable qui crée une requête qui permet d'ouvrir l'accès à la base de données.
+	 * @return la variable qui va permettre de faire des requêtes SQL.
+	 * @throws ClassNotFoundException
+	 */
 	public Statement initiationBDD(Connection connect, Statement dec)
 			throws ClassNotFoundException {
 		try {
@@ -29,6 +36,12 @@ public class JDBCAcces {
 		return dec;
 	}
 
+	/**
+	 * 
+	 * @param choix une variable entière qui contient le choix de l'utilisateur : 1, nouvelle partie, 2, continuer partie.
+	 * @return la variable contenant le joueur.
+	 * @throws ClassNotFoundException
+	 */
 	public Personnage JDBCPersonnage(int choix)
 			throws ClassNotFoundException {
 		Connection connect = null;
@@ -87,6 +100,8 @@ public class JDBCAcces {
 
 	/**
 	 * 
+	 * @param tabMonstres le tableau qui va contenir tout les monstres du jeu.
+	 * @return le tableau de monstres tabMosntres.
 	 * @throws ClassNotFoundException
 	 */
 	public MonstresCommuns[] JDBCMonstres(MonstresCommuns tabMonstres[])

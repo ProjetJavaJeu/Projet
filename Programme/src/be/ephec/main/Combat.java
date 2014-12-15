@@ -3,17 +3,33 @@ package be.ephec.main;
 import be.ephec.tesa.personnages.MonstresCommuns;
 import be.ephec.tesa.personnages.Personnage;
 
-public class Combat {
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
 
+public class Combat {
+	/**
+	 * Personnage joueur, monstre : sont les objets qui représentent les deux adversaires dans un combat.
+	 * boolean monstreKO, joueurKO : sont des variables booléennes qui représentent l'état de combattre des deux opposants.
+	 * char etatAttaque : contient un caractère représentant le type d'attaque effectué (Coup critique, coup normal, coup manqué). 
+	 * int frappePersonnage, frappeMonstre : contiennent la valeur entière de la dernière frappe effectuée par le monstre et le joueur.
+	 */
+	
 	private Personnage joueur;
 	private MonstresCommuns monstre;
 	private Game game;
-	private boolean monstreKO; 	//Donne l'etat du monste : en vie ou ko.
+	private boolean monstreKO;
 	private boolean joueurKO;
-	private char etatAttaque;	//Représente l'état de l'attaque : Coup critique, raté ou erreur.
-	private int frappePersonnage;	//Représente numériquement la frappe à afficher en informations (voir interfaceCombat).
+	private char etatAttaque;
+	private int frappePersonnage;
 	private int frappeMonstre;
 	
+	/**
+	 * 
+	 * @param game est la variable qui contient le joueur et un tableau de monstres, nécessaires à l'initialisation du combat.
+	 */
 	public Combat(Game game){
 		this.game = game;
 		this.joueur = game.getJoueur();
@@ -68,6 +84,9 @@ public class Combat {
 		return etatAttaque;
 	}	
 	
+	/**
+	 * @post Modifie l'expérience du joueur et son niveau, si celui-ci a atteint le cap d'expérience nécessaire.
+	 */
 	public void ajouterExperience(){
 		boolean levelUp = game.getJoueur().getExperience().setXpAct(monstre.xpDonnee(), game.getJoueur().getNiveau());
 		if (levelUp == true){						//Vérifier limite level max ? if level <= 10 ?
@@ -75,6 +94,11 @@ public class Combat {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param victime est une variable de type personne contenant la victime de l'attaque en cours d'execution.
+	 * @post Met la valeur true pour la variable joueurKO / monstreKO si la vie de la victime est égale à zéro.
+	 */
 	public void setVictimeKO(Personnage victime){
 		if (victime.getPv() == 0){
 			if (victime.getType() == 'M' | victime.getType() == 'G'){
@@ -86,6 +110,10 @@ public class Combat {
 		}
 	}
 
+	/**
+	 * 
+	 * @return la force de frappe de l'attaquant pour la prochaine attaque.
+	 */
 	public int typeAttaque(){
 		if (joueur.getType() == 'G'){
 			return joueur.getCaracter().getForce();
@@ -95,11 +123,12 @@ public class Combat {
 	}
 	
 	/**
+	 * Effectue l'attaque du joueur sur le monstre.
 	 * Gere les coups critiques si Math.random >= 0.85, attaque de 2 ! (== coup
 	 * critique) si Math.random < 0.85 ET Math.random >= 0.15 (== coup normal)
 	 * si Math.random > 0.15 (== coup raté)
 	 * 
-	 * @return int = puissance de l'attaque
+	 * @return la variable contenant le monstre.
 	 */
 	public MonstresCommuns attaqueSurMonstre() {
 		double rand = Math.random();
@@ -124,6 +153,11 @@ public class Combat {
 			}
 		}
 	
+	/**
+	 * 
+	 * Idem que attaqueSurMonstre() mais pour l'attaque du monstre sur le joueur.
+	 * @return la variable contenant le joueur.
+	 */
 	public Personnage attaqueSurPersonnage() {
 		double rand = Math.random();
 			if (rand >= 0.85){

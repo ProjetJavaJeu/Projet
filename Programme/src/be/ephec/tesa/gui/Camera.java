@@ -5,6 +5,12 @@ import org.newdawn.slick.Graphics;
 
 import be.ephec.main.Player;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
+
 public class Camera {
 	private Player player;
 	private float xCamera, yCamera;

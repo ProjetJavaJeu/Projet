@@ -16,6 +16,11 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 import be.ephec.main.Constantes;
 import be.ephec.main.Game;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
 public class InterfaceCreationPersonnage extends BasicGameState implements MouseListener{
 	
 	private Game game;
@@ -78,7 +83,7 @@ public class InterfaceCreationPersonnage extends BasicGameState implements Mouse
 
 	@Override
 	public void mouseClicked(int button, int x, int y, int clickCount) {
-		//System.out.println("x = " + x + " y = " + y);
+		
 		if (x > 100 & x < 564){
 			if (y > 113 & y < 680){
 				game.getJoueur().setType('G');

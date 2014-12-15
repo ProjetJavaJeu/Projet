@@ -1,5 +1,16 @@
 package be.ephec.main;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
+
+/**
+ * 
+ * Contient toutes les constantes nécessaires à l'éxécution du programme.
+ *
+ */
 public class Constantes {
 	
 	final static int NBR_MAX_MONSTRES = 5;
@@ -22,7 +33,7 @@ public class Constantes {
 	public final static String IMAGE_CREATION_PERSO = "/ressources/map/ecranCreationPersonnage.jpg";
 	public final static String PATH_GUERRIER = "ressources/imagesCombat/warrior.jpg";
 	public final static String PATH_MAGE = "ressources/imagesCombat/mage2.jpg";
-	public final static String PATH_ORC = "ressources/imagesCombat/orc2.jpg";
+	public final static String PATH_COMPTABLE = "/ressources/imagesCombat/DroiteuxOK.jpg";
 	public final static String PATH_MURLOC = "ressources/imagesCombat/murloc.jpg";
 	public final static String PATH_IMAGEFOND = "ressources/map/bg.png";
 	public final static String CRITIQUE = " Coup Critique !!";

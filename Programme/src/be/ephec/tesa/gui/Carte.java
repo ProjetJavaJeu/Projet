@@ -5,13 +5,19 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
+
 public class Carte {
 	private TiledMap tiledMap;
 	 public void init() throws SlickException {
 		 this.tiledMap = new TiledMap("/ressources/map/exemple-collision2.tmx");
 	 }
 	 
-	 public int getObjectCount() {	// Getters / Setters redéfini (On met 0 pour le premier paramètre).
+	 public int getObjectCount() {
 		    return this.tiledMap.getObjectCount(0);
 		  }
 		  public String getObjectType(int objectID) {
@@ -45,8 +51,8 @@ public class Carte {
 		 this.tiledMap.render(0, 0, 5);
 	 }
 	 
-	 public void renderForeGround(){ //Ce qui est affiché à l'avant plan (devant le personnage).
-		//PAS FINIIII OU DELETTEEE !??????
+	 public void renderForeGround(){
+		
 	 }
 	 
 	 public boolean isCollision(float x, float y) {

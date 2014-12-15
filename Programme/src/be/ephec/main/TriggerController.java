@@ -4,6 +4,12 @@ import org.newdawn.slick.SlickException;
 
 import be.ephec.tesa.gui.Carte;
 
+/**
+ * @author Baptiste Vergote & Martin Schreinemachers
+ * @Class 2TL2
+ * 
+ */
+
 public class TriggerController {
 	private Carte map;
 	private Player player;
