@@ -64,24 +64,68 @@
 	
 	C’est dans une petite bourgade au plein centre du monde que j’attire votre attention... Tout a commencé dans les environs de Louvain-La-Neuve, en amont d’un lac, vide depuis un bon moment.\\
 
-	Une journée bien trop remplie...Trois heures de suite à écouter, un seul et même orateur parler de concepts et de notions cabalistiques. Un challenge que seuls peu, arrivent à endurer sans piquer du nez ! C’est dans cette ambiance somnolente, cet environnement âpre que débute l’aventure héroïque de nos deux programmeurs ! Dans cette pièce sombre et petite, où planent pêle-mêle, des effluves de transpirations, de cigarettes et de parfums… Ils s’imaginent un idéal, où leurs héros seraient des rois devant leurs misérables vies… Ils braveraient les démons et survivraient à ce monde hostile!\\
+	Une journée bien trop remplie...Trois heures de suite à écouter un seul et même orateur parler de concepts et de notions cabalistiques. Un challenge que seuls peu, arrivent à endurer sans piquer du nez ! C’est dans cette ambiance somnolente, cet environnement âpre que débute l’aventure héroïque de nos deux programmeurs ! Dans cette pièce sombre et petite, où planent pêle-mêle, des effluves de transpirations, de cigarettes et de parfums, ils s’imaginent un monde idéal, où leurs héros seraient des rois devant leurs misérables vies de programmeur… Ils braveraient les démons et survivraient à ce monde hostile!\\
 
-	C’est tout naturellement que le projet pris la forme d’un Jeu de Rôle. Tâche complexe, ardue du fait des nombreux facteurs, éléments à prendre en compte. C’est dans cette épreuve qu’ils se sont lancés.\\
+	C’est donc tout naturellement que le projet pris la forme d’un Jeu de Rôle. Tâche complexe, ardue du fait des nombreux facteurs, éléments à prendre en compte. C’est dans cette épreuve qu’ils se sont lancés.\\
 
-	L’expédition de notre héros sera-t-elle un succès ? Serez vous capable de l’aider dans cette tache complexe? Parviendrez vous à l’amener au bout de son chemin?Serez vous assez fort pour les aider?\\
+	L’expédition de notre héros sera-t-elle un succès ? Serez vous capable de l’aider dans cette tache complexe? Parviendrez vous à l’amener au bout de son chemin? Serez vous assez fort pour les aider?\\
 	
 Réussirez-vous à arrêter toutes les menaces auxquels vous serez confrontés?
-Si oui, suivez nous, arpentez vous dans ces contrées dangereuse et devenez protecteur des faibles et des opprimés!
+Si oui, suivez nous, arpentez vous dans ces contrées dangereuses et devenez protecteurs des faibles et des opprimés!
 
 	
 	\clearpage
 	\section{Diagramme UML}
-	Le diagramme UML des classes OO que vous avez (ou un extrait intéressant).\\
-	\subsection{Package PPersonnage}	
+	Le diagramme complet est disponible en format PDF avec le nom UMLProjet (dans la partie rapport).
+	\subsection{Package \og be.ephec.tesa.Personnage \fg{}  }	
 	
-	Dans ce package est compris tout ce qui constitue et gère les personnages
+	Dans ce package est compris tout ce qui constitue et gère les personnages :
+	\begin{itemize}
+		\item Dans \og Caract \fg{} le personnage se voit assigner 3 caractéristiques, à savoir la force, l'intelligence et l'endurance. Cette classe s'occupe de toute la gestion de ces caractéristiques.
+		\item L' \og Équipement \fg{} est actuellement vide, il s'agit d'une classe ayant été créée en vue d'une implémentation future.
+		\item L' \og Expérience \fg{} gère comme son nom l'indique, l'expérience du personnage et ses niveaux.
+		\item Les \og MonstresCommuns \fg{} et \og MonstresElites \fg{} sont les classes qui permettent de manier les ennemis du personnage.
+	\end{itemize}
 	\begin{figure}[h!]
-		\includegraphics[scale=0.70]{PPersonnage.png}
+		\includegraphics[scale=0.80]{PPersonnage.png}
+	\end{figure}
+	
+	\newpage
+	\subsection{Package \og be.ephec.tesa.main \fg{} \& \og be.ephec.tesa.jdbc \fg{} }
+	Ce package contient plusieurs classes :
+	\begin{itemize}
+
+		\item \og Jeu \fg{} contient tous les états et permet de lancer le jeu.
+		\item \og initPartie \fg{} qui initialise les monstres et les joueurs.
+		\item \og Combat \fg{} s'occupe de la gestion de tous les combats.
+		\item \og Player \fg{} détermine l'animation et les mouvements du joueur sur la carte d'un point de vue graphique.
+		\item \og PlayerController \fg{} permet de contrôler les mouvements du joueur d'un point de vue logique.
+		\item \og TriggerController \fg{} qui va gérer les collisions et les changements de carte.
+		\item et finalement \og CONSTANTES \fg{} qui contient toutes les constantes du programme.
+	\end{itemize}	
+	\ 
+		
+	La gestion de la base de données se fait dans le package \og be.ephec.jdbc \fg{}, c'est la que sont effectuées et traitées les Query.	
+	\ \\
+	\begin{figure}[h!]
+		\includegraphics[scale=0.85]{Pjdbc&Pmain.png}
+	\end{figure}
+
+	\newpage
+	\subsection{Package \og be.ephec.tesa.gui \fg{} }
+	Les classes de ce package sont :
+	\begin{itemize}
+		\item \og Camera \fg{} qui permet que la vision suive le joueur sur la carte.
+		\item \og Carte \fg{} définit la carte sur lequel le personnage se meut. 
+		\item \og HUD \fg{}  affiche les barres de vie, de mana et d'expérience du personnage.
+		\item \og InterfaceCarte \fg{} affiche la carte et gère les déplacements des personnages sur la carte.
+		\item \og InterfaceIntro \fg{} gère tout ce qui est relatif à l'affichage de la page d'introduction.
+		\item \og InterfaceCreationPersonnage \fg{} gère tout ce qui est relatif à la création du personnage.
+		\item \og interfaceCombat \fg{} gère tout ce qui est relatif à l'affichage d'un combat.
+		\item \og InterfaceJeu \fg{} gère tous les états du jeu (l'introduction du jeu, la création du personnage, le déplacement dans le monde et le combat et le GameOver)
+	\end{itemize}
+	\begin{figure}[h!]
+		\includegraphics[scale=0.92]{Pgui.png}
 	\end{figure}
 	\clearpage
 	
