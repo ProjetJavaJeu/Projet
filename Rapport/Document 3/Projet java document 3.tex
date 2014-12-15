@@ -4,6 +4,7 @@
 	\usepackage[french]{babel}
 	\usepackage{hyperref}
 	\usepackage{graphicx}
+	\usepackage{fourier}
 	\usepackage{color}   %May be necessary if you want to color links
 	\usepackage{hyperref}
 	\definecolor{GreyBlack}{RGB}{92, 89, 92}
@@ -84,6 +85,12 @@
 	\clearpage
 	\section{Diagramme UML}
 	Le diagramme UML des classes OO que vous avez (ou un extrait intéressant).\\
+	\subsection{Package PPersonnage}	
+	
+	Dans ce package est compris tout ce qui constitue et gère les personnages
+	\begin{figure}[h!]
+		\includegraphics[scale=0.70]{PPersonnage.png}
+	\end{figure}
 	\clearpage
 	
 	\section{Necessité pour la fonctionnalité}
@@ -91,28 +98,35 @@
 	\clearpage
 	
 	\section{Notre jeu étapes par étapes}
-	En double cliquant sur le fichier jar, le jeu se lance en plein écran, vous laissant apercevoir notre magnifique écran de démarrage :
+	En double cliquant sur le fichier JAR, le jeu se lance en plein écran, vous laissant apercevoir un magnifique écran de démarrage :
 	\begin{figure}[h!]
 		\includegraphics[scale=0.30]{EcranDebut.jpg}
 	\end{figure}
-	\\Sur cette image, trois boutons sont présents : 
+	
+	Sur cette image, trois boutons sont présents : 
 	\begin{enumerate}
 		\item Le bouton de création d'une Nouvelle Partie.
 		\item La bouton permettant de Continuer la partie en cours.
 		\item Un bouton pour changer les options.
 	\end{enumerate}
-	Dans cet exemple, nous partirons du principe que vous n'avez pas encore eu l'occasion de tester le jeu ! Nous exécuterons donc la création d'une Nouvelle Partie.\\
-	\\En cliquant sur cette case, un écran de sélection de personnage apparait :
+	
+	En cliquant sur "Nouvelle Partie", un écran de sélection de personnage apparait :
 	\begin{figure}[h!]
 		\includegraphics[scale=0.30]{EcranCreationPersonnage.jpg}
 	\end{figure}
-	\\Vous cliquez sur le personnage que vous souhaitez jouer, lui entrez un Pseudo et le jeu commence :
+	
+	Vous cliquez sur le personnage que vous souhaitez jouer, lui entrez un Pseudo et le jeu commence :
 	\begin{figure}[h!]
 		\includegraphics[scale=0.65]{EcranCarte.png}
 	\end{figure}
-	\\Comme vous pouvez le constater, le guerrier apparait en plein milieu de la carte, celle ci délimitée par les petits cailloux que vous ne pourriez, bien entendu, pas traverser ;) !\\
-	\\En se baladant dans la prairie, celui ci va se heurter à des rencontres inattendues ou notre champion va devoir vendre chèrement sa peau !\\
-	\\Nous ne dévoilerons pas la suite, à vous de la découvrir ! Bonne chance dans cet univers rempli de monstres sanguinaires !
+	
+	Comme vous pouvez le constater, le guerrier apparait dans le coin supérieur gauche de la carte, celle-ci délimitée par les petits cailloux que vous ne pourriez, bien entendu, pas traverser ;) !\\
+	
+	En se baladant dans la prairie, celui ci va se heurter à des rencontres inattendues ou notre champion va devoir vendre chèrement sa peau !\\
+	
+	Nous ne dévoilerons pas la suite, à vous de la découvrir !\\
+	
+	Bonne chance dans cet univers rempli de monstres sanguinaires !
 	\clearpage
 	
 	\section{Documentation du package}
@@ -124,11 +138,15 @@
 	\clearpage
 	
 	\section{Difficultés rencontrées}
-	\begin{itemize}
-		\item Avoir un jeu fonctionnel !\\
-		==$>$ Beaucoup de petits problèmes sont survenus
-		\item L'interface Slick2D complexe et longue à maîtriser
-	\end{itemize}
+	La première difficulté pour nous était d’appréhender le problème de conception de notre jeu. Quels éléments intégrer (monstres de différents types ? Leur permettre de sortir des répliques ? Implémenter un système d’équipements ?), comment les intégrer, comment séparer tout ces éléments logique en classes…\\
+	
+Rapidement suivi par nos débuts avec les interfaces graphiques. D’abord, nous sommes partis sur une interface plus simple utilisant les libraires swing, sur le conseil d’un camarade, nous nous sommes redirigés vers les librairies Slick2d qui facilitent grandement l’implémentation de jeu en 2D.\\
+
+Pour Slick2d, la difficulté résidait d’abord dans le fait qu’on utilisait des classes écrites par d’autres et dont on ne voit pas toujours le code...\\ L’habitude venant avec la pratique, ce problème s’est rapidement résolu pour la plupart des cas. Vient ensuite une bêtise qui nous à fait perdre beaucoup de temps : Slick2d \og réinvente \fg{} Java. Pour indiquer un chemin vers une image, un fichier de musique, il faut commencer par le nom du dossier $/$ du fichier lui-même alors qu'habituellement, on indique le début d’un chemin par un \og $/$ \fg{}. \\
+
+Autre perte de temps, les coordonnées des objets sont calculées à partir du coin inférieur gauche de l’écran, et non à partir du coin supérieur gauche...\\
+
+Les classes que nous avons utilisés dans Slick2d nous ont permis de créer un jeu basé sur des états, ceux-ci déterminant chacun un écran et une étape de jeu.
 	\section{Conclusion}
 	Une conclusion : que vous a apporté ce projet, quelles ont été les difficultés rencontrées, comment peut-on l’améliorer.\\
 	\\
@@ -136,49 +154,29 @@
 	Martin adorait l'idée d'un RPG, étant tous les deux des joueurs de RPG, nous nous sommes lancés très vite dans l'idée.
 	\clearpage
 	\section*{Sources }
-	Pour faire une biblio correcte :\\	\url{http://www.uclouvain.be/cps/ucl/doc/bpsp/documents/Bibliographie\_APA\_F\_13doi.pdf}
+\danger Nous ne nous sommes pas préoccupés, dans le cadre de ce projet des éventuels droits d'auteurs.\\
 
-	\subsection*{Page Web}
-Dans la bibliographie, la référence d’une page Web
-(site Internet) comprend
-quatre zones, séparées chacune par un point :
- \begin{itemize}
-  \item La zone auteur : deux cas peuvent se présenter :
-  \begin{itemize}
-  	\item La page Web est signée par un auteur : il faut alors inscrire son nom de famille en minuscule à l’exception de la première lettre, suivi d’une virgule, suivie des initiales des prénoms en majuscules, chaque initiale étant suivie d’un point. Si il y a plusieurs auteurs, chaque auteur sera séparé par un ; un \& sera ajouté entre l’avant-dernier et le dernier auteur.
-  	\item Il n’y a pas d’auteur : il faut alors indiquer l’organisme responsable du site en toutes lettres. 
-  \end{itemize}
-  \item La zone année de publication : il faut reprendre la date figurant sur le document virtuel entre parenthèses. Si il n’y a pas de date, il faut la remplacer par \og s.d.\fg{}. 
-  \item La zone titre : à part les noms propres et les acronymes, seule la première lettre du titre et du sous-titre de la page Web seront en majuscules. \textit{Cette zone sera mise en évidence soit en la mettant en italique, soit en la soulignant.}
-  \item La zone de localisation Internet : cette zone est introduite par la mention \og En Ligne \fg{}  suivie de l’adresse URL. Si la page Web est susceptible de changer dans le temps, celle-ci sera suivie d’une virgule, suivie de la mention \og consulté le \fg{}, suivie de la date de consultation sous la forme jour/mois/année. \textbf{Attention} : si l’auteur a été clairement identifié, l’adresse URL sera complétée par \og En ligne sur le site Web de \fg{} suivi du nom de l’organisme responsable du site. \textbf{Attention} : si le site, dans la zone du copyright, indique un DOI, c’est celui-ci qui doit être indiqué en lieu et place de la zone de localisation Internet. 
- \end{itemize}
- 
-\subsubsection*{Exemple :}
-	American Psychological Association. (2009).\textit{Controlling anger before it controls you.} En ligne \url{http://www.apa.org/topics/anger/control.aspx}.\\
+Il est aussi important de préciser que les images ont été redimmensionné et parfois coupé pour les besoins de ce projet.	
 	
-	Feyereisen, P. (2002). \textit{Le vieillissement cognitif.} En ligne sur le site de l’Université
-catholique de Louvain, Unité de cognition et développement \url{http://www.code.ucl.ac.be/vico.html}.\\
+\subsubsection*{Bibliographie :}
 
-	Wikipédia. (2010).\textit{Emotion}. En ligne \url{http://fr.wikipedia.org/wiki/Emotion}, consulté le 6 mai 2010. 
-	
-\subsubsection*{Nos Sources :}
 \begin{itemize}
-	\item 
-	
+	\item Les bibliothèques de l'université de Louvain-La-Neuve. (2013) \textit{Rédiger une bibliographie au format APA.} Lien du PDF sur : \url{http://www.uclouvain.be/cps/ucl/doc/bpsp/documents/Bibliographie\_APA\_F\_13doi.pdf},  consultée le 13 décembre 2014.
+	\item Pharmacritique. (2009). \textit{Le rapport de l'IGAS donne une idée des conflits d'intérêts financiers des médecins travaillant pour l'industrie et des intérêts autres qui biaisent la recherche médicale.} En ligne sur \url{http://pharmacritique.20minutes-blogs.fr/archive/2009/02/07/le-rapport-de-l-igas-nous-donne-une-idee-des-conflits-d-inte.html}, consultée le 10 décembre 2014.
+	\item La pub de tropicalboy. (2006). \textit{Royal Canin}. En ligne sur \url{http://mapubamoi.canalblog.com/archives/2006/04/13/1694142.html}, consultée le 10 décembre 2014.
+	\item Le devoir, libre de penser. (2007). \textit{Les caricatures de Garnotte}. En ligne sur \url{http://www.ledevoir.com/galeries-photos/les-caricatures-de-garnotte/71304}, consultée le 10 décembre 2014.
+	\item Les experts Denjean associés. (2014). \textit{Quiz : Quel professionnel comptable êtes-vous?} En ligne sur \url{http://www.les-experts-denjean-associes.com/test-quel-genre-dexpert-comptable-etes-vous/}, consultée le 10 décembre 2014.
+	\item Funny Art Pictures. (2008). \textit{Ultimate Attraction.} En ligne sur \url{http://www.funnyartpictures.com/pics-funny-stuff/?images/midsize/signs-ads/ultimate-attraction.jpg}, consultée le 10 décembre 2014.
+	\item GoPixPic. (Date inconnue). \textit{Games Returns In the Guild Wars 2...} En ligne sur \url{http://www.gopixpic.com/640/-games-returns-in-the-guild-wars-2-warrior-classes/http:||guides*gamepressure*com|guildwars2|gfx|word|978182984*jpg/}, consultée le 1 décembre 2014.
+	\item Guild Wars 2 - Profession - Élémentaliste. (Date inconnue entre 2010 et 2014). \textit{Fond d'écran - Élémentaliste.} En ligne sur \url{https://www.guildwars2.com/fr/the-game/professions/elementalist/}
+	\item Color picker with high precision and contrast test. (Date inconnue) \textit{Color picker.} En ligne sur \url{http://colorizer.org/}, consultée le 1 décembre 2014.
+	\item OpenClassrooms. (Date inconnue). \textit{Apprenez à programmer en Java - Positionner des boutons.} En ligne sur \url{http://openclassrooms.com/courses/apprenez-a-programmer-en-java/positionner-des-
+boutons}
+	\item Wikipédia. (Dernière modification le 10 décambre 2014). \textit{Noms de couleur du Web.} En ligne sur \url{http://fr.wikipedia.org/wiki/Couleurs_du_Web}.
+	\item Apprendre Java - Cours et exercices. (2011). \textit{Les interfaces graphiques en Java.} En ligne sur \url{http://www.infres.enst.fr/~hudry/coursJava/interSwing/index.html}
+	\item Open Game Art. (Date inconnue) \textit{Morning Sunrise Background.} En ligne sur \url{http://opengameart.org/content/morning-sunrise-background}
+	\item Shionn::blog() - Be a geek. (Date inconnue). \textit{Tutoriels slick 2D.} En ligne sur \url{http://www.shionn.org/tutoriels-slick-2d}
 \end{itemize}
 	
 	\clearpage	
-	\section*{Différentes classes}
-		Il existe deux classes dans notre programme : le Guerrier et le Mage.\\
-		Ces deux classes ont un attribut principal, et un attribut secondaire.\\
-		Le niveau maximum du jeu est 10.
-		
-	\subsection*{Guerrier}
-		La force est la caractéristique principale du guerrier, celle ci augmente de 1 chaque level !\\
-		L'endurance augmente aussi chaque level de 1\\
-		Endurance initial à 1, *10 pour obtenir ses pv, force à 1 !\\
-		Pour ce qui est de l'intelligence, elle est aussi élevée que celle de martin...\\ Je lui ai appliqué des valeurs (dans un tableau) en fonction du niveau du personnage : 	\{0,0,0,0,1,1,1,1,2,2\}
-		
-	\subsection*{Mage}
-		endurance initial à 1, *7 pour obtenir ses pv, force à 0, inteligence à 1 !
 	\end{document}
