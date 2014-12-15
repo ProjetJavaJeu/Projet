@@ -52,6 +52,7 @@ public class InterfaceCombat extends BasicGameState implements
 	private MouseOverArea boutonFinDeCombat;
 	private int xPositionBoutonAttaque;
 	private int yPositionBoutons;
+	private int frappeCumule;
 
 	public InterfaceCombat(Game game) {
 		this.game = game;
@@ -98,7 +99,7 @@ public class InterfaceCombat extends BasicGameState implements
 	public void render(GameContainer container, StateBasedGame interfJeu,
 			Graphics g) throws SlickException {
 		if (etatCombat == 0) {
-			initCombat();
+			initCombat(); 			//Crée l'objet qui va éxecuter les actions du combat. Initialise un monstre.
 		}
 		
 		setImageJoueur();
@@ -130,14 +131,19 @@ public class InterfaceCombat extends BasicGameState implements
 					yPositionBoutons + 70);
 		}
 
-		else if (combat.getMonstreKO()) {
-
+		else if (combat.getMonstreKO() == true) {
+			
 			g.drawString(Constantes.VICTOIRE, (container.getWidth()
 					- Constantes.MARGE_IMAGE - 300), yPositionBoutons);
 			g.drawString("Vous gagnez " + combat.getMonstre().xpDonnee()
 					+ " points d'éxpériences", container.getWidth()
 					- Constantes.MARGE_IMAGE - 300, yPositionBoutons + 70);
-		} else if (combat.getJoueurKO()){
+			f.draw(finDeCombat);
+			f.fill(finDeCombat);
+			g.drawString("retour à la carte", (container.getWidth() - 200) / 2,
+					(container.getHeight() - 30) / 2);
+		} 
+		else if (combat.getJoueurKO()){
 			g.drawString(Constantes.DEFAITE, (container.getWidth()
 					- Constantes.MARGE_IMAGE - 300), yPositionBoutons);
 			f.draw(finDeCombat);
@@ -191,24 +197,29 @@ public class InterfaceCombat extends BasicGameState implements
 	}
 
 	public void frappePersonnage() {
-		combat.setMonstre(combat.attaqueSurMonstre(combat.getMonstre(),
-				combat.getJoueur()));
+		//System.out.println("frappe : " + combat.attaqueSurMonstre(combat.getMonstre(),
+		//		combat.getJoueur()));
+		combat.setMonstre(combat.attaqueSurMonstre());
 	}
 
 	public void frappeMonstre() {
-		game.setJoueur(combat.attaqueSurPersonnage(combat.getJoueur(),
-				combat.getMonstre()));
+		game.setJoueur(combat.attaqueSurPersonnage());
+				
 	}
 
 	@Override
 	public void componentActivated(AbstractComponent e) {
-		System.out.println("x :  " + e.getX() + " y : " + e.getY());
-		if (e.getX() == 80){
+		if ((e.getX()== 80) & (combat.getMonstreKO() == false)){
 			etatCombat = 2;
 			frappePersonnage();
-			System.out.println("mosntre : " + combat.getMonstre());
 			if (combat.getMonstre().getPv() != 0) {
 				frappeMonstre();
+			}
+			if (combat.getMonstreKO()){
+				etatCombat = 5;
+			}
+			else if (combat.getJoueurKO()){
+				etatCombat = 7;
 			}
 		}
 		else {

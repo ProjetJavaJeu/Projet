@@ -26,8 +26,7 @@ public class InitPartie {
 	// Passer en paramètre Game.
 	public void initPerso(Game game, int choix) throws ClassNotFoundException{
 		//JDBCAcces acc = new JDBCAcces();
-		System.out.println("Choix : " + choix);
-		if (choix == 2){
+		if (choix == Constantes.CREATION_PERSO){
 			//game.setJoueur(acc.JDBCPersonnage(choix));
 			//Creation perso hardcode pour test
 			game.getJoueur().setCaracter(new Caract(1, 0, 1));

@@ -81,6 +81,15 @@ public class Personnage {
 		
 	}
 	
+	public void setDiminutionPV(int pv){
+		if ((this.pv - pv)<= 0){
+			this.pv = 0;
+		}
+		else {
+			this.pv = this.pv - pv;
+		}
+	}
+	
 	public Caract getCaracter() {
 		return caracter;
 	}

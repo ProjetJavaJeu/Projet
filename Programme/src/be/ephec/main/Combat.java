@@ -76,8 +76,7 @@ public class Combat {
 	}
 	
 	public void setVictimeKO(Personnage victime){
-		if (victime.getPv() <= 0){
-			victime.setPv(0);
+		if (victime.getPv() == 0){
 			if (victime.getType() == 'M' | victime.getType() == 'G'){
 				joueurKO = true;
 			}
@@ -94,52 +93,48 @@ public class Combat {
 	 * 
 	 * @return int = puissance de l'attaque
 	 */
-	public MonstresCommuns attaqueSurMonstre(MonstresCommuns victime, Personnage attaquant) {
+	public MonstresCommuns attaqueSurMonstre() {
 		double rand = Math.random();
 			if (rand >= 0.85){
-				frappePersonnage = attaquant.getCaracter().getForce() * 2;
-				victime.setPv(frappePersonnage);
-				setVictimeKO(victime);
+				frappePersonnage = joueur.getCaracter().getForce() * 2;
+				monstre.setDiminutionPV(frappePersonnage);
+				setVictimeKO(monstre);
 				etatAttaque = 'C';
-				return victime;
+				return monstre;
 			}
-			else if ((rand < 0.85) && (rand >= 0.15)){
-				frappePersonnage = attaquant.getCaracter().getForce();
-				victime.setPv(frappePersonnage);
-				setVictimeKO(victime);
+			else if ((rand < 0.85) & (rand >= 0.15)){
+				frappePersonnage = joueur.getCaracter().getForce();
+				monstre.setDiminutionPV(frappePersonnage);
+				setVictimeKO(monstre);
 				etatAttaque = 'N';
-				return victime;
+				return monstre;
 			}
 			else{
 				etatAttaque = 'F';
-				
+				return monstre;
 			}
-			etatAttaque = 'E';
-			return null;
 		}
 	
-	public Personnage attaqueSurPersonnage(Personnage victime, MonstresCommuns attaquant) {
+	public Personnage attaqueSurPersonnage() {
 		double rand = Math.random();
 			if (rand >= 0.85){
-				frappeMonstre = attaquant.getCaracter().getForce() * 2;
-				victime.setPv(frappeMonstre);
-				setVictimeKO(victime);
+				frappeMonstre = monstre.getCaracter().getForce() * 2;
+				joueur.setDiminutionPV(frappeMonstre);
+				setVictimeKO(joueur);
 				etatAttaque = 'C';
-				return victime;
+				return joueur;
 			}
 			else if ((rand < 0.85) && (rand >= 0.15)){
-				frappeMonstre = attaquant.getCaracter().getForce();
-				victime.setPv(frappeMonstre);
-				setVictimeKO(victime);
+				frappeMonstre = monstre.getCaracter().getForce();
+				joueur.setDiminutionPV(frappeMonstre);
+				setVictimeKO(joueur);
 				etatAttaque = 'N';
-				return victime;
+				return joueur;
 			}
 			else{
 				etatAttaque = 'F';
-				
+				return joueur;
 			}
-			etatAttaque = 'E';
-			return null;
 		}
 
 }
