@@ -45,7 +45,7 @@ public class InitPartie {
 		//tabMonstres = acc.JDBCMonstres(tabMonstres);
 		
 		Caract caract = new Caract(1, 2, 5);
-		MonstresCommuns monstre = new MonstresCommuns("Orc", caract, '1', "", 2);
+		MonstresCommuns monstre = new MonstresCommuns("Orc", caract, '1', "C'est moi l'orc, grrr !", 2);
 		for (int i = 0; i < 5; i++){
 			tabMonstres[i] = monstre;
 		}

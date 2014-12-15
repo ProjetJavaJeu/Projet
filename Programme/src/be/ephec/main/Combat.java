@@ -17,7 +17,7 @@ public class Combat {
 	public Combat(Game game){
 		this.game = game;
 		this.joueur = game.getJoueur();
-		this.monstre = game.getMonstre((int)Math.random());
+		this.monstre = game.getMonstreRandom((int)Math.random());
 		frappePersonnage = 0;
 		frappeMonstre = 0;
 		monstreKO = false;
@@ -70,7 +70,7 @@ public class Combat {
 	
 	public void ajouterExperience(){
 		boolean levelUp = game.getJoueur().getExperience().setXpAct(monstre.xpDonnee(), game.getJoueur().getNiveau());
-		if (levelUp == true){	//Vérifier limite level max ? if level <= 10 ?
+		if (levelUp == true){						//Vérifier limite level max ? if level <= 10 ?
 			game.getJoueur().setNiveau(game.getJoueur().getNiveau() + 1);
 		}
 	}
@@ -98,14 +98,14 @@ public class Combat {
 		double rand = Math.random();
 			if (rand >= 0.85){
 				frappePersonnage = attaquant.getCaracter().getForce() * 2;
-				victime.setPvDiminution(frappePersonnage);
+				victime.setPv(frappePersonnage);
 				setVictimeKO(victime);
 				etatAttaque = 'C';
 				return victime;
 			}
 			else if ((rand < 0.85) && (rand >= 0.15)){
 				frappePersonnage = attaquant.getCaracter().getForce();
-				victime.setPvDiminution(frappePersonnage);
+				victime.setPv(frappePersonnage);
 				setVictimeKO(victime);
 				etatAttaque = 'N';
 				return victime;
@@ -122,14 +122,14 @@ public class Combat {
 		double rand = Math.random();
 			if (rand >= 0.85){
 				frappeMonstre = attaquant.getCaracter().getForce() * 2;
-				victime.setPvDiminution(frappeMonstre);
+				victime.setPv(frappeMonstre);
 				setVictimeKO(victime);
 				etatAttaque = 'C';
 				return victime;
 			}
 			else if ((rand < 0.85) && (rand >= 0.15)){
 				frappeMonstre = attaquant.getCaracter().getForce();
-				victime.setPvDiminution(frappeMonstre);
+				victime.setPv(frappeMonstre);
 				setVictimeKO(victime);
 				etatAttaque = 'N';
 				return victime;

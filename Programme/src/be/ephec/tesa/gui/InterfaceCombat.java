@@ -35,9 +35,7 @@ public class InterfaceCombat extends BasicGameState implements
 
 	private Game game;
 	private Combat combat;
-	private boolean initCombat;
-	private boolean clickBoutonAttaque;
-	private boolean combatEnCours;
+	private int etatCombat; // 0 = début, 1 = init, 2 = combat, 3 = combat fini, 4 = victoire, 5 = defaite;
 	private Image imageJoueur;
 	private Image imageMonstre;
 	private Image imageOrc;
@@ -48,48 +46,61 @@ public class InterfaceCombat extends BasicGameState implements
 	private Rectangle rectAttaque;
 	private Rectangle infosCombatPersonnage;
 	private Rectangle infosCombatMonstre;
+	private Rectangle finDeCombat;
 	private Graphics f;
 	private MouseOverArea boutonAttaque;
+	private MouseOverArea boutonFinDeCombat;
 	private int xPositionBoutonAttaque;
 	private int yPositionBoutons;
 
 	public InterfaceCombat(Game game) {
 		this.game = game;
-		clickBoutonAttaque = false;
-		combatEnCours = false;
+		etatCombat = 0;
 	}
 
 	@Override
 	public void init(GameContainer container, StateBasedGame interfJeu)
 			throws SlickException {
+		
 		imageMage = new Image(Constantes.PATH_MAGE);
 		imageGuerrier = new Image(Constantes.PATH_GUERRIER);
 		imageOrc = new Image(Constantes.PATH_ORC);
 		imageMurloc = new Image(Constantes.PATH_MURLOC);
 		imageFond = new Image(Constantes.PATH_IMAGEFOND);
+		
 		xPositionBoutonAttaque = 80;
 		yPositionBoutons = (container.getHeight() - 200);
 		f = new Graphics();
 
 		rectAttaque = new Rectangle(xPositionBoutonAttaque, yPositionBoutons,
 				200, 50);
+		
 		boutonAttaque = new MouseOverArea(container, new Image(
 				xPositionBoutonAttaque, yPositionBoutons),
 				xPositionBoutonAttaque, yPositionBoutons, 200, 70, this);
+		
+		boutonFinDeCombat = new MouseOverArea(container, new Image(
+				(container.getWidth() - 200) / 2,
+				(container.getHeight() - 50) / 2),
+				(container.getWidth() - 200) / 2,
+				(container.getHeight() - 50) / 2, 200, 50, this);
 
 		infosCombatPersonnage = new Rectangle((container.getWidth()
 				- Constantes.MARGE_IMAGE - 300), yPositionBoutons, 300, 60);
 		infosCombatMonstre = new Rectangle((container.getWidth()
 				- Constantes.MARGE_IMAGE - 300), yPositionBoutons + 70, 300, 60);
+
+		finDeCombat = new Rectangle((container.getWidth() - 200) / 2,
+				(container.getHeight() - 50) / 2, 200, 50);
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame interfJeu,
 			Graphics g) throws SlickException {
-		if (initCombat == false) {
+		if (etatCombat == 0) {
 			initCombat();
 		}
-
+		
 		setImageJoueur();
 		setImageMonstre();
 		g.setColor(Color.black);
@@ -107,37 +118,48 @@ public class InterfaceCombat extends BasicGameState implements
 
 		g.drawString("Attaquer", xPositionBoutonAttaque + 60,
 				yPositionBoutons + 15);
-		
-		if (combatEnCours){
+
+		if (etatCombat == 2) {
 			g.drawString("Vous infligez " + combat.getFrappePersonnage()
 					+ " dégats",
 					(container.getWidth() - Constantes.MARGE_IMAGE - 300),
 					yPositionBoutons);
 			g.drawString(combat.getMonstre().getNom() + " vous inflige "
-					+ combat.getFrappeMonstre() + "dégats",
+					+ combat.getFrappeMonstre() + " dégats",
 					(container.getWidth() - Constantes.MARGE_IMAGE - 300),
 					yPositionBoutons + 70);
 		}
-		
-		else if (combat.getMonstreKO()){
-			g.drawString(Constantes.VICTOIRE, (container.getWidth() - Constantes.MARGE_IMAGE - 300),
-					yPositionBoutons);
-			g.drawString("Vous gagnez " + combat.getMonstre().xpDonnee() + "points d'éxpériences", container.getWidth() - Constantes.MARGE_IMAGE - 300,
-			yPositionBoutons + 70);		
+
+		else if (combat.getMonstreKO()) {
+
+			g.drawString(Constantes.VICTOIRE, (container.getWidth()
+					- Constantes.MARGE_IMAGE - 300), yPositionBoutons);
+			g.drawString("Vous gagnez " + combat.getMonstre().xpDonnee()
+					+ " points d'éxpériences", container.getWidth()
+					- Constantes.MARGE_IMAGE - 300, yPositionBoutons + 70);
+		} else if (combat.getJoueurKO()){
+			g.drawString(Constantes.DEFAITE, (container.getWidth()
+					- Constantes.MARGE_IMAGE - 300), yPositionBoutons);
+			f.draw(finDeCombat);
+			f.fill(finDeCombat);
+			g.drawString("OK", (container.getWidth() - 200) / 2,
+					(container.getHeight() - 30) / 2);
 		}
-		else {
-			g.drawString(Constantes.DEFAITE, (container.getWidth() - Constantes.MARGE_IMAGE - 300),
-					yPositionBoutons);
-			interfJeu.enterState(Constantes.GAME_OVER);
-		}
-		
+
 		boutonAttaque.render(container, g);
+		boutonFinDeCombat.render(container, g);
 	}
 
 	@Override
 	public void update(GameContainer container, StateBasedGame interfJeu,
 			int delta) throws SlickException {
+		if (combat.getJoueurKO() | combat.getMonstreKO()) {
+			etatCombat = 3;
+		}
 		
+		if (etatCombat > 3){
+			interfJeu.enterState(etatCombat);
+		}
 	}
 
 	@Override
@@ -147,7 +169,7 @@ public class InterfaceCombat extends BasicGameState implements
 
 	public void initCombat() {
 		combat = new Combat(game);
-		initCombat = true;
+		etatCombat = 1;
 	}
 
 	public void setImageJoueur() {
@@ -167,23 +189,35 @@ public class InterfaceCombat extends BasicGameState implements
 			imageMonstre = imageMurloc;
 		}
 	}
-	
+
 	public void frappePersonnage() {
 		combat.setMonstre(combat.attaqueSurMonstre(combat.getMonstre(),
 				combat.getJoueur()));
-		clickBoutonAttaque = true;
 	}
 
 	public void frappeMonstre() {
 		game.setJoueur(combat.attaqueSurPersonnage(combat.getJoueur(),
 				combat.getMonstre()));
 	}
-	
+
 	@Override
 	public void componentActivated(AbstractComponent e) {
-		frappePersonnage();
-		if (combat.getMonstre().getPv() != 0){
-			frappeMonstre();
+		System.out.println("x :  " + e.getX() + " y : " + e.getY());
+		if (e.getX() == 80){
+			etatCombat = 2;
+			frappePersonnage();
+			System.out.println("mosntre : " + combat.getMonstre());
+			if (combat.getMonstre().getPv() != 0) {
+				frappeMonstre();
+			}
+		}
+		else {
+			if (combat.getMonstreKO()){
+				etatCombat = 5;
+			}
+			else if (combat.getJoueurKO()){
+				etatCombat = 7;
+			}
 		}
 	}
 }

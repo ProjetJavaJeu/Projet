@@ -10,12 +10,9 @@ import org.newdawn.slick.state.StateBasedGame;
 import be.ephec.main.Constantes;
 
 public class InterfaceGameOver extends BasicGameState {
-private Graphics f;
 	@Override
 	public void init(GameContainer container, StateBasedGame interfJeu)
 			throws SlickException {
-		f = new Graphics();
-		
 	}
 
 	@Override
@@ -23,7 +20,7 @@ private Graphics f;
 			throws SlickException {
 		g.setColor(Color.white);
 		g.setBackground(Color.black);
-		g.drawString("GAME OVER", (container.getWidth() / 2) - 20, container.getHeight() / 2);
+		g.drawString("GAME OVER", (container.getWidth() / 2) - 40, container.getHeight() / 2);
 	}
 
 	@Override

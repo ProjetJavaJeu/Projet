@@ -29,7 +29,7 @@ public class Game{
 		return tabMonstres;
 	}
 	
-	public MonstresCommuns getMonstre(int index) {
+	public MonstresCommuns getMonstreRandom(int index) {
 		return tabMonstres[index];
 	}
 	
