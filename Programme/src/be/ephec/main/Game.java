@@ -43,12 +43,6 @@ public class Game{
 		this.tabElites = tabElites;
 	}
 	
-	/*public InterfaceCarte getWindowMap() {
-		return windowMap;
-	}
-	public void setWindowMap(InterfaceCarte windowMap) {
-		this.windowMap = windowMap;
-	}*/
 	public InitPartie getInit() {
 		return init;
 	}

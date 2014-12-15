@@ -52,11 +52,12 @@ public class InterfaceCombat extends BasicGameState implements
 	private MouseOverArea boutonFinDeCombat;
 	private int xPositionBoutonAttaque;
 	private int yPositionBoutons;
-	private int frappeCumule;
-
+	private boolean finCombat;
+	
 	public InterfaceCombat(Game game) {
 		this.game = game;
 		etatCombat = 0;
+		finCombat = false;
 	}
 
 	@Override
@@ -140,10 +141,10 @@ public class InterfaceCombat extends BasicGameState implements
 					- Constantes.MARGE_IMAGE - 300, yPositionBoutons + 70);
 			f.draw(finDeCombat);
 			f.fill(finDeCombat);
-			g.drawString("retour à la carte", (container.getWidth() - 200) / 2,
+			g.drawString("RETOUR A LA CARTE", (container.getWidth() - 200) / 2,
 					(container.getHeight() - 30) / 2);
 		} 
-		else if (combat.getJoueurKO()){
+		else if (combat.getJoueurKO() == true){
 			g.drawString(Constantes.DEFAITE, (container.getWidth()
 					- Constantes.MARGE_IMAGE - 300), yPositionBoutons);
 			f.draw(finDeCombat);
@@ -159,11 +160,7 @@ public class InterfaceCombat extends BasicGameState implements
 	@Override
 	public void update(GameContainer container, StateBasedGame interfJeu,
 			int delta) throws SlickException {
-		if (combat.getJoueurKO() | combat.getMonstreKO()) {
-			etatCombat = 3;
-		}
-		
-		if (etatCombat > 3){
+		if (finCombat == true){
 			interfJeu.enterState(etatCombat);
 		}
 	}
@@ -197,8 +194,6 @@ public class InterfaceCombat extends BasicGameState implements
 	}
 
 	public void frappePersonnage() {
-		//System.out.println("frappe : " + combat.attaqueSurMonstre(combat.getMonstre(),
-		//		combat.getJoueur()));
 		combat.setMonstre(combat.attaqueSurMonstre());
 	}
 
@@ -209,26 +204,22 @@ public class InterfaceCombat extends BasicGameState implements
 
 	@Override
 	public void componentActivated(AbstractComponent e) {
-		if ((e.getX()== 80) & (combat.getMonstreKO() == false)){
+		if ((e.getX()== 80) & (combat.getJoueurKO() == false) & (combat.getMonstreKO() == false)){
 			etatCombat = 2;
 			frappePersonnage();
-			if (combat.getMonstre().getPv() != 0) {
-				frappeMonstre();
-			}
 			if (combat.getMonstreKO()){
 				etatCombat = 5;
 			}
-			else if (combat.getJoueurKO()){
-				etatCombat = 7;
+			
+			if (combat.getMonstreKO() == false) {
+				frappeMonstre();
+				if (combat.getJoueurKO()){
+					etatCombat = 7;
+				}
 			}
 		}
-		else {
-			if (combat.getMonstreKO()){
-				etatCombat = 5;
-			}
-			else if (combat.getJoueurKO()){
-				etatCombat = 7;
-			}
+		else if(e.getX() == 540){
+			finCombat = true;	
 		}
 	}
 }

@@ -29,7 +29,7 @@ public class InitPartie {
 		if (choix == Constantes.CREATION_PERSO){
 			//game.setJoueur(acc.JDBCPersonnage(choix));
 			//Creation perso hardcode pour test
-			game.getJoueur().setCaracter(new Caract(1, 0, 1));
+			game.getJoueur().setCaracter(new Caract(1, 10, 1));
 			game.getJoueur().setNiveau(1);
 			game.getJoueur().setPvIntial();
 			game.getJoueur().setType('G');
