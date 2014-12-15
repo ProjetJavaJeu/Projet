@@ -67,7 +67,7 @@ public class Caract {
 	/**
 	 * Le mage ayant l'intelligence comme caractéristique primaire, elle augmente de 1 à chaque niveau
 	 */
-	public void mageGetIntel() {
+	public void mageSetIntel() {
 		this.intelligence = this.intelligence +1;
 	}
 	
@@ -75,7 +75,7 @@ public class Caract {
 	 * En fonctionn de son lvl et du tab des caractéristiques secondaires, le mage voit sa force (=caract secondaire) augmentée 
 	 * @param niveau actuel
 	 */
-	public void mageGetForce(int niveau) {
+	public void mageSetForce(int niveau) {
 		this.force = caractSecondaire[niveau - 1];
 	}
 	
@@ -83,14 +83,14 @@ public class Caract {
 	 * En fonctionn de son lvl et du tab des caractéristiques secondaires, le guerrier voit son intelligence (=caract secondaire) augmentée 
 	 * @param niveau actuel
 	 */
-	public void guerrierGetIntel(int niveau){
+	public void guerrierSetIntel(int niveau){
 		this.intelligence = caractSecondaire[niveau - 1];		
 	}
 	
 	/**
 	 * Le guerrier ayant la force comme caractéristique primaire, elle augmente de 1 à chaque niveau
 	 */
-	public void guerrierGetForce() {
+	public void guerrierSetForce() {
 		this.force = this.force + 1;
 	}
 	

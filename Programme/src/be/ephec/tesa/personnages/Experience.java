@@ -17,15 +17,14 @@ public class Experience {
 	public Experience(){
 		
 	}
+	public int getXpAct() {
+		return xpAct;
+	}
 	
 	/*
 	 * get / set lvl up
 	 * si xp = 116 -> 116 - 100 (valeur pour lvl up), inc lvl, augmente caract, <== OK !
 	 */
-	public int getXpAct() {
-		return xpAct;
-	}
-
 	public boolean setXpAct(int xpAct, int level) {
 		if (level == 10){
 			System.out.println("Level max atteint");
@@ -47,7 +46,6 @@ public class Experience {
 	 * @param level
 	 * @return level du perso
 	 * 
-	 * Manque : que faire si le perso est level max, que faire si le perso est lvl 1 ! (va générer un hors tableau !)
 	 */
 	public int checkXP(int xpAct, int level){
 		if (xpAct > xp[level - 1] ){
