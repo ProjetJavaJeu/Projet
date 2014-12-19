@@ -28,7 +28,7 @@ public class InterfaceJeu extends StateBasedGame {
 	 * @throws SlickException
 	 */
 	public void demarrerJeu() throws SlickException{
-		appGame = new AppGameContainer(this, 1280, 720, true);
+		appGame = new AppGameContainer(this, 1280, 720, false);
 		appGame.setTargetFrameRate(MAX_FPS);
 		appGame.setAlwaysRender(false);
 		appGame.setTargetFrameRate(MAX_FPS);

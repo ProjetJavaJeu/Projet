@@ -21,7 +21,6 @@ public class Game{
 	private Personnage joueur;
 	private MonstresCommuns tabMonstres[] = new MonstresCommuns[Constantes.NBR_MAX_MONSTRES];
 	private MonstresElites tabElites[] = new MonstresElites[Constantes.NBR_MAX_ELITES];
-	//private InterfaceCarte windowMap = new InterfaceCarte();
 	private InitPartie init;
 	
 	public Game() {

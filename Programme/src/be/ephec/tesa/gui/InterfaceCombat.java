@@ -1,17 +1,9 @@
 package be.ephec.tesa.gui;
 
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.MouseListener;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.gui.AbstractComponent;
@@ -35,7 +27,7 @@ public class InterfaceCombat extends BasicGameState implements
 
 	private Game game;
 	private Combat combat;
-	private int etatCombat; // 0 = début, 1 = init, 2 = combat, 3 = combat fini, 4 = victoire, 5 = defaite;
+	private boolean finCombat;
 	private Image imageJoueur;
 	private Image imageMonstre;
 	private Image imageOrc;
@@ -52,20 +44,22 @@ public class InterfaceCombat extends BasicGameState implements
 	private MouseOverArea boutonFinDeCombat;
 	private int xPositionBoutonAttaque;
 	private int yPositionBoutons;
-	private boolean finCombat;
+	private int xPositionZonesTextes;
+	private int etatCombat; // 0 = début, 1 = init, 2 = combat, 3 = combat fini, 4 = victoire, 5 = defaite;
+	private int indiceMonstre;
 	
 	public InterfaceCombat(Game game) {
 		this.game = game;
 		etatCombat = 0;
 		finCombat = false;
+		combat = new Combat(game);
 	}
 	/**
-	 * Cette méthode initialise l'objet combat et tout les éléments graphiques nécessaires à l'affichage.
+	 * Cette méthode initialise l'objet combat et tous les éléments graphiques nécessaires à l'affichage.
 	 */
 	@Override
 	public void init(GameContainer container, StateBasedGame interfJeu)
 			throws SlickException {
-		
 		imageMage = new Image(Constantes.PATH_MAGE);
 		imageGuerrier = new Image(Constantes.PATH_GUERRIER);
 		imageOrc = new Image(Constantes.PATH_COMPTABLE);
@@ -74,6 +68,9 @@ public class InterfaceCombat extends BasicGameState implements
 		
 		xPositionBoutonAttaque = 80;
 		yPositionBoutons = (container.getHeight() - 200);
+	
+		xPositionZonesTextes = (container.getWidth()
+				- Constantes.MARGE_IMAGE - 300);
 		f = new Graphics();
 
 		rectAttaque = new Rectangle(xPositionBoutonAttaque, yPositionBoutons,
@@ -139,21 +136,18 @@ public class InterfaceCombat extends BasicGameState implements
 
 		else if (combat.getMonstreKO() == true) {
 			
-			g.drawString(Constantes.VICTOIRE, (container.getWidth()
-					- Constantes.MARGE_IMAGE - 300), yPositionBoutons);
+			g.drawString(Constantes.VICTOIRE, xPositionZonesTextes, yPositionBoutons);
 			g.drawString("Vous gagnez " + combat.getMonstre().xpDonnee()
-					+ " points d'éxpériences", container.getWidth()
-					- Constantes.MARGE_IMAGE - 300, yPositionBoutons + 70);
+					+ " points d'expérience", xPositionZonesTextes, yPositionBoutons + 80);
 			f.draw(finDeCombat);
 			f.fill(finDeCombat);
-			g.drawString("RETOUR A LA CARTE", (container.getWidth() - 200) / 2,
+			g.drawString("Retour carte", (container.getWidth() - 200) / 2,
 					(container.getHeight() - 30) / 2);
 		} 
 		
 		
 		else if (combat.getJoueurKO() == true){
-			g.drawString(Constantes.DEFAITE, (container.getWidth()
-					- Constantes.MARGE_IMAGE - 300), yPositionBoutons);
+			g.drawString(Constantes.DEFAITE, xPositionZonesTextes, yPositionBoutons);
 			f.draw(finDeCombat);
 			f.fill(finDeCombat);
 			g.drawString("OK", (container.getWidth() - 200) / 2,
@@ -171,20 +165,32 @@ public class InterfaceCombat extends BasicGameState implements
 	public void update(GameContainer container, StateBasedGame interfJeu,
 			int delta) throws SlickException {
 		if (finCombat == true){
-			interfJeu.enterState(etatCombat);
+			resetCombat();
+			int IdEtat = etatCombat;
+			etatCombat = 0;
+			interfJeu.enterState(IdEtat);
 		}
 	}
-
+	
 	@Override
 	public int getID() {
 		return Constantes.COMBAT;
 	}
 
 	public void initCombat() {
-		combat = new Combat(game);
+		indiceMonstre = (int)(Math.random() * 5);
+		combat.setMonstre(game.getMonstreRandom(indiceMonstre));
 		etatCombat = 1;
 	}
 
+	public void resetCombat(){
+		finCombat = false;
+		combat.setMonstreKO(false);
+		combat.setJoueurKO(false);
+		combat.setEtatAttaque(' ');
+		game.getMonstreRandom(indiceMonstre).setPvIntial();
+	}
+	
 	/**
 	 * Définit l'image du joueur, selon sa classe.
 	 */
@@ -211,6 +217,8 @@ public class InterfaceCombat extends BasicGameState implements
 
 	public void frappePersonnage() {
 		combat.setMonstre(combat.attaqueSurMonstre());
+		for (int i  = 0; i < 4; i++){
+		}
 	}
 
 	public void frappeMonstre() {
@@ -234,6 +242,7 @@ public class InterfaceCombat extends BasicGameState implements
 				}
 			}
 		}
+		
 		else if(e.getX() == 540){
 			finCombat = true;	
 		}

@@ -53,7 +53,7 @@ public class TriggerController {
 		String newMap = this.map.getObjectProperty(objectID, "dest-map",
 				"undefined");
 		if (!"undefined".equals(newMap)) {
-			this.map.changeMap("/src/main/ressources/map/" + newMap);
+			this.map.changeMap("/ressources/map/" + newMap);
 		}
 	}
 }

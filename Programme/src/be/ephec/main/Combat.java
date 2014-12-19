@@ -33,7 +33,6 @@ public class Combat {
 	public Combat(Game game){
 		this.game = game;
 		this.joueur = game.getJoueur();
-		this.monstre = game.getMonstreRandom((int)Math.random());
 		frappePersonnage = 0;
 		frappeMonstre = 0;
 		monstreKO = false;
@@ -68,6 +67,18 @@ public class Combat {
 		this.monstre = monstre;
 	}
 	
+	public void setEtatAttaque(char etatAttaque) {
+		this.etatAttaque = etatAttaque;
+	}
+
+	public void setMonstreKO(boolean monstreKO) {
+		this.monstreKO = monstreKO;
+	}
+
+	public void setJoueurKO(boolean joueurKO) {
+		this.joueurKO = joueurKO;
+	}
+
 	public MonstresCommuns getMonstre() {
 		return monstre;
 	}
@@ -140,7 +151,7 @@ public class Combat {
 				return monstre;
 			}
 			else if ((rand < 0.85) & (rand >= 0.15)){
-				frappePersonnage = typeAttaque() * 2;
+				frappePersonnage = typeAttaque();
 				monstre.setDiminutionPV(frappePersonnage);
 				setVictimeKO(monstre);
 				etatAttaque = 'N';

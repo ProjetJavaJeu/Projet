@@ -45,11 +45,16 @@ public class InitPartie {
 			throws ClassNotFoundException {
 		//JDBCAcces acc = new JDBCAcces();
 		//tabMonstres = acc.JDBCMonstres(tabMonstres);
-		Caract caract = new Caract(1, 2, 5);
-		MonstresCommuns monstre = new MonstresCommuns("Droit'eux", caract, '1', "Spam, spam, spam, spam, baked beans !", 2);
-		for (int i = 0; i < 5; i++){
-			tabMonstres[i] = monstre;
-		}
+		MonstresCommuns monstre = new MonstresCommuns("Market'eux", new Caract(1, 1, 4), '1', "Spam, spam, spam, spam, baked beans !", 2);
+		MonstresCommuns monstreb = new MonstresCommuns("Compta'eux", new Caract(1, 1, 4), '2', "Victoire ! Je viens d'apercevoir une augmentation !", 2);
+		MonstresCommuns monstrec = new MonstresCommuns("E-Business'eux", new Caract(1, 2, 4), '3', "Faut-il dire la vérité aux imbéciles ?", 3);
+		MonstresCommuns monstred = new MonstresCommuns("Commercial'eux", new Caract(3, 1, 4), '4', "Je créerais la nécessité là où il n'y en a aucune !", 4);
+		MonstresCommuns monstree = new MonstresCommuns("Droiteux", new Caract(3, 1, 4), '5', "Ca reste complexe mais en beaucoup plus simple !", 4);
+		tabMonstres[0] = monstre;
+		tabMonstres[1] = monstreb;
+		tabMonstres[2] = monstrec;
+		tabMonstres[3] = monstred;
+		tabMonstres[4] = monstree;
 		return tabMonstres;
 	}
 }

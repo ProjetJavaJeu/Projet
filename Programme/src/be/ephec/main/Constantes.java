@@ -38,6 +38,6 @@ public class Constantes {
 	public final static String PATH_IMAGEFOND = "ressources/map/bg.png";
 	public final static String CRITIQUE = " Coup Critique !!";
 	public final static String FAIL = "Raté !";
-	public final static String VICTOIRE = "VICTOIRE";
-	public final static String DEFAITE = "DEFAITE";
+	public final static String VICTOIRE = "Victoire";
+	public final static String DEFAITE = "Défaite";
 }
